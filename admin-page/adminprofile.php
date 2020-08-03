@@ -46,7 +46,7 @@ if (isset($_POST['logout'])) {
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">Admin - Dashboard </sup></div>
       </a>
 
       <!-- Divider -->
@@ -54,7 +54,7 @@ if (isset($_POST['logout'])) {
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="indexadmin.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -64,21 +64,7 @@ if (isset($_POST['logout'])) {
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Interface
-      </div>
-
-      <!-- Nav Item - Pages Collapse Menu -->
-      
-
-      <!-- Nav Item - Utilities Collapse Menu -->
-      
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Addons
+        Utilities
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
@@ -90,18 +76,18 @@ if (isset($_POST['logout'])) {
           <span>Profile</span></a>
       </li>
 
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="adminchart.php">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
-      </li>
-
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="tables.html">
           <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
+          <span>Menus Order</span></a>
+      </li>
+	  
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="tables.html">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Tables Booking</span></a>
       </li>
 
       <!-- Divider -->
@@ -273,9 +259,8 @@ if (isset($_POST['logout'])) {
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               
-				  
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">             
+				  <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
 				  <?php echo '<img src="imageView.php?username='.$_SESSION['username'].'" class="img-profile rounded-circle">'; ?>
               </a>
               <!-- Dropdown - User Information -->
@@ -309,7 +294,7 @@ if (isset($_POST['logout'])) {
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Charts</h1>
+          <h1 class="h3 mb-2 text-gray-800">Profile</h1>
           <p class="mb-4">Chart.js is a third party plugin that is used to generate the charts in this theme. The charts below have been customized - for further customization options, please visit the <a target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js documentation</a>.</p>
 
           <!-- Content Row -->
