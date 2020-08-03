@@ -37,7 +37,7 @@
 
 			$_SESSION['username'] = $username;
 			$_SESSION['success'] = "You are now logged in";
-			header('location: index.php');
+			header('location: /masterfolder_ikea/homepage.php');
 		}
 
 	}
@@ -65,7 +65,7 @@
 			if ($count == 1) {
 				$_SESSION['username'] = $username;
 				$_SESSION['success'] = "You are now logged in";
-				header('location: index.php');
+				header('location: ../admin-page/indexadmin.php');
 			}
 			//customer login
 			$query = "SELECT * FROM `customers` WHERE username = '" .$_POST['username']. "' and password = '" .$_POST['password']. "'";
@@ -75,7 +75,7 @@
 			if ($count == 1) {
 				$_SESSION['username'] = $username;
 				$_SESSION['success'] = "You are now logged in";
-				header('location: index.php');
+				header('location: /masterfolder_ikea/homepage.php');
 			}
 			else {
 				array_push($errors, "Wrong username/password combination");
