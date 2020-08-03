@@ -104,8 +104,8 @@ img {
     max-width: 100%;
     height: auto;
     float: none;
+	position: relative; bottom: 5px;
 }
-
 
 /* preloader styles
 /* ========================================== */
@@ -182,6 +182,23 @@ nav a {
   transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
+}
+
+.buttonlogin {
+  border: none;
+  color: white;
+  position: relative; bottom: 6px; left: 50px;
+  background-color: #000000;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  font-size: 15px;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
 .brand {
@@ -604,7 +621,7 @@ a.icon {
   display: inline-block;
   font-size: 17px;
   font-weight: 500;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.1rem;
   text-transform: uppercase;
   margin: 30px;
   cursor: pointer;
