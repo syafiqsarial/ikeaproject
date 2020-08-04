@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>IKEA Restaurant Sign Up</title>
+	<title>IKEA Restaurant Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
-	<meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="IKEA Demo.apps.googleusercontent.com">
-<!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/icons/ikea-logo3.png"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -37,15 +34,9 @@
 			<div class="wrap-login100">
 				<form method="post" action="php/server.php" class="login100-form validate-form">
 				  					<span class="login100-form-title p-b-43">
-				  Sign up Account
+				  Login to continue
 				</span>
 					
-					
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="email">
-						<span class="focus-input100"></span>
-						<span class="label-input100">Email</span>
-				  </div>
 					
 					<div class="wrap-input100 validate-input" data-validate = "Username is required">
 						<input class="input100" type="text" name="username">
@@ -53,43 +44,41 @@
 						<span class="label-input100">Username</span>
 				  </div>
 					
-					<div class="wrap-input100">
-						<input class="input100" type="text" name="name">
-						<span class="focus-input100"></span>
-						<span class="label-input100">Full Name</span>
-				  </div>
 					
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="password_1">
+						<input class="input100" type="password" name="password">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Password</span>
 					</div>
-					
-					<div class="wrap-input100 validate-input" data-validate = "Confirm Password is required">
-						<input class="input100" type="password" name="password_2">
-						<span class="focus-input100"></span>
-						<span class="label-input100">Re-enter Password</span>
-				  </div>
 
-					<div class="flex-sb-m w-full p-t-3 p-b-32"></div>
+					<div class="flex-sb-m w-full p-t-3 p-b-32">
+						<a href="http://localhost/IKEA%20E-System/signup-login-cust-admin/forgot-password.html" class="txt1"> Forgot Password? </a>
+						<!--<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<label class="label-checkbox100" for="ckb1">
+								Remember me
+							</label>
+						</div>-->
+
+					
+					</div>
 			
 
 					<div class="container-login100-form-btn">
-						<input type="submit" name="reg_user" class="login100-form-btn">
+						<input type="submit" name="login_user" class="login100-form-btn">
 							
 						</input>
 					</div>
 					
 					<div class="text-center p-t-46 p-b-20">
 						<span class="txt2">
-							or sign up using
+							Not yet a member? <a href="signup-cust.html">Sign Up</a>
 						</span>
 					</div>
 
 				  <div class="login100-form-social flex-c-m">
-					  <div class="g-signin2" data-onsuccess="onSignIn"></div>
-					  </div>
-					
+			  </div>
+
 		      </form>
 
 				<div class="login100-more" style="background-image: url('images/login-bg2.jpg');">
@@ -119,17 +108,5 @@
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
 	
-	<script src="https://apis.google.com/js/platform.js" async defer></script>
-	
-	<script>
-      function onSignIn(googleUser) {
-  		var profile = googleUser.getBasicProfile();
-  		console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  		console.log('Name: ' + profile.getName());
-  		console.log('Image URL: ' + profile.getImageUrl());
-  		console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-	  }
-    </script>
-	
-</body>
+	</body>
 </html>
