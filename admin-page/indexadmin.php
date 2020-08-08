@@ -75,10 +75,17 @@
           <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
           <span>Profile</span></a>
       </li>
-		
+	  
+	  <!-- Nav Item - Profile -->
+      <li class="nav-item">
+        <a class="nav-link" href="adminsetting.php">
+          <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+          <span>Setting Profile</span></a>
+      </li>
+
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="menus.php">
           <i class="fas fa-fw fa-table"></i>
           <span>Menus Order</span></a>
       </li>

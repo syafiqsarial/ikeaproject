@@ -8,7 +8,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
   header("Location: masterfolder_ikea/homepage.php");
 }
 if (isset($_POST['logout'])) {
-  header("Location: ../signup-login-cust-admin/login.php");
+  header("Location: ../signup-login-cust-admin/logout.php");
 }
   ?>
 <head>
@@ -109,7 +109,7 @@ http://www.tooplate.com/view/2082-pure-mix
                         <li><a href="contact.html">Contact</a></li>
 						<li><a href="">FAQ</a></li>
 						<li><a href="">Feedback</a></li>
-						<li><a href="homepage-static.html">Logout</a></li>
+						<li><a href="../IKEA E-Restaurant/homepage-static.html">Logout</a></li>
                       </ul>
                    </div>
 					</div>
@@ -327,7 +327,7 @@ http://www.tooplate.com/view/2082-pure-mix
 									echo         '</div><br><br>';
 
 									echo          '<div class="col-md-12">';       
-									echo              'Gender';                    
+									echo              'Phone Number';                    
 									echo         '</div><br><br>';
 
 									echo          '<div class="col-md-12">';       
@@ -340,6 +340,7 @@ http://www.tooplate.com/view/2082-pure-mix
 									echo              $row['username']. '<br><br>'; 
 									echo 			  $row['name']. '<br><br>'; 
 									echo 			  $row['email']. '<br><br>';
+									echo 			  $row['phonenumber']. '<br><br>';
 									echo          '</div>';
 									echo '</div>';
 									echo '</form>';

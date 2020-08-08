@@ -7,7 +7,7 @@ session_start();
 
 if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
 	session_destroy();
-	header("Location: masterfolder_ikea/homepage.php");
+	header("Location: ../IKEA E-Restaurant/homepage-static.html");
 }
 if (isset($_POST['logout'])) {
 	header("Location: ../signup-login-cust-admin/login.php");
@@ -114,7 +114,7 @@ http://www.tooplate.com/view/2082-pure-mix
 											<li><a href="contact.html">Contact</a></li>
 											<li><a href="">FAQ</a></li>
 											<li><a href="">Feedback</a></li>
-											<li><a href="homepage-static.html">Logout</a></li>
+											<li><a href="../IKEA E-Restaurant/homepage-static.html">Logout</a></li>
 										</ul>
 									</div>
 								</div>
@@ -277,6 +277,10 @@ http://www.tooplate.com/view/2082-pure-mix
 																	echo  '<br>';
 																	echo                "<input type='email' class='form-control' name='email'  placeholder='Email' title='enter your email.' value='$email' >";
 																	echo  '<br>';
+																	echo                "<input type='tel' class='form-control' name='phonenumber'  placeholder='Phone Number' title='enter your phone date of birth.'  value='$phonenumber' >";
+																	echo  '<br>';
+																/*	echo                "<input type='datetime' class='form-control' name='birthdate'   title='enter your phone number.'  value='$birthdate' >";
+																	echo  '<br>'; */
 																	echo                "<input type='password' class='form-control' name='password'  placeholder='Password' title='enter your 							email if any.' value='$password' >";
 																	echo            '</div>';
 																	echo        '</div>';
@@ -383,6 +387,9 @@ if (isset($_POST['updatebutton'])) {
 	if (!empty($_POST['name'])) {
 		$setChangeNAME = $_POST['name'];
 	}
+	if (!empty($_POST['phonenumber'])) {
+		$setChangePHONENUMBER = $_POST['phonenumber'];
+	}
 
 	/*	if (!empty($_POST['username'])) {
 						  $setChangeUSERNAME = $_POST['username'];
@@ -393,7 +400,7 @@ if (isset($_POST['updatebutton'])) {
 		die("Connection failed: " . mysqli_connect_error());
 		exit();
 	}
-	$sql = "UPDATE `customers` SET `username` = '" . $_SESSION['username'] . "' ,`name` = '" . $setChangeNAME . "',`email` = '" . $setChangeEMAIL . "', `password` = '" . $setChangePWD . "'  WHERE `customers`.`username` = '" . $_SESSION['username'] . "'";
+	$sql = "UPDATE `customers` SET `username` = '" . $_SESSION['username'] . "' ,`name` = '" . $setChangeNAME . "',`email` = '" . $setChangeEMAIL . "', `phonenumber` = '" . $setChangePHONENUMBER . "',`password` = '" . $setChangePWD . "'  WHERE `customers`.`username` = '" . $_SESSION['username'] . "'";
 	$result = mysqli_query($con, $sql) or trigger_error("Query Failed! SQL: $sql - Error: " . mysqli_error($con), E_USER_ERROR);
 
 	if ($result) {

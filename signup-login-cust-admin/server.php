@@ -1,4 +1,4 @@
-<?php 
+<?php
 	session_start();
 
 	// variable declaration
@@ -9,6 +9,10 @@
 
 	// connect to database
 	$db = mysqli_connect("localhost", "ikea", "ikea", "ikea");
+	if(!$db){
+		echo mysqli_connect_error();
+		exit;
+	}
 
 	// REGISTER USER
 	if (isset($_POST['reg_user'])) {
@@ -34,10 +38,10 @@
 			$query = "INSERT INTO customers (`username`, `name`, `email`, `password`, `usertype`) 
 					  VALUES('$username', '$name', '$email', '$password', 'customer')";
 			mysqli_query($db, $query);
-
+			print_r($query);
 			$_SESSION['username'] = $username;
 			$_SESSION['success'] = "You are now logged in";
-			header('location: /masterfolder_ikea/homepage.php');
+			//header('location: ../IKEA E-Restaurant/homepage-dynamic.html');
 		}
 
 	}
@@ -75,7 +79,7 @@
 			if ($count == 1) {
 				$_SESSION['username'] = $username;
 				$_SESSION['success'] = "You are now logged in";
-				header('location: /masterfolder_ikea/homepage.php');
+				header('location: ../IKEA E-Restaurant/homepage-dynamic.html');
 			}
 			else {
 				array_push($errors, "Wrong username/password combination");

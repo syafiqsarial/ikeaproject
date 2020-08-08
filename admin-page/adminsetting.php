@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body><!DOCTYPE html>
 <html lang="en">
 	<?php
   session_start();
@@ -69,15 +76,15 @@ if (isset($_POST['logout'])) {
 
       <!-- Nav Item - Pages Collapse Menu -->
 		
-      <!-- Nav Item - Profile -->
-      <li class="nav-item active">
+	  <!-- Nav Item - Profile -->
+      <li class="nav-item">
         <a class="nav-link" href="adminprofile.php">
           <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
           <span>Profile</span></a>
       </li>
 	  
 	  <!-- Nav Item - Profile -->
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="adminsetting.php">
           <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
           <span>Setting Profile</span></a>
@@ -307,127 +314,96 @@ if (isset($_POST['logout'])) {
           <!-- Content Row -->
 			
          <div class="row">
-            <!-- Info Table -->
-            <div class="col-xl-9 col-lg-3">
-              <div class="card shadow mb-4">
-				  <!-- Card Header - Dropdown -->
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Info</h6>
-                </div>               
-                <!-- Info Body -->
-                <div class="card-body">
-					 <table class="table">
-					 <?php
-						//create connection								
-						$con=mysqli_connect("localhost","ikea","ikea","ikea");
-						if (!$con) {
-                        echo  mysqli_connect_error();
-                        exit;
-						}
-						$sql = "SELECT * FROM admin";
-
-						$result = mysqli_query($con, $sql);
-						mysqli_close($con);
-						$qry = $result;								                     	
-						while ($row = mysqli_fetch_assoc($qry)) {		
-							echo '<form>';
-							echo '<div class="row">';
-							echo        '<div class="column">';
-
-							echo          '<div class="col-md-12">';  
-							echo              'Username';				       
-							echo          '</div><br>';
-
-							echo         '<div class="col-md-12">';      
-							echo              'First Name';                  
-							echo         '</div><br>';
-							
-							echo         '<div class="col-md-12">';      
-							echo              'Last Name';                  
-							echo         '</div><br>';
-
-							echo          '<div class="col-md-12">';       
-							echo              'Email';                    
-							echo         '</div><br>';
-							
-							echo          '<div class="col-md-12">';       
-							echo              'Gender';                    
-							echo         '</div><br>';
-							
-							echo          '<div class="col-md-12">';       
-							echo              'Date of Birth';               
-							echo         '</div><br>';
-
-							echo       '</div>';
-
-							echo          '<div class="col-md-6">';   
-							echo              $row['username']. '<br><br>'; 
-							echo 			  $row['name']. '<br><br>'; 
-							echo 			  $row['email']. '<br><br>';
-							echo          '</div>';
-							echo '</div>';
-							echo '</form>';
-						}						
-					 ?>					 
-				</table>
-                </div>			  
-              </div>
-            </div>
-			
-			
-			<div class="col-xl-3 col-lg-5">
-              <!-- Profile Table -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Profile</h6>
-                </div>
-                <div class="card-body">
-					<?php
-					if(isset($_POST['upload'])){
-						
-						$conn = mysqli_connect("localhost", "ikea", "ikea", "ikea");
-					
-						if(count($_FILES) > 0) {
-						if(is_uploaded_file($_FILES['image']['tmp_name'])) {
-							//require_once "db.php";
-							$imgData =addslashes(file_get_contents($_FILES['image']['tmp_name']));
-							$imageProperties = getimagesize($_FILES['image']['tmp_name']);
-						
-							$sql = "UPDATE `admin` SET `imageData` = '{$imgData}', imageType = '{$imageProperties['mime']}' WHERE `admin`.`username` = '" . $_SESSION['username'] . "'";
-							//$sql = "INSERT INTO admin(imageType ,imageData) VALUES('{$imageProperties['mime']}', '{$imgData}')";
-							$current_id = mysqli_query($conn, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($conn));
-							if(isset($current_id)) {
-								
-								//mysqli_close($conn);     
-							}
-							
-							//mysqli_close($conn); 
-						}
-						}
-						
-					}						
-						?>
-					
-					<form method="POST" action="" enctype="multipart/form-data">
-                   <div class="text-center">
-					   <?php echo '<img src="imageView.php?username='.$_SESSION['username'].'" class="avatar img-circle img-thumbnail">'; ?>
-						<br><br>
-					<h6>Upload a different photo...</h6>
-					<input type="file"  name="image" class="text-center center-block file-upload">	
-					<div class="form-group">
-				     <div class="col-xs-12"><br>
-				       <input type='submit' name='upload' class='btn btn-lg btn-success' ><i class='glyphicon glyphicon-ok-sign'></i>
-				     </div>
-				    </div>
-				  </div><br>
-					</form>
-                </div>
-              </div>
-            </div>
-			
 			<!-- Dropdown Card Example -->
 			 
-			 
+			<div class="col-xl-9 col-lg-7 ">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Setting Info</h6>
+                  
+                </div>
+                <!-- Setting Info Body -->
+                <div class="card-body">
+				<?php
+					if (isset($_POST['updatebutton'])) {
+
+                    if (empty($_POST['password'])) {
+                      $setChangePWD = $_SESSION['password'];
+                    } else {
+                      $setChangePWD = $_POST['password'];
+                    }
+
+
+                    if (!empty($_POST['email'])) {
+                      $setChangeEMAIL = $_POST['email'];
+                    } 
+						
+					if (!empty($_POST['name'])) {
+                      $setChangeNAME = $_POST['name'];
+                    } 
+						
+                    $con = mysqli_connect("localhost", "ikea", "ikea", "ikea");
+                    if (!$con) {
+                      die("Connection failed: " . mysqli_connect_error());
+                      exit();
+                    }
+                    $sql = "UPDATE `admin` SET  `name` = '" . $setChangeNAME . "',`email` = '" . $setChangeEMAIL . "', `password` = '" . $setChangePWD . "'  WHERE `admin`.`username` = '" . $_SESSION['username'] . "'";
+                    $result = mysqli_query($con, $sql) or trigger_error("Query Failed! SQL: $sql - Error: " . mysqli_error($con), E_USER_ERROR);
+						
+                    if ($result) {
+                      echo "<script type='text/javascript'>alert('Successfull.');</script>";
+                    } else {
+                      echo "<script type='text/javascript'>alert('Error. Unsuccessful');</script>";
+                    }
+                    $_SESSION['password'] = $setChangePWD;
+                  }
+
+                  $con = mysqli_connect("localhost", "ikea", "ikea", "ikea");
+                  if (!$con) {
+                    die("Connection failed: " . mysqli_connect_error());
+                    exit();
+                  }
+                  $sql = 'SELECT * FROM admin where username = "' . $_SESSION['username'] . '"';
+                  $result = mysqli_query($con, $sql) or trigger_error("Query Failed! SQL: $sql - Error: " . mysqli_error($con), E_USER_ERROR);
+                  $row = mysqli_fetch_assoc($result);
+				
+				  echo   '<form class="form" action="##" method="post" id="registrationForm">';		 
+
+				  echo       '<div class="form-group">';                       
+				  echo            '<div class="col-xs-6">';
+				  echo              '<label for="name"><h4>Name</h4></label>';
+				  echo                "<input type='name' class='form-control' name='name'  placeholder='Name' title='enter your 						name if any.' value='$name' >";
+				  echo            '</div>';
+				  echo        '</div>';          
+				  echo        '<div class="form-group">';                       
+				  echo            '<div class="col-xs-6">';
+				  echo                '<label for="email"><h4>Email</h4></label>';
+				  echo                "<input type='email' class='form-control' name='email'  placeholder='Email' title='enter your 						email if any.' value='$email' >";
+				  echo            '</div>';
+				  echo        '</div>' ;       
+				  echo       '<div class="form-group">';
+				  echo            '<div class="col-xs-6">';
+				  echo               '<label for="password"><h4>Password</h4></label>';
+				  echo                "<input type='password' class='form-control' name='password'  placeholder='Password' title='enter your 						password if any.' value='$password' >";
+				  echo            '</div>';
+				  echo        '</div>';
+
+				  echo        '<div class="form-group">';
+				  echo             '<div class="col-xs-12">';
+				  echo                  '<br>';
+				  echo 					"<input type='hidden' value='$usernamealter' name='usernamealter'>";
+				  echo                	"<input type='submit' name='updatebutton' class='btn btn-lg btn-success' ><i class='glyphicon glyphicon-						ok-sign'></i>";
+
+				  echo             '</div>';
+				  echo       '</div>';
+
+				  echo	'</form>';
+								
+					?> 
+                </div>		
+              </div>
+          </div>
 
         </div>
         <!-- /.container-fluid -->
@@ -515,4 +491,7 @@ if (isset($_POST['logout'])) {
       ?>    	  
         
        
+</html>
+
+</body>
 </html>

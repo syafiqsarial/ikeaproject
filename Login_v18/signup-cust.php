@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
+<?php include('php/server.php'); ?>
 <html lang="en">
 <head>
 	<title>IKEA Restaurant Sign Up</title>
@@ -35,49 +36,45 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form method="post" action="../signup-login-cust-admin/server.php" class="login100-form validate-form">
-				  					<span class="login100-form-title p-b-43">
-				  Sign up Account
-				</span>
+				<form method="post" action="php/server.php" class="login100-form validate-form">
+					<?php include('php/errors.php'); ?>
+				  <span class="login100-form-title p-b-43">Sign up Account</span>
 					
-					
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="email">
+					<div class="form-group wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="email" name="email" value="<?php echo $email; ?>">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Email</span>
-				  </div>
+				    </div>
 					
-					<div class="wrap-input100 validate-input" data-validate = "Username is required">
-						<input class="input100" type="text" name="username">
+					<div class="form-group wrap-input100 validate-input" data-validate = "Username is required">
+						<input class="input100" type="text" name="username" value="<?php echo $username; ?>">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Username</span>
-				  </div>
+				    </div>
 					
-					<div class="wrap-input100">
-						<input class="input100" type="text" name="name">
+					<div class="form-group wrap-input100">
+						<input class="input100" type="text" name="name" value="<?php echo $name; ?>">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Full Name</span>
-				  </div>
+				    </div>
 					
-					<div class="wrap-input100 validate-input" data-validate="Password is required">
+					<div class="form-group wrap-input100 validate-input" data-validate="Password is required">
 						<input class="input100" type="password" name="password_1">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Password</span>
 					</div>
 					
-					<div class="wrap-input100 validate-input" data-validate = "Confirm Password is required">
+					<div class="form-group wrap-input100 validate-input" data-validate = "Confirm Password is required">
 						<input class="input100" type="password" name="password_2">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Re-enter Password</span>
-				  </div>
+				    </div>
 
 					<div class="flex-sb-m w-full p-t-3 p-b-32"></div>
 			
 
 					<div class="container-login100-form-btn">
-						<input type="submit" name="reg_user" class="login100-form-btn">
-							
-						
+						<input type="submit" formmethod="post" name="reg_user" class="login100-form-btn"></input>
 					</div>
 					
 					<div class="text-center p-t-46 p-b-20">
@@ -101,7 +98,7 @@
 	
 
 	
-	<script src="php/server.php"></script>
+
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->

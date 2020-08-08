@@ -8,7 +8,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
   header("Location: masterfolder_ikea/homepage.php");
 }
 if (isset($_POST['logout'])) {
-  header("Location: ../signup-login-cust-admin/logout.php");
+  header("Location: ../signup-login-cust-admin/login.php");
 }
   ?>
 
@@ -69,8 +69,8 @@ if (isset($_POST['logout'])) {
 
       <!-- Nav Item - Pages Collapse Menu -->
 		
-      <!-- Nav Item - Profile -->
-      <li class="nav-item active">
+      	  <!-- Nav Item - Profile -->
+      <li class="nav-item">
         <a class="nav-link" href="adminprofile.php">
           <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
           <span>Profile</span></a>
@@ -84,7 +84,7 @@ if (isset($_POST['logout'])) {
       </li>
 
       <!-- Nav Item - Tables -->
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="menus.php">
           <i class="fas fa-fw fa-table"></i>
           <span>Menus Order</span></a>
@@ -307,127 +307,76 @@ if (isset($_POST['logout'])) {
           <!-- Content Row -->
 			
          <div class="row">
-            <!-- Info Table -->
-            <div class="col-xl-9 col-lg-3">
-              <div class="card shadow mb-4">
-				  <!-- Card Header - Dropdown -->
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Info</h6>
-                </div>               
-                <!-- Info Body -->
-                <div class="card-body">
-					 <table class="table">
-					 <?php
-						//create connection								
-						$con=mysqli_connect("localhost","ikea","ikea","ikea");
-						if (!$con) {
-                        echo  mysqli_connect_error();
-                        exit;
-						}
-						$sql = "SELECT * FROM admin";
-
-						$result = mysqli_query($con, $sql);
-						mysqli_close($con);
-						$qry = $result;								                     	
-						while ($row = mysqli_fetch_assoc($qry)) {		
-							echo '<form>';
-							echo '<div class="row">';
-							echo        '<div class="column">';
-
-							echo          '<div class="col-md-12">';  
-							echo              'Username';				       
-							echo          '</div><br>';
-
-							echo         '<div class="col-md-12">';      
-							echo              'First Name';                  
-							echo         '</div><br>';
-							
-							echo         '<div class="col-md-12">';      
-							echo              'Last Name';                  
-							echo         '</div><br>';
-
-							echo          '<div class="col-md-12">';       
-							echo              'Email';                    
-							echo         '</div><br>';
-							
-							echo          '<div class="col-md-12">';       
-							echo              'Gender';                    
-							echo         '</div><br>';
-							
-							echo          '<div class="col-md-12">';       
-							echo              'Date of Birth';               
-							echo         '</div><br>';
-
-							echo       '</div>';
-
-							echo          '<div class="col-md-6">';   
-							echo              $row['username']. '<br><br>'; 
-							echo 			  $row['name']. '<br><br>'; 
-							echo 			  $row['email']. '<br><br>';
-							echo          '</div>';
-							echo '</div>';
-							echo '</form>';
-						}						
-					 ?>					 
-				</table>
-                </div>			  
-              </div>
-            </div>
-			
-			
-			<div class="col-xl-3 col-lg-5">
-              <!-- Profile Table -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Profile</h6>
-                </div>
-                <div class="card-body">
-					<?php
-					if(isset($_POST['upload'])){
-						
-						$conn = mysqli_connect("localhost", "ikea", "ikea", "ikea");
-					
-						if(count($_FILES) > 0) {
-						if(is_uploaded_file($_FILES['image']['tmp_name'])) {
-							//require_once "db.php";
-							$imgData =addslashes(file_get_contents($_FILES['image']['tmp_name']));
-							$imageProperties = getimagesize($_FILES['image']['tmp_name']);
-						
-							$sql = "UPDATE `admin` SET `imageData` = '{$imgData}', imageType = '{$imageProperties['mime']}' WHERE `admin`.`username` = '" . $_SESSION['username'] . "'";
-							//$sql = "INSERT INTO admin(imageType ,imageData) VALUES('{$imageProperties['mime']}', '{$imgData}')";
-							$current_id = mysqli_query($conn, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($conn));
-							if(isset($current_id)) {
-								
-								//mysqli_close($conn);     
-							}
-							
-							//mysqli_close($conn); 
-						}
-						}
-						
-					}						
-						?>
-					
-					<form method="POST" action="" enctype="multipart/form-data">
-                   <div class="text-center">
-					   <?php echo '<img src="imageView.php?username='.$_SESSION['username'].'" class="avatar img-circle img-thumbnail">'; ?>
-						<br><br>
-					<h6>Upload a different photo...</h6>
-					<input type="file"  name="image" class="text-center center-block file-upload">	
-					<div class="form-group">
-				     <div class="col-xs-12"><br>
-				       <input type='submit' name='upload' class='btn btn-lg btn-success' ><i class='glyphicon glyphicon-ok-sign'></i>
-				     </div>
-				    </div>
-				  </div><br>
-					</form>
-                </div>
-              </div>
-            </div>
-			
 			<!-- Dropdown Card Example -->
 			 
-			 
+			<div class="col-xl-12 col-lg-7 ">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Setting Info</h6>
+                  
+                </div>
+                <!-- Setting Info Body -->
+                <div class="card-body">
+					<?php
+					$con = mysqli_connect("localhost", "ikea", "ikea", "ikea");
+					
+					if (isset($_POST['addmenus'])) {
+                      if (!$con) {
+                        echo  mysqli_connect_error();
+                        exit;
+                      }
+						
+                      $sql = "INSERT INTO `menus`(`id`, `name`, `price`, `description`, `category`, `foodcategory`, `imageType`, `imageData`) VALUES ('" . $_POST['Facility_ID'] . "', '" . $_POST['FacilityName'] . "', '" . $_POST['Capacity'] . "', '" . $_POST['Rental_Rate'] . "', '" . $_POST['Amenity'] . "'); ";
+                      $result = mysqli_query($con, $sql);
+
+                      //check if insert successful
+                      if ($result)
+                        echo '<script>alert("Insertion Successful.")</script>';
+                      else
+                        echo '<script>alert("Insertion Failed.")</script>';
+                      $sql = "SELECT * FROM facility";
+
+                      $result = mysqli_query($con, $sql);
+                      mysqli_close($con);
+                      $qry = $result;
+						
+					$con = mysqli_connect("localhost", "web2", "web2", "facilitydb");
+                    $sql2 = "SELECT rental.`FacilityID` from rental;";
+                    $result2 = mysqli_query($con, $sql2);
+
+                    $row2 = mysqli_fetch_assoc($result2); //set the first result
+                    $list = mysqli_num_rows($qry);
+                    if ($list > 0) {
+                      echo '<table class="table">      
+                          <thead class=" text-primary">
+                              <tr>
+                              <th>Facility ID</th>
+                              <th>Facility Name</th>
+                            <th>Capacity</th>
+                            <th>Rental Rate</th>
+                              <th>Amenities</th>
+                              <th>Delete</th>
+                              <th>Update</th>
+                              </tr>
+                              </thead>';
+
+                      while ($row = mysqli_fetch_assoc($qry)) {
+                        $facilityIDAlterValue = $row['FacilityID'];
+                        if ($row['FacilityID'] == $row2['FacilityID']) { //if both same disallow manipulation.
+                          echo '<tbody><tr>';
+                          echo '<form action="" method="POST">';
+                          echo "<td> " . $row['FacilityID'] . "";
+                          echo "<td> " . $row['Facility Name'] . "";
+                          echo "<td> " . $row['Capacity'] . "";
+                          echo "<td> " . $row['Rental Rate'] . "";
+                          echo "<td> " . $row['Amenity'] . "";
+					}
+					?>
+				 
+                </div>		
+              </div>
+          </div>
 
         </div>
         <!-- /.container-fluid -->
