@@ -1,6 +1,6 @@
 <?php
 session_start(); 
 session_destroy();
-header('Location: /masterfolder_ikea/homepage.php');
+header('Location: ../IKEA E-Restaurant/homepage-static.html');
 ?>
 	
