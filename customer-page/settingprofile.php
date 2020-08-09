@@ -108,7 +108,7 @@ http://www.tooplate.com/view/2082-pure-mix
 									<i class="icon ion-close-round close-iframe"></i>
 									<div class="intro-inner">
 										<ul id="nav-menu">
-											<li><a href="../customer-page/customerprofile.html">My Account</a></li>
+											<li><a href="../customer-page/customerprofile.php">My Account</a></li>
 											<li><a href="">Order History</a></li>
 											<li><a href="about.html">About Us</a></li>
 											<li><a href="contact.html">Contact</a></li>
@@ -229,13 +229,12 @@ http://www.tooplate.com/view/2082-pure-mix
 											<div class="e-profile">
 												<div class="row">
 													<div class="col-12 col-sm-auto mb-3">
-														<div class="mx-auto" style="width: 140px;">
-
+														<div class="mx-auto" style="width: 190px;">
 														</div>
 													</div>
 													<div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
 														<div class="text-center text-sm-left mb-2 mb-sm-0">
-															<h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">Setting Info</h4>
+															<h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">Setting Profile</h4>
 
 
 
@@ -247,7 +246,7 @@ http://www.tooplate.com/view/2082-pure-mix
 													</div>
 												</div>
 												<ul class="nav nav-tabs">
-													<li class="nav-item"><a href="" class="active nav-link">Profile</a></li>
+													<li class="nav-item"><a href="" class="active nav-link">Setting</a></li>
 
 												</ul>
 												<div class="tab-content pt-3">
@@ -312,13 +311,13 @@ http://www.tooplate.com/view/2082-pure-mix
 								<div class="col-12 col-md-3 mb-3">
 
 									<div class="card mb-3">
+										<br>
 
-										<a class="nav-link px-2 active" href="./overview.html">
-											<i class="fa fa-fw fa-bar-chart mr-1"></i><span>Overview</span></a>
-										<a class="nav-link px-2" href="./users.html">
-											<i class="fa fa-fw fa-th mr-1"></i><span>CRUD</span></a>
-										<a class="nav-link px-2" href="./settings.html">
-											<i class="fa fa-fw fa-cog mr-1"></i><span>Settings</span></a>
+										<a class="nav-link px-2 active" href="customerprofile.php">
+											<i class="fa fa-user mr-2"></i><span>Profile</span></a>         
+										<a class="nav-link px-2" href="settingprofile.php">
+											<i class="fa fa-fw fa-cog mr-1"></i><span>Settings</span></a> 
+										<br>
 									</div>
 									<div class="card">
 										<div class="card-body">

@@ -5,7 +5,7 @@
 
 if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
   session_destroy();
-  header("Location: masterfolder_ikea/homepage.php");
+  header("Location: ../../IKEA E-Restaurant/homepage-static.html");
 }
 if (isset($_POST['logout'])) {
   header("Location: ../signup-login-cust-admin/logout.php");
@@ -103,7 +103,7 @@ http://www.tooplate.com/view/2082-pure-mix
                     <i class="icon ion-close-round close-iframe"></i>
                     <div class="intro-inner">
                       <ul id="nav-menu">
-                        <li><a href="../customer-page/customerprofile.html">My Account</a></li>
+                        <li><a href="../customer-page/customerprofile.php">My Account</a></li>
                         <li><a href="">Order History</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -199,11 +199,11 @@ http://www.tooplate.com/view/2082-pure-mix
 						?>
 					
 					<form method="POST" action="" enctype="multipart/form-data">
-                   <div class="text-center">
+                   <div class="text-center" >
 					   <?php echo '<img src="imageView.php?username='.$_SESSION['username'].'" class="avatar img-circle img-thumbnail">'; ?>
 						<br><br>
 				
-					<input type="file"  name="image" class="text-center center-block file-upload"> <br><br>	
+					<input type="file"  name="image" class="text-center center-block file-upload" > <br><br>	
 					<div class="form-group">
 				     
 				       <input type='submit' name='upload' class='btn btn-primary  vertical-center' >
@@ -224,57 +224,12 @@ http://www.tooplate.com/view/2082-pure-mix
           <div class="card-body">
             <div class="e-profile">
               <div class="row">
-                <div class="col-12 col-sm-auto mb-3">
-                  <div class="mx-auto" style="width: 140px;">
-              <!--      <div class="card-body">
-					<?php
-					if(isset($_POST['upload'])){
-						
-						$conn = mysqli_connect("localhost", "ikea", "ikea", "ikea");
-					
-						if(count($_FILES) > 0) {
-						if(is_uploaded_file($_FILES['image']['tmp_name'])) {
-							//require_once "db.php";
-							$imgData =addslashes(file_get_contents($_FILES['image']['tmp_name']));
-							$imageProperties = getimagesize($_FILES['image']['tmp_name']);
-						
-							$sql = "UPDATE `customers` SET `imageData` = '{$imgData}', imageType = '{$imageProperties['mime']}' WHERE `admin`.`username` = '" . $_SESSION['username'] . "'";
-							//$sql = "INSERT INTO admin(imageType ,imageData) VALUES('{$imageProperties['mime']}', '{$imgData}')";
-							$current_id = mysqli_query($conn, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($conn));
-							if(isset($current_id)) {
-								
-								//mysqli_close($conn);     
-							}
-							
-							//mysqli_close($conn); 
-						}
-						}
-						
-					}						
-						?>
-					
-					<form method="POST" action="" enctype="multipart/form-data">
-                   <div class="text-center">
-					   <?php echo '<img src="imageView.php?username='.$_SESSION['username'].'" class="avatar img-circle img-thumbnail">'; ?>
-						<br><br>
-				
-					<input type="file"  name="image" class="text-center center-block file-upload">	
-					<div class="form-group">
-				     <div class="col-xs-12"><br>
-				       <input type='submit' name='upload' class='btn btn-lg btn-success' ><i class='glyphicon glyphicon-ok-sign'></i>
-				     </div>
-				    </div>
-				  </div><br>
-					</form>
-                </div> -->
-                  </div>
-                </div>
-                <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
-                  <div class="text-center text-sm-left mb-2 mb-sm-0">
-                    <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">Customer Info</h4>
-                 
-                  
-                    
+              	<div class="col-12 col-sm-auto mb-3">
+					<div class="mx-auto" style="width: 220px;"></div>
+				</div>
+                <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3" >
+                  <div class=" mb-5 mb-sm-0" style="text-align:center">
+                    <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap" >Your Info</h4>
                   </div>
                 <!-- <div class="text-center text-sm-right">
                     <span class="badge badge-secondary">administrator</span>
@@ -315,11 +270,11 @@ http://www.tooplate.com/view/2082-pure-mix
 									echo          '</div><br><br>'; */
 
 									echo         '<div class="col-md-12">';      
-									echo              'First Name';                  
+									echo              'Username';                  
 									echo         '</div><br><br>';
 
 									echo         '<div class="col-md-12">';      
-									echo              'Last Name';                  
+									echo              'Name';                  
 									echo         '</div><br><br>';
 
 									echo          '<div class="col-md-12">';       
@@ -328,10 +283,6 @@ http://www.tooplate.com/view/2082-pure-mix
 
 									echo          '<div class="col-md-12">';       
 									echo              'Phone Number';                    
-									echo         '</div><br><br>';
-
-									echo          '<div class="col-md-12">';       
-									echo              'Date of Birth';               
 									echo         '</div><br><br>';
 
 									echo       '</div>';
@@ -361,12 +312,11 @@ http://www.tooplate.com/view/2082-pure-mix
       <div class="col-12 col-md-3 mb-3">
         <div class="card mb-3">
          <br>
-          <a class="nav-link px-2 active" href="./overview.html">
-			  <i class="fa fa-fw fa-bar-chart mr-1"></i><span>Overview</span></a>          
-			<a class="nav-link px-2" href="./users.html">
-				<i class="fa fa-fw fa-th mr-1"></i><span>CRUD</span></a>
-			<a class="nav-link px-2" href="settingprofile.php">
-				<i class="fa fa-fw fa-cog mr-1"></i><span>Settings</span></a> <br>       
+          <a class="nav-link px-2 active" href="customerprofile.php">
+			  <i class="fa fa-user mr-2"></i><span>Profile</span></a>         
+		  <a class="nav-link px-2" href="settingprofile.php">
+			  <i class="fa fa-fw fa-cog mr-1"></i><span>Settings</span></a> 
+			<br>       
 		  </div>
         <div class="card">
           <div class="card-body">
