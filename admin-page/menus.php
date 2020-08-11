@@ -1,14 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body><!DOCTYPE html>
 <html lang="en">
 	<?php
   session_start();
 
 if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
   session_destroy();
-  header("Location: masterfolder_ikea/homepage.php");
+  header("Location: ../../IKEA E-Restaurant/homepage-static.html");
 }
 if (isset($_POST['logout'])) {
-  header("Location: ../signup-login-cust-admin/login.php");
+  header("Location: ../signup-login-cust-admin/logout.php");
 }
   ?>
 
@@ -69,7 +76,7 @@ if (isset($_POST['logout'])) {
 
       <!-- Nav Item - Pages Collapse Menu -->
 		
-      	  <!-- Nav Item - Profile -->
+	  <!-- Nav Item - Profile -->
       <li class="nav-item">
         <a class="nav-link" href="adminprofile.php">
           <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -77,7 +84,7 @@ if (isset($_POST['logout'])) {
       </li>
 	  
 	  <!-- Nav Item - Profile -->
-      <li class="nav-item">
+      <li class="nav-item ">
         <a class="nav-link" href="adminsetting.php">
           <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
           <span>Setting Profile</span></a>
@@ -301,7 +308,7 @@ if (isset($_POST['logout'])) {
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Profile</h1>
+          <h1 class="h3 mb-2 text-gray-800">Food Menu</h1>
           <p class="mb-4">Chart.js is a third party plugin that is used to generate the charts in this theme. The charts below have been customized - for further customization options, please visit the <a target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js documentation</a>.</p>
 
           <!-- Content Row -->
@@ -313,67 +320,69 @@ if (isset($_POST['logout'])) {
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Setting Info</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Add Food Menu</h6>
                   
                 </div>
                 <!-- Setting Info Body -->
                 <div class="card-body">
-					<?php
-					$con = mysqli_connect("localhost", "ikea", "ikea", "ikea");
+				<?php
+					add();
+					$con = mysqli_connect("localhost", "ikea", "ikea", "ikea"); 
 					
-					if (isset($_POST['addmenus'])) {
+					$name = $_POST['name'];
+				    $price = $_POST['price'];
+				    $description = $_POST['description'];
+				    $category = $_POST['category'];
+				    $foodcategory = $_POST['foodcategory'];
+					$imgData =addslashes(file_get_contents($_FILES['image']['tmp_name']));
+					$imageProperties = getimagesize($_FILES['image']['tmp_name']);
+  
+					if (isset($_POST['addMenu'])) {
                       if (!$con) {
                         echo  mysqli_connect_error();
                         exit;
                       }
-						
-                      $sql = "INSERT INTO `menus`(`id`, `name`, `price`, `description`, `category`, `foodcategory`, `imageType`, `imageData`) VALUES ('" . $_POST['Facility_ID'] . "', '" . $_POST['FacilityName'] . "', '" . $_POST['Capacity'] . "', '" . $_POST['Rental_Rate'] . "', '" . $_POST['Amenity'] . "'); ";
+					  
+                      $sql = "INSERT INTO `menus` (`name`, `price`, `description`, `category`, `foodcategory`,`imageType` ,`imageData`) VALUES ('$name', '$price', '$description', '$category', '$foodcategory', '{$imageProperties['mime']}', '{$imgData}') ";
                       $result = mysqli_query($con, $sql);
+						
 
                       //check if insert successful
                       if ($result)
                         echo '<script>alert("Insertion Successful.")</script>';
                       else
                         echo '<script>alert("Insertion Failed.")</script>';
-                      $sql = "SELECT * FROM facility";
+						
+             			$sql = "SELECT * FROM menus";
 
                       $result = mysqli_query($con, $sql);
                       mysqli_close($con);
                       $qry = $result;
+					
+					   //if(is_uploaded_file($_FILES['image']['tmp_name'])) {
+						  //require_once "db.php";
+						//$imgData =addslashes(file_get_contents($_FILES['image']['tmp_name']));
+						//$imageProperties = getimagesize($_FILES['image']['tmp_name']);
 						
-					$con = mysqli_connect("localhost", "web2", "web2", "facilitydb");
-                    $sql2 = "SELECT rental.`FacilityID` from rental;";
-                    $result2 = mysqli_query($con, $sql2);
-
-                    $row2 = mysqli_fetch_assoc($result2); //set the first result
-                    $list = mysqli_num_rows($qry);
-                    if ($list > 0) {
-                      echo '<table class="table">      
-                          <thead class=" text-primary">
-                              <tr>
-                              <th>Facility ID</th>
-                              <th>Facility Name</th>
-                            <th>Capacity</th>
-                            <th>Rental Rate</th>
-                              <th>Amenities</th>
-                              <th>Delete</th>
-                              <th>Update</th>
-                              </tr>
-                              </thead>';
-
-                      while ($row = mysqli_fetch_assoc($qry)) {
-                        $facilityIDAlterValue = $row['FacilityID'];
-                        if ($row['FacilityID'] == $row2['FacilityID']) { //if both same disallow manipulation.
-                          echo '<tbody><tr>';
-                          echo '<form action="" method="POST">';
-                          echo "<td> " . $row['FacilityID'] . "";
-                          echo "<td> " . $row['Facility Name'] . "";
-                          echo "<td> " . $row['Capacity'] . "";
-                          echo "<td> " . $row['Rental Rate'] . "";
-                          echo "<td> " . $row['Amenity'] . "";
+						//$sql = "UPDATE `menus` SET `imageData` = '{$imgData}', imageType = '{$imageProperties['mime']}' WHERE `menus`.`id` = '" . $_SESSION['id'] . "'";
+						//$sql = "INSERT INTO menus (`imageType` ,`imageData`) VALUES('{$imageProperties['mime']}', '{$imgData}')";
+							
+						//$current_id = mysqli_query($con, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($con));
+					   //}
+					  
 					}
-					?>
-				 
+					 else {
+                      if (!$con) {
+                        echo  mysqli_connect_error();
+                        exit;
+                      }
+                      $sql = "SELECT * FROM menus";
+
+                      $result = mysqli_query($con, $sql);
+                      mysqli_close($con);
+                      $qry = $result;
+                    }
+						?>
                 </div>		
               </div>
           </div>
@@ -445,23 +454,60 @@ if (isset($_POST['logout'])) {
   <script src="js/demo/chart-bar-demo.js"></script>
 
 </body>
+   <?php
+function add()
+{
+  echo '<form action="" method="POST" enctype="multipart/form-data">';
+  echo '<div class="form-group"><label class="bmd-label-floating">Food Name</label>
+        <input type="text" name="name" class="form-control"required> </div>';
 	
-	<?php
-	function getadmininfo(){
-		//create connection
-		$con=mysqli_connect("localhost","ikea","ikea","ikea");
-		if(!$con)
-			{
-			echo  mysqli_connect_error(); 
-			exit;
-			}
-		$sql = "select * from admin where username = '".$username."'";
+  echo '<div class="form-group"><label class="bmd-label-floating">Price</label>
+        <input type="number" name="price" class="form-control"required> </div>';
+	
+  echo '<div class="form-group"><label class="bmd-label-floating">Description</label>
+        <input type="text" name="description" class="form-control"required> </div>';
+	
+  echo '<div class="form-group"><label class="bmd-label-floating">Category</label><br>
+  		<select name="category" class="form-control"required>
+  		<option>Main</option>
+		<option>Kids</option>
+		<option>Sides</option>
+		<option>IKEA Family</option>
+		<option>IKEA Cafe</option>
+		</select>
+ 		</div>';
+	
+  echo '<div class="form-group"><label class="bmd-label-floating">Food Category</label>
+  		<select name="foodcategory" class="form-control"required >
+  		<option>Snacks & on the go</option>
+		<option>Meat</option>
+		<option>Fish & Seafood</option>
+		<option>Vegetables & Side Dishes</option>
+		<option>Bread & Dairy</option>
+		<option>Pastries, Desserts & Cookies</option>
+		<option>Sauces, Jam & Condiments</option>
+		<option>Chocolates & Sweets</option>
+		<option>Beverages</option>
+		</select>
+ 		</div>';
+	
+  echo '<div class="form-group"><label class="bmd-label-floating">Photo</label><br>
+  			
+			<input type="file"  name="image" class="text-center center-block file-upload">	
+			<div class="form-group">
+			<div class="col-xs-12"><br>
+			</div></div>
+		</div>';
+	
+  echo '<input type="submit" name="addMenu"  class="btn btn-primary pull-right" >';
+  echo '</form>';
+}
 
-		$qry = mysqli_query($con,$sql);//run query
-		return $qry;  //return query
-	}
-	
-      ?>    	  
+
+?>	  
         
        
+</html>
+
+</body>
 </html>

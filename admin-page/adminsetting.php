@@ -12,7 +12,7 @@
 
 if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
   session_destroy();
-  header("Location: masterfolder_ikea/homepage.php");
+  header("Location: ../../IKEA E-Restaurant/homepage-static.html");
 }
 if (isset($_POST['logout'])) {
   header("Location: ../signup-login-cust-admin/logout.php");
