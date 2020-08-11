@@ -76,7 +76,7 @@ http://www.tooplate.com/view/2082-pure-mix
 </div>
 
 
-<!-- Navigation section
+<!-- Navigation section//
 ================================================== -->
 <div class="nav-container">
    <nav class="nav-inner transparent">
