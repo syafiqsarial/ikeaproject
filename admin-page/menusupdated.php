@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Setting Profile</title>
+<title>List Menu</title>
 </head>
 
 <body><!DOCTYPE html>
@@ -27,7 +27,7 @@ if (isset($_POST['logout'])) {
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Setting Profile</title>
+  <title>Admin - Profile</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -84,7 +84,7 @@ if (isset($_POST['logout'])) {
       </li>
 	  
 	  <!-- Nav Item - Setting Profile -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="adminsetting.php">
           <i class="fas fa-user fa-sm fa-fw mr-2 "></i>
           <span>Setting Profile</span></a>
@@ -98,7 +98,7 @@ if (isset($_POST['logout'])) {
       </li>
 	  
 	  <!-- Nav Item - Menus Updated -->
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="menusupdated.php">
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
           <span>Menus - Updated</span></a>
@@ -315,8 +315,8 @@ if (isset($_POST['logout'])) {
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Profile</h1>
-          <p class="mb-4">Setting admin's profile info.</p>
+          <h1 class="h3 mb-2 text-gray-800">Food Menu</h1>
+          <p class="mb-4">Add new menus to the menu list.</p>
 
           <!-- Content Row -->
 			
@@ -327,87 +327,52 @@ if (isset($_POST['logout'])) {
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Setting Info</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Menu List</h6>
                   
                 </div>
                 <!-- Setting Info Body -->
                 <div class="card-body">
 				<?php
-					if (isset($_POST['updatebutton'])) {
+					$con=mysqli_connect("localhost","ikea","ikea","ikea");
+						if (!$con) {
+                        echo  mysqli_connect_error();
+                        exit;
+						}
+						$sql = "SELECT * FROM menus";
 
-                    if (empty($_POST['password'])) {
-                      $setChangePWD = $_SESSION['password'];
-                    } else {
-                      $setChangePWD = $_POST['password'];
-                    }
-
-
-                    if (!empty($_POST['email'])) {
-                      $setChangeEMAIL = $_POST['email'];
-                    } 
-						
-					if (!empty($_POST['name'])) {
-                      $setChangeNAME = $_POST['name'];
-                    } 
-						
-                    $con = mysqli_connect("localhost", "ikea", "ikea", "ikea");
-                    if (!$con) {
-                      die("Connection failed: " . mysqli_connect_error());
-                      exit();
-                    }
-                    $sql = "UPDATE `admin` SET  `name` = '" . $setChangeNAME . "',`email` = '" . $setChangeEMAIL . "', `password` = '" . $setChangePWD . "'  WHERE `admin`.`username` = '" . $_SESSION['username'] . "'";
-                    $result = mysqli_query($con, $sql) or trigger_error("Query Failed! SQL: $sql - Error: " . mysqli_error($con), E_USER_ERROR);
-						
-                    if ($result) {
-                      echo "<script type='text/javascript'>alert('Successfull.');</script>";
-                    } else {
-                      echo "<script type='text/javascript'>alert('Error. Unsuccessful');</script>";
-                    }
-                    $_SESSION['password'] = $setChangePWD;
-                  }
-
-                  $con = mysqli_connect("localhost", "ikea", "ikea", "ikea");
-                  if (!$con) {
-                    die("Connection failed: " . mysqli_connect_error());
-                    exit();
-                  }
-                  $sql = 'SELECT * FROM admin where username = "' . $_SESSION['username'] . '"';
-                  $result = mysqli_query($con, $sql) or trigger_error("Query Failed! SQL: $sql - Error: " . mysqli_error($con), E_USER_ERROR);
-                  $row = mysqli_fetch_assoc($result);
-				
-				  echo   '<form class="form" action="##" method="post" id="registrationForm">';		 
-
-				  echo       '<div class="form-group">';                       
-				  echo            '<div class="col-xs-6">';
-				  echo              '<label for="name"><h4>Name</h4></label>';
-				  echo                "<input type='name' class='form-control' name='name'  placeholder='Name' title='enter your 						name if any.' value='$name' >";
-				  echo            '</div>';
-				  echo        '</div>';          
-				  echo        '<div class="form-group">';                       
-				  echo            '<div class="col-xs-6">';
-				  echo                '<label for="email"><h4>Email</h4></label>';
-				  echo                "<input type='email' class='form-control' name='email'  placeholder='Email' title='enter your 						email if any.' value='$email' >";
-				  echo            '</div>';
-				  echo        '</div>' ;       
-				  echo       '<div class="form-group">';
-				  echo            '<div class="col-xs-6">';
-				  echo               '<label for="password"><h4>Password</h4></label>';
-				  echo                "<input type='password' class='form-control' name='password'  placeholder='Password' title='enter your 						password if any.' value='$password' >";
-				  echo            '</div>';
-				  echo        '</div>';
-
-				  echo        '<div class="form-group">';
-				  echo             '<div class="col-xs-12">';
-				  echo                  '<br>';
-				  echo 					"<input type='hidden' value='$usernamealter' name='usernamealter'>";
-				  echo                	"<input type='submit' name='updatebutton' class='btn btn-lg btn-success' ><i class='glyphicon glyphicon-						ok-sign'></i>";
-
-				  echo             '</div>';
-				  echo       '</div>';
-
-				  echo	'</form>';
-								
-					?> 
+						$result = mysqli_query($con, $sql);
+						mysqli_close($con);
+						$qry = $result;
+					
+						echo '<table class="table">      
+                          			<thead class=" text-primary">
+                              		<tr>
+								  	<th>Name</th>
+								  	<th>Price (RM)</th>
+									<th>Description</th>
+									<th>Category</th>
+									<th>Food Category</th>
+									<th>Image</th>
+								  	<th>Delete</th>
+								  	<th>Update</th>
+								  	</tr>
+                              	</thead>';
+						while ($row = mysqli_fetch_assoc($qry)) {
+							
+						  echo '<tbody><tr>';
+                          echo '<form action="" method="POST">';
+                          echo "<td> " . $row['name'] . "";
+                          echo "<td> " . $row['price'] . "";
+                          echo "<td> " . $row['description'] . "";
+                          echo "<td> " . $row['category'] . "";
+                          echo "<td> " . $row['foodcategory'] . "";
+						  echo '<td><img src="imageView2.php?id='.$_SESSION['id'].'" width="50" height="60">';
+						  echo '</tbody></tr>';
+						  
+						}
+						echo '</table>';
+						?>
+					
                 </div>		
               </div>
           </div>
@@ -479,23 +444,57 @@ if (isset($_POST['logout'])) {
   <script src="js/demo/chart-bar-demo.js"></script>
 
 </body>
+   <?php
+function add()
+{
+  echo '<form action="" method="POST" enctype="multipart/form-data">';
+  echo '<div class="form-group"><label class="bmd-label-floating">Food Name</label>
+        <input type="text" name="name" class="form-control"required> </div>';
 	
-	<?php
-	function getadmininfo(){
-		//create connection
-		$con=mysqli_connect("localhost","ikea","ikea","ikea");
-		if(!$con)
-			{
-			echo  mysqli_connect_error(); 
-			exit;
-			}
-		$sql = "select * from admin where username = '".$username."'";
+  echo '<div class="form-group"><label class="bmd-label-floating">Price</label>
+        <input type="number" name="price" class="form-control"required> </div>';
+	
+  echo '<div class="form-group"><label class="bmd-label-floating">Description</label>
+        <input type="text" name="description" class="form-control"required> </div>';
+	
+  echo '<div class="form-group"><label class="bmd-label-floating">Category</label><br>
+  		<select name="category" class="form-control"required>
+  		<option>Main</option>
+		<option>Kids</option>
+		<option>Sides</option>
+		<option>IKEA Family</option>
+		<option>IKEA Cafe</option>
+		</select>
+ 		</div>';
+	
+  echo '<div class="form-group"><label class="bmd-label-floating">Food Category</label>
+  		<select name="foodcategory" class="form-control"required >
+  		<option>Snacks & on the go</option>
+		<option>Meat</option>
+		<option>Fish & Seafood</option>
+		<option>Vegetables & Side Dishes</option>
+		<option>Bread & Dairy</option>
+		<option>Pastries, Desserts & Cookies</option>
+		<option>Sauces, Jam & Condiments</option>
+		<option>Chocolates & Sweets</option>
+		<option>Beverages</option>
+		</select>
+ 		</div>';
+	
+  echo '<div class="form-group"><label class="bmd-label-floating">Photo</label><br>
+  			
+			<input type="file"  name="image" class="text-center center-block file-upload">	
+			<div class="form-group">
+			<div class="col-xs-12"><br>
+			</div></div>
+		</div>';
+	
+  echo '<input type="submit" name="addMenu"  class="btn btn-primary pull-right" >';
+  echo '</form>';
+}
 
-		$qry = mysqli_query($con,$sql);//run query
-		return $qry;  //return query
-	}
-	
-      ?>    	  
+
+?>	  
         
        
 </html>

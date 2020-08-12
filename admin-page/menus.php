@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Untitled Document</title>
+<title>Foods Menu</title>
 </head>
 
 <body><!DOCTYPE html>
@@ -27,7 +27,7 @@ if (isset($_POST['logout'])) {
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin - Profile</title>
+  <title>Foods Menu</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -79,28 +79,35 @@ if (isset($_POST['logout'])) {
 	  <!-- Nav Item - Profile -->
       <li class="nav-item">
         <a class="nav-link" href="adminprofile.php">
-          <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+          <i class="fas fa-user fa-sm fa-fw mr-2 "></i>
           <span>Profile</span></a>
       </li>
 	  
-	  <!-- Nav Item - Profile -->
-      <li class="nav-item ">
+	  <!-- Nav Item - Setting Profile -->
+      <li class="nav-item">
         <a class="nav-link" href="adminsetting.php">
-          <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+          <i class="fas fa-user fa-sm fa-fw mr-2 "></i>
           <span>Setting Profile</span></a>
       </li>
 
-      <!-- Nav Item - Tables -->
+      <!-- Nav Item - Menus Add -->
       <li class="nav-item active">
         <a class="nav-link" href="menus.php">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Menus Order</span></a>
+          <i class="fas fa-table fa-sm fa-fw mr-2 "></i>
+          <span>Menus - Add</span></a>
       </li>
 	  
-      <!-- Nav Item - Tables -->
+	  <!-- Nav Item - Menus Updated -->
+      <li class="nav-item">
+        <a class="nav-link" href="menusupdated.php">
+          <i class="fas fa-table fa-sm fa-fw mr-2"></i>
+          <span>Menus - Updated</span></a>
+      </li>
+	  
+      <!-- Nav Item - Tables Booking -->
       <li class="nav-item">
         <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
+          <i class="fas fa-table fa-sm fa-fw mr-2"></i>
           <span>Tables Booking</span></a>
       </li>
 
@@ -309,7 +316,7 @@ if (isset($_POST['logout'])) {
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Food Menu</h1>
-          <p class="mb-4">Chart.js is a third party plugin that is used to generate the charts in this theme. The charts below have been customized - for further customization options, please visit the <a target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js documentation</a>.</p>
+          <p class="mb-4">Add new menus to the menu list.</p>
 
           <!-- Content Row -->
 			

@@ -24,7 +24,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin - Dashboard</title>
+  <title>Admin Dashboard</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -72,28 +72,35 @@
 	  <!-- Nav Item - Profile -->
       <li class="nav-item">
         <a class="nav-link" href="adminprofile.php">
-          <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+          <i class="fas fa-user fa-sm fa-fw mr-2 "></i>
           <span>Profile</span></a>
       </li>
 	  
-	  <!-- Nav Item - Profile -->
+	  <!-- Nav Item - Setting Profile -->
       <li class="nav-item">
         <a class="nav-link" href="adminsetting.php">
-          <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+          <i class="fas fa-user fa-sm fa-fw mr-2 "></i>
           <span>Setting Profile</span></a>
       </li>
 
-      <!-- Nav Item - Tables -->
+      <!-- Nav Item - Menus Add -->
       <li class="nav-item">
         <a class="nav-link" href="menus.php">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Menus Order</span></a>
+          <i class="fas fa-table fa-sm fa-fw mr-2 "></i>
+          <span>Menus - Add</span></a>
       </li>
 	  
-      <!-- Nav Item - Tables -->
+	  <!-- Nav Item - Menus Updated -->
+      <li class="nav-item">
+        <a class="nav-link" href="menusupdated.php">
+          <i class="fas fa-table fa-sm fa-fw mr-2"></i>
+          <span>Menus - Updated</span></a>
+      </li>
+	  
+      <!-- Nav Item - Tables Booking -->
       <li class="nav-item">
         <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
+          <i class="fas fa-table fa-sm fa-fw mr-2"></i>
           <span>Tables Booking</span></a>
       </li>
 
