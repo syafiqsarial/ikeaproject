@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-		<?php
+	
+<?php
   session_start();
 
 if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
@@ -10,15 +11,9 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
 if (isset($_POST['logout'])) {
   header("Location: ../signup-login-cust-admin/logout.php");
 }
-  ?>
+?>
 <head>
-<!--
 
-Template 2082 Pure Mix
-
-http://www.tooplate.com/view/2082-pure-mix
-
--->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -53,7 +48,7 @@ http://www.tooplate.com/view/2082-pure-mix
 	 <meta charset="utf-8">
     <!--  This file has been downloaded from bootdey.com    @bootdey on twitter -->
     <!--  All snippets are MIT license http://bootdey.com/license -->
-    <title>bs4 edit profile page - Bootdey.com</title>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
@@ -76,7 +71,7 @@ http://www.tooplate.com/view/2082-pure-mix
 </div>
 
 
-<!-- Navigation section//
+<!-- Navigation section
 ================================================== -->
 <div class="nav-container">
    <nav class="nav-inner transparent">
@@ -85,18 +80,18 @@ http://www.tooplate.com/view/2082-pure-mix
          <div class="container">
            <div class="row">
 
-              <div class="brand col-lg-1">
+              <div class="brand col-md-1">
 				<a href="homepage-dynamic.html">
-				<img src="images/ikea-logo.png" width="5px"></a>
+				<img src="../IKEA%20E-Restaurant/images/ikea-logo.png" width="81%" height="51" style="max-width: 100%"></a>
               </div>
-				<div class="navicon">
+				<div class="navicon" style="position: absolute; right: 180px; width: 300px; padding-bottom: 100px;">
   				<div class="menu-container">
 					
                   <div class="circle dark inline">
 					<img src="images/cart-logo.png" class="img-responsive">
                   </div>
                    <div class="circle dark inline">
-					<i class="icon ion-navicon "></i>
+					<i class="icon ion-navicon"></i>
                   </div>
 
                   <div class="list-menu">
@@ -109,10 +104,10 @@ http://www.tooplate.com/view/2082-pure-mix
                         <li><a href="contact.html">Contact</a></li>
 						<li><a href="">FAQ</a></li>
 						<li><a href="">Feedback</a></li>
-						<li><a href="../IKEA E-Restaurant/homepage-static.html">Logout</a></li>
+						<li><a href="homepage-static.html">Logout</a></li>
                       </ul>
                    </div>
-					</div>
+				  </div>
 		   		</div>
 			 </div>
 		  </div>
@@ -120,45 +115,6 @@ http://www.tooplate.com/view/2082-pure-mix
 	   </div>
    </nav>
 </div>
-
-
-
-	
-<!-- Slideshow container
-===============================================
-<section id="slideshow">
-  <div class="slideshow-container">
-		
-	<!-- Full-width images with number and caption text 
-  <div class="mySlides fade">
-    <div class="numbertext">1 / 3</div>
-    <img src="images/food-promo.png" style="width:100%">
-  </div>
-
-  <div class="mySlides fade">
-    <div class="numbertext">2 / 3</div>
-    <img src="images/food-promo2.png" style="width:100%">
-  </div>
-
-  <div class="mySlides fade">
-    <div class="numbertext">3 / 3</div>
-    <img src="images/food-promo3.png" style="width:100%">
-  </div>
-
-  <!-- Next and previous buttons 
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-	  
-   <!-- The dots/circles 
-<div style="text-align:center"> 
-	<span class="dot" onclick="currentSlide(1)"></span> 
-	<span class="dot" onclick="currentSlide(2)"></span> 
-	<span class="dot" onclick="currentSlide(3)"></span> 
-	</div>
-</div>
-</section> -->
-
 
 	
 <!-- Portfolio section
@@ -175,7 +131,7 @@ http://www.tooplate.com/view/2082-pure-mix
 					<?php
 					if(isset($_POST['upload'])){
 						
-						$conn = mysqli_connect("localhost", "ikea", "ikea", "ikea");
+						$conn = mysqli_connect("localhost", "root", "root", "ikea");
 					
 						if(count($_FILES) > 0) {
 						if(is_uploaded_file($_FILES['image']['tmp_name'])) {
@@ -203,10 +159,10 @@ http://www.tooplate.com/view/2082-pure-mix
 					   <?php echo '<img src="imageView.php?username='.$_SESSION['username'].'" class="avatar img-circle img-thumbnail">'; ?>
 						<br><br>
 				
-					<input type="file"  name="image" class="text-center center-block file-upload" > <br><br>	
+					<input type="file"  name="image" class="text-center center-block file-upload"> <br><br>	
 					<div class="form-group">
 				     
-				       <input type='submit' name='upload' class='btn btn-primary  vertical-center' >
+				       <input type='submit' name='upload' class='btn btn-primary  vertical-center' style="background-color: #c9c9a3; border-color: #bfbf9d">
 				   
 				    </div>
 				  </div><br>
@@ -249,7 +205,7 @@ http://www.tooplate.com/view/2082-pure-mix
 							 <table class="table">
 							 <?php
 								//create connection								
-								$con=mysqli_connect("localhost","ikea","ikea","ikea");
+								$con=mysqli_connect("localhost","root","root","ikea");
 								if (!$con) {
 								echo  mysqli_connect_error();
 								exit;
@@ -312,17 +268,17 @@ http://www.tooplate.com/view/2082-pure-mix
       <div class="col-12 col-md-3 mb-3">
         <div class="card mb-3">
          <br>
-          <a class="nav-link px-2 active" href="customerprofile.php">
-			  <i class="fa fa-user mr-2"></i><span>Profile</span></a>         
-		  <a class="nav-link px-2" href="settingprofile.php">
-			  <i class="fa fa-fw fa-cog mr-1"></i><span>Settings</span></a> 
+          <a class="nav-link px-2 active" href="customerprofile.php" style="color: #948757">
+			  <i class="fa fa-user mr-2" style="color: #948757"></i><span>Profile</span></a>         
+		  <a class="nav-link px-2" href="settingprofile.php" style="color: #948757">
+			  <i class="fa fa-fw fa-cog mr-1" style="color: #948757"></i><span>Settings</span></a> 
 			<br>       
 		  </div>
         <div class="card">
           <div class="card-body">
             <h6 class="card-title font-weight-bold">Support</h6>
-            <p class="card-text">Get fast, free help from our friendly assistants.</p>
-            <button type="button" class="btn btn-primary">Contact Us</button>
+            <p class="card-text" style="color: #696969; letter-spacing: 0.2px; line-height: 20px; font-size: 13px">Get fast, free help from our friendly assistants.</p>
+            <button type="button" class="btn btn-primary" style="background-color: #c9c9a3; border-color: #bfbf9d">Contact Us</button>
           </div>
         </div>
       </div>
