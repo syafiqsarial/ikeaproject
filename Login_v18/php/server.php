@@ -31,16 +31,30 @@
 		if ($password_1 != $password_2) {
 			array_push($errors, "The two passwords do not match");
 		}
-
+		
+		//randomize md5 address for verification.
+    	$hash = md5(rand(0, 1000));
+		
 		// register user if there are no errors in the form
 		if (count($errors) == 0) {
 			$password = ($password_1);//encrypt the password before saving in the database
-			$query = "INSERT INTO customers (`username`, `name`, `email`, `password`, `usertype`) VALUES('$username', '$name', '$email', '$password', 'customer')";
+			$query = "INSERT INTO customers (`username`, `name`, `email`, `password`, `usertype`) VALUES('$username', '$name', '$email', '$password', '$hash')";
 			mysqli_query($db, $query); 
+			
+			//send email
+			
+			$to = $email;
+			$subject = 'IKEA E-Restaurant SIGN UP | Verification E-mail';
+			$message = '
 
-			$_SESSION['username'] = $username;
-			$_SESSION['success'] = "You are now logged in";
-			header('location: ../../IKEA E-Restaurant/homepage-dynamic.html');
+			Thanks for signing up!
+			Your account has been created, you can login with the following credentials after you have activated your account by pressing the url below.
+			http://localhost/masterfolder_ikea/Login_v18/php/verification.php?email='.$email.'&hash='.$hash.'
+			';
+			$headers = 'From: ikeasd02@gmail.com';
+			mail($to, $subject, $message, $headers);
+
+			header('location: ../../IKEA E-Restaurant/homepage-static.html');
 		}
 
 	}
