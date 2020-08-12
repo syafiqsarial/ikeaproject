@@ -340,7 +340,7 @@ if (isset($_POST['logout'])) {
 				    $price = $_POST['price'];
 				    $description = $_POST['description'];
 				    $category = $_POST['category'];
-				    $foodcategory = $_POST['foodcategory'];
+
 					$imgData =addslashes(file_get_contents($_FILES['image']['tmp_name']));
 					$imageProperties = getimagesize($_FILES['image']['tmp_name']);
   
@@ -350,7 +350,7 @@ if (isset($_POST['logout'])) {
                         exit;
                       }
 					  
-                      $sql = "INSERT INTO `menus` (`name`, `price`, `description`, `category`, `foodcategory`,`imageType` ,`imageData`) VALUES ('$name', '$price', '$description', '$category', '$foodcategory', '{$imageProperties['mime']}', '{$imgData}') ";
+                      $sql = "INSERT INTO `menus` (`name`, `price`, `description`, `category`, `imageType` ,`imageData`) VALUES ('$name', '$price', '$description', '$category', '{$imageProperties['mime']}', '{$imgData}') ";
                       $result = mysqli_query($con, $sql);
 						
 
@@ -481,20 +481,6 @@ function add()
 		<option>Sides</option>
 		<option>IKEA Family</option>
 		<option>IKEA Cafe</option>
-		</select>
- 		</div>';
-	
-  echo '<div class="form-group"><label class="bmd-label-floating">Food Category</label>
-  		<select name="foodcategory" class="form-control"required >
-  		<option>Snacks & on the go</option>
-		<option>Meat</option>
-		<option>Fish & Seafood</option>
-		<option>Vegetables & Side Dishes</option>
-		<option>Bread & Dairy</option>
-		<option>Pastries, Desserts & Cookies</option>
-		<option>Sauces, Jam & Condiments</option>
-		<option>Chocolates & Sweets</option>
-		<option>Beverages</option>
 		</select>
  		</div>';
 	

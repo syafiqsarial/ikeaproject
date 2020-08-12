@@ -133,7 +133,7 @@ if (isset($_POST['logout'])) {
 									<?php
 									if (isset($_POST['upload'])) {
 
-										$conn = mysqli_connect("localhost", "root", "root", "ikea");
+										$conn = mysqli_connect("localhost", "ikea", "ikea", "ikea");
 
 										if (count($_FILES) > 0) {
 											if (is_uploaded_file($_FILES['image']['tmp_name'])) {
@@ -209,7 +209,7 @@ if (isset($_POST['logout'])) {
 																<div class="card-body">
 																	<?php
 
-																	$con = mysqli_connect("localhost", "root", "root", "ikea");
+																	$con = mysqli_connect("localhost", "ikea", "ikea", "ikea");
 																	if (!$con) {
 																		die("Connection failed: " . mysqli_connect_error());
 																		exit();
@@ -222,18 +222,18 @@ if (isset($_POST['logout'])) {
 																	echo   '<form class="form" action="" method="POST" id="registrationForm">';
 
 																	echo       '<div class="form-group">';
-																	echo            '<div class="col-xs-6">';
+																	echo            '<div class="col-xs-12">';
 
 
 																	echo                "<input type='name' class='form-control' name='name'  placeholder='Name' title='enter your name.' value='$name' >";
 																	echo  '<br>';
-																	echo                "<input type='email' class='form-control' name='email'  placeholder='Email' title='enter your email.' value='$email' >";
+																	echo                "<input type='email' class='form-control' name='email'  placeholder='Email' title='Enter your email.' value='$email' >";
 																	echo  '<br>';
-																	echo                "<input type='tel' class='form-control' name='phonenumber'  placeholder='Phone Number' title='enter your phone date of birth.'  value='$phonenumber' >";
+																	echo                "<input type='tel' class='form-control' name='phonenumber'  placeholder='Phone Number' title='Enter your phone number.'  value='$phonenumber' >";
 																	echo  '<br>';
 																/*	echo                "<input type='datetime' class='form-control' name='birthdate'   title='enter your phone number.'  value='$birthdate' >";
 																	echo  '<br>'; */
-																	echo                "<input type='password' class='form-control' name='password'  placeholder='Password' title='enter your 							email if any.' value='$password' >";
+																	echo                "<input type='password' class='form-control' name='password'  placeholder='Password' title='Enter your email.' value='$password' >";
 																	echo            '</div>';
 																	echo        '</div>';
 
@@ -347,7 +347,7 @@ if (isset($_POST['updatebutton'])) {
 						  $setChangeUSERNAME = $_POST['username'];
 						} */
 
-	$con = mysqli_connect("localhost", "root", "root", "ikea");
+	$con = mysqli_connect("localhost", "ikea", "ikea", "ikea");
 	if (!$con) {
 		die("Connection failed: " . mysqli_connect_error());
 		exit();

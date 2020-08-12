@@ -351,7 +351,6 @@ if (isset($_POST['logout'])) {
 								  	<th>Price (RM)</th>
 									<th>Description</th>
 									<th>Category</th>
-									<th>Food Category</th>
 									<th>Image</th>
 								  	<th>Delete</th>
 								  	<th>Update</th>
@@ -365,10 +364,8 @@ if (isset($_POST['logout'])) {
                           echo "<td> " . $row['price'] . "";
                           echo "<td> " . $row['description'] . "";
                           echo "<td> " . $row['category'] . "";
-                          echo "<td> " . $row['foodcategory'] . "";
-						  echo '<td><img src="imageView2.php?id='.$_SESSION['id'].'" width="50" height="60">';
-						  echo '</tbody></tr>';
-						  
+						  echo '<td><img src="imageView2.php?id='.$_SESSION['id'].'">';
+						  echo '</tbody></tr>'; 
 						}
 						echo '</table>';
 						?>

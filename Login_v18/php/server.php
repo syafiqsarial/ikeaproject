@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 	session_start();
 
@@ -31,7 +32,8 @@
 		if ($password_1 != $password_2) {
 			array_push($errors, "The two passwords do not match");
 		}
-		
+		//$alert = "Please check your email to get verification link.";
+		//echo "<script type='text/javascript'>alert('$alert');</script>";
 		//randomize md5 address for verification.
     	$hash = md5(rand(0, 1000));
 		
@@ -53,8 +55,9 @@
 			';
 			$headers = 'From: ikeasd02@gmail.com';
 			mail($to, $subject, $message, $headers);
-
+			
 			header('location: ../../IKEA E-Restaurant/homepage-static.html');
+			
 		}
 
 	}
@@ -82,7 +85,7 @@
 			if ($count == 1) {
 				$_SESSION['username'] = $username;
 				$_SESSION['success'] = "You are now logged in";
-				header('location: ../admin-page/indexadmin.php');
+				header('location: ../../admin-page/indexadmin.php');
 			}
 			//customer login
 			$query = "SELECT * FROM `customers` WHERE username = '" .$_POST['username']. "' and password = '" .$_POST['password']. "'";
@@ -92,7 +95,7 @@
 			if ($count == 1) {
 				$_SESSION['username'] = $username;
 				$_SESSION['success'] = "You are now logged in";
-				header('location: ../IKEA E-Restaurant/homepage-dynamic.html');
+				header('location: ../../IKEA E-Restaurant/homepage-dynamic.html');
 			}
 			else {
 				array_push($errors, "Wrong username/password combination");
@@ -102,3 +105,5 @@
 	}
 
 ?>
+
+</html>

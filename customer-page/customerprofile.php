@@ -104,7 +104,7 @@ if (isset($_POST['logout'])) {
                         <li><a href="contact.html">Contact</a></li>
 						<li><a href="">FAQ</a></li>
 						<li><a href="">Feedback</a></li>
-						<li><a href="homepage-static.html">Logout</a></li>
+						<li><a href="../IKEA E-Restaurant/homepage-static.html">Logout</a></li>
                       </ul>
                    </div>
 				  </div>
@@ -131,7 +131,7 @@ if (isset($_POST['logout'])) {
 					<?php
 					if(isset($_POST['upload'])){
 						
-						$conn = mysqli_connect("localhost", "root", "root", "ikea");
+						$conn = mysqli_connect("localhost", "ikea", "ikea", "ikea");
 					
 						if(count($_FILES) > 0) {
 						if(is_uploaded_file($_FILES['image']['tmp_name'])) {
@@ -205,7 +205,7 @@ if (isset($_POST['logout'])) {
 							 <table class="table">
 							 <?php
 								//create connection								
-								$con=mysqli_connect("localhost","root","root","ikea");
+								$con=mysqli_connect("localhost","ikea","ikea","ikea");
 								if (!$con) {
 								echo  mysqli_connect_error();
 								exit;

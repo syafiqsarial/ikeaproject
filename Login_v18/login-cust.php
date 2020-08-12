@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php include('server.php') ?>
+<?php include('php/server.php') ?>
 <html lang="en">
 <head>
 	<title>IKEA Restaurant Login</title>
@@ -33,8 +33,8 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form method="post" action="../signup-login-cust-admin/server.php" class="login100-form validate-form">
-					<?php include('errors.php') ?>
+				<form method="post" action="php/server.php" class="login100-form validate-form">
+					<?php include('php/errors.php') ?>
 				  <span class="login100-form-title p-b-43">
 				  Login to continue
 				</span>
@@ -54,7 +54,7 @@
 					</div>
 
 					<div class="flex-sb-m w-full p-t-3 p-b-32">
-						<a href="http://localhost/IKEA%20E-System/signup-login-cust-admin/forgot-password.html" class="txt1"> Forgot Password? </a>
+						<a href="reset-password.php" class="txt1"> Forgot Password? </a>
 						<!--<div class="contact100-form-checkbox">
 							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
 							<label class="label-checkbox100" for="ckb1">
@@ -91,7 +91,7 @@
 	
 
 	
-	<script src="../signup-login-cust-admin/server.php"></script>
+	<!--<script src="php/server.php"></script>-->
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
