@@ -89,6 +89,109 @@ img {vertical-align: middle;}
 @media only screen and (max-width: 300px) {
   .text {font-size: 11px}
 }
+	
+/* NavBar */
+#nav-bloc {
+  margin-top: 1px;
+  z-index: 9999;
+}
+
+.navbar{
+	margin-bottom: 0px;
+}
+.navbar-brand{
+	font-size: 25px;
+	font-weight: bold;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 600;
+}
+.navbar-brand img{
+	width: auto;
+	max-height: 70px;
+}
+.navbar-brand{
+	padding: 20px 20px;
+	margin: 5px 5px 0 0;
+}
+.navbar .nav{
+	padding-top: 20px;
+	margin-right: -16px;
+	float:right;
+}
+.nav > li{
+	float: left;
+	margin-top: 4px;
+	font-size: 20px;
+	font-weight: 400;
+}
+.nav > li a:hover{
+	background:transparent;
+}
+.navbar-toggle{
+	margin: 12px;
+	border: 0px;
+}
+.navbar-toggle:hover{
+	background:transparent!important;
+}
+.navbar-toggle .icon-bar{
+	background-color: rgba(0,0,0,.5);
+	width: 26px;
+}
+.navbar-collapse.in {
+overflow-y: visible;
+float: left;
+width: 100%;
+}
+.navbar-1 {
+  float: right;
+}
+.site-navigation:first-child {
+  float: left;
+}
+.site-navigation:nth-child(2) {
+  float: right;
+}
+.site-navigation:nth-child(2) a {
+  color: #ccc;
+  font-size: 85%;
+  padding-right: 0px;
+}
+
+.site-navigation .nav > .active{
+  color: #333;
+}
+
+.navbtn {
+  background-color: #000000;
+  border: none;
+  color: white;
+  padding: 9px 17px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  margin: -20px 1px 0 0;
+  opacity: 1;
+  transition: 0.3s;
+  letter-spacing: 0.15rem;
+}
+	
+.navbtn:hover {opacity: 0.6}
+	
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
+hr.new1 {
+  border: 0.5px solid #c4c4c4;	
+}
+
 </style>
 	
 <body>
@@ -104,48 +207,36 @@ img {vertical-align: middle;}
 
 <!-- Navigation section
 ================================================== -->
-<div class="nav-container">
-   <nav class="nav-inner transparent">
-
-      <div class="navbar">
-         <div class="container">
-           <div class="row">
-
-              <div class="brand col-lg-1">
-				<a href="homepage-dynamic.html">
-				<img src="images/ikea-logo.png" width="5px"></a>
-              </div>
-				<div class="navicon">
-  				<div class="menu-container">
-					
-                  <div class="circle dark inline">
-					<img src="images/cart-logo.png" class="img-responsive">
-                  </div>
-                   <div class="circle dark inline">
-					<i class="icon ion-navicon"></i>
-                  </div>
-
-                  <div class="list-menu">
-                    <i class="icon ion-close-round close-iframe"></i>
-                    <div class="intro-inner">
-                      <ul id="nav-menu">
-                        <li><a href="../customer-page/customerprofile.php">My Account</a></li>
-                        <li><a href="">Order History</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-						<li><a href="">FAQ</a></li>
-						<li><a href="">Feedback</a></li>
-						<li><a href="homepage-static.html">Logout</a></li>
-                      </ul>
-                   </div>
-				  </div>
-		   		</div>
-			 </div>
-		  </div>
-	   </div>
-	   </div>
-   </nav>
+<div class="bloc l-bloc" id="nav-bloc" style="background: #ffffff">
+	<div class="container">
+		<nav class="navbar row">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"><img src="images/ikea-logo.png" alt="Ikea Logo" style="width: 130px; height: 50px;"></a>
+				<button id="nav-toggle" type="button" class="ui-navbar-toggle navbar-toggle" data-toggle="collapse" data-target=".navbar-1">
+					<span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse navbar-1">
+				<ul class="site-navigation nav">
+					<li>
+						<a href="#portfolio">HUNGRY?</a>
+					</li>
+					<li>
+						<a href="#">BOOK A TABLE</a>
+					</li>
+					<li>
+						<a href="#"><img src="images/cart-logo.png" alt="Add to cart" style="width: 33px; height: 40px; padding-bottom: 10px; margin-left: 50px "></a>
+					</li>
+					<li>
+						<a href="#" ><i class="fas fa-user-alt" style="font-size:19px"></i></a>
+					</li>
+          </ul>
+			</div>
+		</nav>
+	</div>
 </div>
+<!-- Navigation Block END -->
+	
 <!-- Header section
 ================================================== -->
 <section id="header" class="header-one">
@@ -154,8 +245,9 @@ img {vertical-align: middle;}
 
 			<div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8">
           <div class="header-thumb">
-              <h1 class="wow fadeIn" data-wow-delay="1s">IKEA RESTAURANT</h1>
-              <h3 class="wow fadeInUp" data-wow-delay="1.2s">IKEA Cheras</h3>
+              <h1 class="wow fadeIn" data-wow-delay="0.5s">IKEA RESTAURANT</h1>
+			  <hr class="new1">
+              <h3 class="wow fadeInUp" data-wow-delay="0.7s">IKEA Cheras</h3>
           </div>
 			</div>
 
@@ -170,15 +262,15 @@ img {vertical-align: middle;}
 <div class="slideshow-container">
 
 <div class="mySlides ">
-  <img src="images/food-promo.png" style="width:100%; height: 530px">
+  <img src="images/food-promo.png" alt="First Slide" style="width:100%; height: 530px">
 </div>
 
 <div class="mySlides ">
-  <img src="images/food-promo2.png" style="width:100%; height: 530px">
+  <img src="images/food-promo2.png" alt="Second Slide" style="width:100%; height: 530px">
 </div>
 
 <div class="mySlides ">
-  <img src="images/food-promo3.png" style="width:100%; height: 530px">
+  <img src="images/food-promo3.png" alt="Third Slide" style="width:100%; height: 530px">
 </div>
 
 </div>
@@ -200,7 +292,7 @@ img {vertical-align: middle;}
          <div class="col-md-12 col-sm-12">
            <h1-1><strong>FOOD MENU</strong></h1-1>
                <!-- iso section -->
-               <div class="iso-section wow fadeInUp" data-wow-delay="1s">
+               <div class="iso-section wow fadeInUp" data-wow-delay="0.2s">
 					
                   <ul class="filter-wrapper clearfix">
                            <li><a href="#" data-filter=".main" class="opc-main-bg">&nbsp;MAIN&nbsp;</a></li>
@@ -211,7 +303,7 @@ img {vertical-align: middle;}
                         </ul>
 
                         <!-- iso box section -->
-                        <div class="iso-box-section wow fadeInUp" data-wow-delay="1s">
+                        <div class="iso-box-section wow fadeInUp" data-wow-delay="0.2s">
                            <div class="iso-box-wrapper col4-iso-box">
 
                               <div class="iso-box main col-md-4 col-sm-6">
@@ -787,6 +879,7 @@ img {vertical-align: middle;}
 <script src="js/imagesloaded.min.js"></script>
 <script src="js/wow.min.js"></script>
 <script src="js/custom.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 	
 <!-- Slideshow Js
 ================================================== -->
@@ -811,6 +904,22 @@ function showSlides() {
   setTimeout(showSlides, 4000); // Change image every 2 seconds
 }
 </script>
+	
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("nav-bloc");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+
 
 </body>
 </html>

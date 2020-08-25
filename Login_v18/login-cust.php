@@ -2,7 +2,8 @@
 <?php include('php/server.php') ?>
 <html lang="en">
 <head>
-	<title>IKEA Restaurant Login</title>
+	<title>Login</title>
+	<link rel="icon" href="images/ikea-logo3.png" type="image/png">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -27,15 +28,83 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+	
+<style>
+.login100-form-btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #000000 ;
+
+  font-family: Montserrat-Regular;
+  font-size: 13.5px;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+	
+.login100-form-btn:hover {
+  opacity: 0.8;
+}
+	
+.focus-input100 {
+  position: absolute;
+  display: block;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  top: -1px;
+  left: -1px;
+  pointer-events: none;
+  border: 1px solid #c2c2c2;
+  border-radius: 10px;
+
+  visibility: hidden;
+  opacity: 0;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+
+  -webkit-transform: scaleX(1.1) scaleY(1.3);
+  -moz-transform: scaleX(1.1) scaleY(1.3);
+  -ms-transform: scaleX(1.1) scaleY(1.3);
+  -o-transform: scaleX(1.1) scaleY(1.3);
+  transform: scaleX(1.1) scaleY(1.3);
+}
+
+a:hover {
+	text-decoration: none;
+  color: #999999;
+}
+
+</style>
+	
 </head>
 <body style="background-color: #666666;">
 	
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form method="post" action="php/server.php" class="login100-form validate-form">
+				<form method="post" action="php/server.php" class="login100-form validate-form" style="padding: 100px 55px 0px 55px;">
 					<?php include('php/errors.php') ?>
 				  <span class="login100-form-title p-b-43">
+				  <a class="navbar-brand"><img src="../IKEA%20E-Restaurant/images/ikea-logo.png" alt="Ikea Logo" style="width: 145px; height: 55px;"></a><br><br>
 				  Login to continue
 				</span>
 					
