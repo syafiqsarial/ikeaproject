@@ -36,7 +36,7 @@
 
 	<!-- Google web font 
    ================================================== -->	
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+  	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
 	
 </head>
 	
@@ -192,6 +192,7 @@ hr.new1 {
   border: 0.5px solid #c4c4c4;	
 }
 
+
 </style>
 	
 <body>
@@ -225,12 +226,21 @@ hr.new1 {
 						<a href="#">BOOK A TABLE</a>
 					</li>
 					<li>
-						<a href="#"><img src="images/cart-logo.png" alt="Add to cart" style="width: 33px; height: 40px; padding-bottom: 10px; margin-left: 50px "></a>
+						<a href="#"><i class="fas fa-shopping-cart" style="width: 33px; height: 40px; padding-bottom: 10px; margin-left: 50px"></i></a>
 					</li>
 					<li>
-						<a href="#" ><i class="fas fa-user-alt" style="font-size:19px"></i></a>
-					</li>
-          </ul>
+						<div class="dropdown">
+    					<a href="#" class="fas fa-user-alt dropdown-toggle" style="font-size:19px; padding-top: 16px" type="button" data-toggle="dropdown"></a>
+    						<ul class="dropdown-menu">
+      							<li><a href="#" style="letter-spacing: 0.4px; font-size: 16px">My Account</a></li>
+      							<li><a href="#" style="letter-spacing: 0.4px; font-size: 16px">Order History</a></li>
+      							<li><a href="#" style="letter-spacing: 0.4px; font-size: 16px">Booking History</a></li>
+	 			 				<li class="divider"></li>
+	  							<li><a href="homepage-static.html" style="letter-spacing: 0.4px; font-size: 16px">Logout</a></li>
+    						</ul>
+  						</div>
+					</li>				
+          		</ul>
 			</div>
 		</nav>
 	</div>
@@ -853,24 +863,78 @@ hr.new1 {
 
 <!-- Footer section
 ================================================== -->
-<footer>
-	<div class="container">
-		<div class="row">
-
-			<div class="col-md-12 col-sm-12">
-				<p class="wow fadeInUp"  data-wow-delay="0.3s">© Inter IKEA Systems B.V. 1999-2020</p>
-				<ul class="social-icon wow fadeInUp"  data-wow-delay="0.6s">
-					<li><a href="https://www.facebook.com/IKEAMalaysia" class="fa fa-facebook"></a></li>
-					<li><a href="https://www.instagram.com/ikeamalaysia/" class="fa fa-instagram"></a></li>
-					<li><a href="https://www.youtube.com/user/ikeamalaysia" class="fa fa-youtube"></a></li>
-					<li><a href="https://www.linkedin.com/company/ikea-southeast-asia/" class="fa fa-linkedin"></a></li>
-				</ul>
-				</div>
-			
-		</div>
-	</div>
-</footer>
 	
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer{
+  background: #152F4F;
+	color:white; }
+  
+.links{
+    ul {list-style-type: none;}
+    li a{
+      color: white;
+      transition: color .2s;
+    }
+ }  
+
+a:hover{
+        text-decoration:none;
+        color: #949494;
+        }
+	
+.about-company{
+    i{font-size: 25px;}
+    a{
+      color:white;
+      transition: color .2s;
+      &:hover{color:#949494;}
+    }
+} 
+	
+.location{
+    i{font-size: 18px;}
+}
+	
+.copyright p{border-top:1px solid rgba(255,255,255,.1);} 
+	
+</style>
+
+<div class="mt-5 pt-5 pb-5 footer">
+<div class="container">
+  <div class="row"><br><br>
+    <div class="col-lg-5 col-xs-12 about-company">
+      <h2 style="font-size: 27px; font-weight: 600; letter-spacing: 0.1rem">Food at IKEA</h2>
+      <p class="pr-5 text-white-50" style="font-size: 16px; font-weight: 300; color: #dedede">We want to offer food that’s delicious, sustainable and nutritionally balanced. That’s why we include a variety<br> of more sustainable options at our IKEA Restaurants,<br> IKEA Swedish Food Markets, and IKEA Café. </p><br>
+      <p><a href="https://www.facebook.com/IKEAMalaysia"><i class="fab fa-facebook" style="font-size: 20px">&nbsp;&nbsp;</i></a><a href="https://www.instagram.com/ikeamalaysia/"><i class="fab fa-instagram" style="font-size: 20px">&nbsp;&nbsp;</i></a><a href="https://www.linkedin.com/company/ikea-southeast-asia/"><i class="fab fa-linkedin" style="font-size: 20px">&nbsp;&nbsp;</i></a><a href="https://www.youtube.com/user/ikeamalaysia"><i class="fab fa-youtube" style="font-size: 20px">&nbsp;&nbsp;</i></a></p>
+    </div>
+    <div class="col-lg-3 col-xs-12 links">
+      <h4 class="mt-lg-0 mt-sm-4" style="font-size: 20px; font-weight: 400; letter-spacing: 0.1rem">Our Company</h4>
+        <ul class="m-0 p-0">
+          <li><a href="#" style="font-size: 17px; font-weight: 300; color: #e6e6e6; letter-spacing: 0.5px">About us</a></li>
+          <li><a href="#" style="font-size: 17px; font-weight: 300; color: #e6e6e6; letter-spacing: 0.5px">Feedback</a></li>
+        </ul>
+    </div>
+    <div class="col-lg-4 col-xs-12 location">
+      <h4 class="mt-lg-0 mt-sm-4" style="font-size: 20px; font-weight: 400; letter-spacing: 0.1rem">Location</h4>
+      <p style="font-size: 16px; font-weight: 300; ">2A, Jalan Cochrane, Maluri, 55100 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia.</p>
+      <p class="mb-0" style="font-size: 16px; font-weight: 300; color: #e6e6e6"><i class="fas fa-phone-alt">&nbsp;</i><a href="tel:+60379527575">+603-7952 7575</a></p>
+      <p style="font-size: 16px; font-weight: 300; color: #e6e6e6"><i class="fas fa-envelope">&nbsp;</i><a href="mailto:customerservice.ikeamy@ikano.asia">customerservice.ikeamy@ikano.asia</a></p>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col copyright"><br>
+      <p class="" style="color: #dedede"><small class="text-white-50">© Inter IKEA Systems B.V. 1999-2020</small></p><br><br>
+    </div>
+  </div>
+</div>
+</div>
+
 <!-- Javascript 
 ================================================== -->
 <script src="js/jquery.js"></script>
@@ -880,7 +944,7 @@ hr.new1 {
 <script src="js/wow.min.js"></script>
 <script src="js/custom.js"></script>
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-	
+
 <!-- Slideshow Js
 ================================================== -->
 <script>
