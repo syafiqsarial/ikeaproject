@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>List Menu</title>
+<title>Foods Menu</title>
 </head>
 
 <body><!DOCTYPE html>
@@ -18,29 +18,6 @@ if (isset($_POST['logout'])) {
   header("Location: ../signup-login-cust-admin/logout.php");
 }
   ?>
-	<style>
-		table.table td a.add {
-			color: #27C46B;
-		}
-		table.table td a.edit {
-			color: #FFC107;
-		}
-		table.table td a.delete {
-			color: #E34724;
-		}
-		table.table td .add {
-			display: none;
-		}
-		table.table td a.add i {
-			font-size: 24px;
-			margin-right: -1px;
-			position: relative;
-			top: 3px;
-		}   
-		table.table .form-control.error {
-			border-color: #f50000;
-		}
-	</style>
 
 <head>
 
@@ -50,18 +27,12 @@ if (isset($_POST['logout'])) {
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin - Profile</title>
+  <title>Foods Menu</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	
 
 
   <!-- Custom styles for this template-->
@@ -120,7 +91,7 @@ if (isset($_POST['logout'])) {
       </li>
 	  
 	  <!-- Nav Item - Customer List -->
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="customerlist.php">
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
           <span>Customer List</span></a>
@@ -134,7 +105,7 @@ if (isset($_POST['logout'])) {
       </li>-->
 	  
 	  <!-- Nav Item - Menus Updated -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="menusupdated.php">
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
           <span>Food Menu List</span></a>
@@ -352,7 +323,7 @@ if (isset($_POST['logout'])) {
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Food Menu</h1>
-          <p class="mb-4">Add new menus to the menu list.</p>
+          <p class="mb-4">Update existing menu.</p>
 
           <!-- Content Row -->
 			
@@ -363,79 +334,61 @@ if (isset($_POST['logout'])) {
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Menu List</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Update Existing Customer</h6>
                   
                 </div>
                 <!-- Setting Info Body -->
                 <div class="card-body">
 				<?php
+					
+					$con = mysqli_connect("localhost", "ikea", "ikea", "ikea"); 
+					//if (!$con) {
+//                        echo  mysqli_connect_error();
+//                        exit;
+//                      }
+//                      $sql = "SELECT * FROM menus";
+//
+//                      $result = mysqli_query($con, $sql);
+//                      mysqli_close($con);
+//                      $qry = $result;
+					
 					include "function.php";
-					echo '<a href="menus.php" class="btn btn-primary float-right">Add Menu</a> <br>';
+					$username=$_POST['customerToUpdate'];
+					$qry = getCustomerInformation($username); ///////buat function.php to store all functions
+					$row = mysqli_fetch_assoc($qry);
 					
-					$con=mysqli_connect("localhost","ikea","ikea","ikea");
+					//assign data to variable
+					//$oldname = $_POST['name'];
+					//$newname = $_POST['newname'];
+					$name = $row['name'];
+					$email =$row['email'];
+					$phonenumber =$row['phonenumber'];
 					
-						if (!$con) {
-                        echo  mysqli_connect_error();
-                        exit;
-						}
 					
-						$sql = "SELECT * FROM menus";
+					
+					
+					  echo '<form action="process.php" method="POST">';
+					
+					  echo '<div class="form-group"><label class="bmd-label-floating">Username</label>';  
+					   echo 	"<input type='text' name='newusername' value='".$row['username']."' class='form-control' required> ";
+					   //echo 	"<input type='text' name='newname' value='$name' class='form-control' required> </div>";
+					   echo     "<input type='hidden' name='username' value='".$row['username']."'> </div>";
 
-					    $result = mysqli_query($con, $sql);
-						mysqli_close($con);
-						$qry = $result;
+					  echo '<div class="form-group"><label class="bmd-label-floating">Name</label>'; 
+					  echo 		"<input type='text' name='name' value='".$row['name']."' class='form-control'> </div>";
+					  //echo 		"<input type='number' name='price' value='$price' class='form-control'> </div>";
+
+					  echo '<div class="form-group"><label class="bmd-label-floating">Email</label>'; 
+					  echo 		"<input type='text' name='email' value='".$row['email']."' class='form-control'> </div>";
+					  //echo 		"<input type='text' name='price' value='$description' class='form-control'> </div>";
 					
- 						//$list = mysqli_num_rows($qry);
-					
-					    //// display menu info
-						echo '<table class="table">
-						<br>
-							<thead class=" text-primary">
-								<tr>
-								<th>Name</th>
-								<th>Price (RM)</th>
-								<th>Description</th>
-								<th>Category</th>
-								<th>Image</th>
-								<th>Update</th>
-								<th>Delete</th>
-								</tr>
-							</thead>';
-						$i=1;
-						while ($row = mysqli_fetch_assoc($qry)) {
-						//$menusIDAlterValue = $row['id'];
-						  echo '<tbody><tr>';
-                          //echo '<form action="" method="POST">';
-                          echo "<td> " . $row['name'] . "";
-                          echo "<td> " . $row['price'] . "";
-                          echo "<td> " . $row['description'] . "";
-                          echo "<td> " . $row['category'] . "";
-						  echo '<td><a href="imageView2.php?id='.$row['id'].'">Click Me</a>';
-						  $name = $row['name'];
-						  ///////////////////////////////////// to update menu
-						  echo '<td>';
-							echo '<form action="updatemenu.php" method="post" >';
-							echo   "<input type='hidden' value='$name' name='menuToUpdate'>";
-						  	echo   '<button type="submit" name="updatemenu" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i>';
-							//echo   '<input type="submit" name="updatemenu" value="Update">';
-							echo '</form>';
-						  echo '</td>';
-						  ///////////////////////////////////// to delete
-						  echo '<td>';
-							echo '<form action="process.php" method="post" >';
-							echo 	"<input type='hidden' value='$name' name='menuToDelete'>";
-							echo	'<button type="submit" name="deletemenu" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>';
-							//echo   '<input type="submit" name="deletemenu" value="Delete">';
-							echo '</form>';
-					      echo '</td>';
-							
-						  echo '</tbody></tr>';
-							$i++;
-						}
-						echo '</table>';
-					
+					  echo '<div class="form-group"><label class="bmd-label-floating">Phone Number</label>'; 
+					  echo 		"<input type='text' name='phonenumber' value='".$row['phonenumber']."' class='form-control'> </div>";
+					  //echo 		"<input type='text' name='price' value='$description' class='form-control'> </div>";
+
+					  echo '<input type="submit" name="updatecustomer" value="Update Customer"  class="btn btn-primary pull-right" >';
+					  echo '</form>';
 						?>
-					
                 </div>		
               </div>
           </div>
@@ -507,8 +460,7 @@ if (isset($_POST['logout'])) {
   <script src="js/demo/chart-bar-demo.js"></script>
 
 </body>
-
-
+ 
 	
         
        

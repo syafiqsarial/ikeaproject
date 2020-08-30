@@ -1,16 +1,14 @@
 <?php 
 	session_start(); 
 
-	if (!isset($_SESSION['username'])) {
-		$_SESSION['msg'] = "You must log in first";
-		header('location: login2.php');
+	if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
+	  session_destroy();
+	  header("Location: ../../IKEA E-Restaurant/homepage-static.html");
 	}
-
-	if (isset($_GET['logout'])) {
-		session_destroy();
-		unset($_SESSION['username']);
-		header("location: homepage.php");
+	if (isset($_POST['logout'])) {
+	  header("Location: ../signup-login-cust-admin/logout.php");
 	}
+	
 
 ?>
 <!DOCTYPE html>
@@ -44,7 +42,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="indexadmin.php">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -56,7 +54,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="indexadmin.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -82,26 +80,33 @@
           <i class="fas fa-user fa-sm fa-fw mr-2 "></i>
           <span>Setting Profile</span></a>
       </li>
+	  
+	  <!-- Nav Item - Customer List -->
+      <li class="nav-item">
+        <a class="nav-link" href="customerlist.php">
+          <i class="fas fa-table fa-sm fa-fw mr-2"></i>
+          <span>Customer List</span></a>
+      </li>
 
       <!-- Nav Item - Menus Add -->
-      <li class="nav-item">
+      <!--<li class="nav-item">
         <a class="nav-link" href="menus.php">
           <i class="fas fa-table fa-sm fa-fw mr-2 "></i>
           <span>Menus - Add</span></a>
-      </li>
+      </li>-->
 	  
 	  <!-- Nav Item - Menus Updated -->
       <li class="nav-item">
         <a class="nav-link" href="menusupdated.php">
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
-          <span>Menus - Updated</span></a>
+          <span>Food Menu List</span></a>
       </li>
 	  
       <!-- Nav Item - Tables Booking -->
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="tableslist.php">
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
-          <span>Tables Booking</span></a>
+          <span>Table List</span></a>
       </li>
 
       <!-- Divider -->
@@ -274,7 +279,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
                 <?php echo '<img src="imageView.php?username='.$_SESSION['username'].'" class="img-profile rounded-circle">'; ?>
               </a>
               <!-- Dropdown - User Information -->

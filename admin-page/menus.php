@@ -89,26 +89,33 @@ if (isset($_POST['logout'])) {
           <i class="fas fa-user fa-sm fa-fw mr-2 "></i>
           <span>Setting Profile</span></a>
       </li>
+	  
+	  <!-- Nav Item - Customer List -->
+      <li class="nav-item">
+        <a class="nav-link" href="customerlist.php">
+          <i class="fas fa-table fa-sm fa-fw mr-2"></i>
+          <span>Customer List</span></a>
+      </li>
 
       <!-- Nav Item - Menus Add -->
-      <li class="nav-item active">
+      <!--<li class="nav-item">
         <a class="nav-link" href="menus.php">
           <i class="fas fa-table fa-sm fa-fw mr-2 "></i>
           <span>Menus - Add</span></a>
-      </li>
+      </li>-->
 	  
 	  <!-- Nav Item - Menus Updated -->
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="menusupdated.php">
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
-          <span>Menus - Updated</span></a>
+          <span>Food Menu List</span></a>
       </li>
 	  
       <!-- Nav Item - Tables Booking -->
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="tableslist.php">
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
-          <span>Tables Booking</span></a>
+          <span>Table List</span></a>
       </li>
 
       <!-- Divider -->
@@ -281,7 +288,7 @@ if (isset($_POST['logout'])) {
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">             
-				  <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+				  <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
 				  <?php echo '<img src="imageView.php?username='.$_SESSION['username'].'" class="img-profile rounded-circle">'; ?>
               </a>
               <!-- Dropdown - User Information -->
@@ -365,7 +372,7 @@ if (isset($_POST['logout'])) {
                       $result = mysqli_query($con, $sql);
                       mysqli_close($con);
                       $qry = $result;
-					
+					  
 					   //if(is_uploaded_file($_FILES['image']['tmp_name'])) {
 						  //require_once "db.php";
 						//$imgData =addslashes(file_get_contents($_FILES['image']['tmp_name']));
@@ -492,8 +499,9 @@ function add()
 			</div></div>
 		</div>';
 	
-  echo '<input type="submit" name="addMenu"  class="btn btn-primary pull-right" >';
+  echo '<input type="submit" name="addMenu" value="Add Menu"  class="btn btn-primary pull-right" >';
   echo '</form>';
+  //header( "refresh:1; url=menusupdated.php" );
 }
 
 

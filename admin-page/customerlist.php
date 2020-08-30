@@ -120,7 +120,7 @@ if (isset($_POST['logout'])) {
       </li>
 	  
 	  <!-- Nav Item - Customer List -->
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="customerlist.php">
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
           <span>Customer List</span></a>
@@ -134,7 +134,7 @@ if (isset($_POST['logout'])) {
       </li>-->
 	  
 	  <!-- Nav Item - Menus Updated -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="menusupdated.php">
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
           <span>Food Menu List</span></a>
@@ -351,8 +351,8 @@ if (isset($_POST['logout'])) {
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Food Menu</h1>
-          <p class="mb-4">Add new menus to the menu list.</p>
+          <h1 class="h3 mb-2 text-gray-800">Customer List</h1>
+          <p class="mb-4">List of customer which can edit or delete.</p>
 
           <!-- Content Row -->
 			
@@ -363,14 +363,14 @@ if (isset($_POST['logout'])) {
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Menu List</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Customer List</h6>
                   
                 </div>
                 <!-- Setting Info Body -->
                 <div class="card-body">
 				<?php
 					include "function.php";
-					echo '<a href="menus.php" class="btn btn-primary float-right">Add Menu</a> <br>';
+					//echo '<a href="menus.php" class="btn btn-primary float-right">Add Menu</a> <br>';
 					
 					$con=mysqli_connect("localhost","ikea","ikea","ikea");
 					
@@ -379,7 +379,7 @@ if (isset($_POST['logout'])) {
                         exit;
 						}
 					
-						$sql = "SELECT * FROM menus";
+						$sql = "SELECT * FROM customers";
 
 					    $result = mysqli_query($con, $sql);
 						mysqli_close($con);
@@ -389,13 +389,14 @@ if (isset($_POST['logout'])) {
 					
 					    //// display menu info
 						echo '<table class="table">
-						<br>
+						
 							<thead class=" text-primary">
 								<tr>
+								<th>Username</th>
 								<th>Name</th>
-								<th>Price (RM)</th>
-								<th>Description</th>
-								<th>Category</th>
+								<th>Email</th>
+								<th>Phone Number</th>
+								<th>Password</th>
 								<th>Image</th>
 								<th>Update</th>
 								<th>Delete</th>
@@ -406,26 +407,27 @@ if (isset($_POST['logout'])) {
 						//$menusIDAlterValue = $row['id'];
 						  echo '<tbody><tr>';
                           //echo '<form action="" method="POST">';
+                          echo "<td> " . $row['username'] . "";
                           echo "<td> " . $row['name'] . "";
-                          echo "<td> " . $row['price'] . "";
-                          echo "<td> " . $row['description'] . "";
-                          echo "<td> " . $row['category'] . "";
-						  echo '<td><a href="imageView2.php?id='.$row['id'].'">Click Me</a>';
-						  $name = $row['name'];
+                          echo "<td> " . $row['email'] . "";
+                          echo "<td> " . $row['phonenumber'] . "";
+						  echo "<td> " . $row['password'] . "";
+						  echo '<td><a href="imageView3.php?id='.$row['id'].'">Click Me</a>';
+						  $username = $row['username'];
 						  ///////////////////////////////////// to update menu
 						  echo '<td>';
-							echo '<form action="updatemenu.php" method="post" >';
-							echo   "<input type='hidden' value='$name' name='menuToUpdate'>";
-						  	echo   '<button type="submit" name="updatemenu" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i>';
-							//echo   '<input type="submit" name="updatemenu" value="Update">';
+							echo '<form action="updatecustomer.php" method="post" >';
+							echo   "<input type='hidden' value='$username' name='customerToUpdate'>";
+						  	echo   '<button type="submit" name="updatecustomer" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i>';
+							//echo   '<input type="submit" name="updatecustomer" value="Update">';
 							echo '</form>';
 						  echo '</td>';
 						  ///////////////////////////////////// to delete
 						  echo '<td>';
 							echo '<form action="process.php" method="post" >';
-							echo 	"<input type='hidden' value='$name' name='menuToDelete'>";
-							echo	'<button type="submit" name="deletemenu" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>';
-							//echo   '<input type="submit" name="deletemenu" value="Delete">';
+							echo 	"<input type='hidden' value='$username' name='customerToDelete'>";
+							echo	'<button type="submit" name="deletecustomer" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i>';
+							//echo   '<input type="submit" name="deletecustomer" value="Delete">';
 							echo '</form>';
 					      echo '</td>';
 							

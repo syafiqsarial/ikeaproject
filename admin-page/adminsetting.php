@@ -18,6 +18,12 @@ if (isset($_POST['logout'])) {
   header("Location: ../signup-login-cust-admin/logout.php");
 }
   ?>
+	<style>
+		
+		a, a:hover{
+		  color:#FFFFFF
+		}
+	</style>
 
 <head>
 
@@ -89,27 +95,34 @@ if (isset($_POST['logout'])) {
           <i class="fas fa-user fa-sm fa-fw mr-2 "></i>
           <span>Setting Profile</span></a>
       </li>
+	  
+	  <!-- Nav Item - Customer List -->
+      <li class="nav-item">
+        <a class="nav-link" href="customerlist.php">
+          <i class="fas fa-table fa-sm fa-fw mr-2"></i>
+          <span>Customer List</span></a>
+      </li>
 
       <!-- Nav Item - Menus Add -->
-      <li class="nav-item">
+      <!--<li class="nav-item">
         <a class="nav-link" href="menus.php">
           <i class="fas fa-table fa-sm fa-fw mr-2 "></i>
           <span>Menus - Add</span></a>
-      </li>
+      </li>-->
 	  
 	  <!-- Nav Item - Menus Updated -->
       <li class="nav-item">
         <a class="nav-link" href="menusupdated.php">
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
-          <span>Menus - Updated</span></a>
+          <span>Food Menu List</span></a>
       </li>
 	  
       <!-- Nav Item - Tables Booking -->
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="tableslist.php">
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
-          <span>Tables Booking</span></a>
-      </li>
+          <span>Table List</span></a>
+      </li>s
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -281,7 +294,7 @@ if (isset($_POST['logout'])) {
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">             
-				  <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+				  <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
 				  <?php echo '<img src="imageView.php?username='.$_SESSION['username'].'" class="img-profile rounded-circle">'; ?>
               </a>
               <!-- Dropdown - User Information -->
@@ -380,19 +393,26 @@ if (isset($_POST['logout'])) {
 				  echo       '<div class="form-group">';                       
 				  echo            '<div class="col-xs-6">';
 				  echo              '<label for="name"><h4>Name</h4></label>';
-				  echo                "<input type='name' class='form-control' name='name'  placeholder='Name' title='enter your 						name if any.' value='$name' >";
+				  echo                "<input type='name' class='form-control' name='name'  placeholder='".$row['name']."' title='enter your name if any.' value='$name' >";
 				  echo            '</div>';
 				  echo        '</div>';          
 				  echo        '<div class="form-group">';                       
 				  echo            '<div class="col-xs-6">';
 				  echo                '<label for="email"><h4>Email</h4></label>';
-				  echo                "<input type='email' class='form-control' name='email'  placeholder='Email' title='enter your 						email if any.' value='$email' >";
+				  echo                "<input type='email' class='form-control' name='email'  placeholder='".$row['email']."' title='enter your email if any.' value='$email' >";
 				  echo            '</div>';
 				  echo        '</div>' ;       
 				  echo       '<div class="form-group">';
 				  echo            '<div class="col-xs-6">';
 				  echo               '<label for="password"><h4>Password</h4></label>';
-				  echo                "<input type='password' class='form-control' name='password'  placeholder='Password' title='enter your 						password if any.' value='$password' >";
+				  echo					'<div class="input-group" id="show_hide_password">';
+				  echo                		"<input type='password' class='form-control' name='password'  placeholder='Password' title='enter your password if any.' value='$password' >";
+				  echo						'<div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-eye-slash fa-sm aria-hidden="true""></i>
+                </button>
+              </div>';
+				  echo 					'</div>';
 				  echo            '</div>';
 				  echo        '</div>';
 
@@ -406,7 +426,9 @@ if (isset($_POST['logout'])) {
 				  echo       '</div>';
 
 				  echo	'</form>';
-								
+							//<!--<div class="input-group-append">
+//													<a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+//											 </div>-->	
 					?> 
                 </div>		
               </div>
@@ -495,7 +517,24 @@ if (isset($_POST['logout'])) {
 		return $qry;  //return query
 	}
 	
-      ?>    	  
+      ?>   
+	
+	<script>
+		$(document).ready(function() {
+    $("#show_hide_password button").on('click', function(event) {
+        event.preventDefault();
+        if($('#show_hide_password input').attr("type") == "text"){
+            $('#show_hide_password input').attr('type', 'password');
+            $('#show_hide_password i').addClass( "fa-eye-slash" );
+            $('#show_hide_password i').removeClass( "fa-eye" );
+        }else if($('#show_hide_password input').attr("type") == "password"){
+            $('#show_hide_password input').attr('type', 'text');
+            $('#show_hide_password i').removeClass( "fa-eye-slash" );
+            $('#show_hide_password i').addClass( "fa-eye" );
+        }
+    });
+});
+	</script>
         
        
 </html>
