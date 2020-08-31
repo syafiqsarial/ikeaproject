@@ -105,14 +105,14 @@ if (isset($_POST['logout'])) {
       </li>-->
 	  
 	  <!-- Nav Item - Menus Updated -->
-      <li class="nav-item active">
+      <li class="nav-item ">
         <a class="nav-link" href="menusupdated.php">
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
           <span>Food Menu List</span></a>
       </li>
 	  
       <!-- Nav Item - Tables Booking -->
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="tableslist.php">
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
           <span>Table List</span></a>
@@ -322,8 +322,8 @@ if (isset($_POST['logout'])) {
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Food Menu</h1>
-          <p class="mb-4">Add new menus to the menu list.</p>
+          <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+          <p class="mb-4">Add new tables to the table list.</p>
 
           <!-- Content Row -->
 			
@@ -334,7 +334,7 @@ if (isset($_POST['logout'])) {
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Add Food Menu</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Add Table</h6>
                   
                 </div>
                 <!-- Setting Info Body -->
@@ -343,21 +343,18 @@ if (isset($_POST['logout'])) {
 					add();
 					$con = mysqli_connect("localhost", "ikea", "ikea", "ikea"); 
 					
-					$name = $_POST['name'];
-				    $price = $_POST['price'];
-				    $description = $_POST['description'];
-				    $category = $_POST['category'];
+					$tablepax = $_POST['tablepax'];
+				   
 
-					$imgData =addslashes(file_get_contents($_FILES['image']['tmp_name']));
-					$imageProperties = getimagesize($_FILES['image']['tmp_name']);
+					
   
-					if (isset($_POST['addMenu'])) {
+					if (isset($_POST['addTable'])) {
                       if (!$con) {
                         echo  mysqli_connect_error();
                         exit;
                       }
 					  
-                      $sql = "INSERT INTO `menus` (`name`, `price`, `description`, `category`, `imageType` ,`imageData`) VALUES ('$name', '$price', '$description', '$category', '{$imageProperties['mime']}', '{$imgData}') ";
+                      $sql = "INSERT INTO `tables` (`tablepax`) VALUES ('$tablepax') ";
                       $result = mysqli_query($con, $sql);
 						
 
@@ -367,7 +364,7 @@ if (isset($_POST['logout'])) {
                       else
                         echo '<script>alert("Insertion Failed.")</script>';
 						
-             			$sql = "SELECT * FROM menus";
+             			$sql = "SELECT * FROM tables";
 
                       $result = mysqli_query($con, $sql);
                       mysqli_close($con);
@@ -390,7 +387,7 @@ if (isset($_POST['logout'])) {
                         echo  mysqli_connect_error();
                         exit;
                       }
-                      $sql = "SELECT * FROM menus";
+                      $sql = "SELECT * FROM tables";
 
                       $result = mysqli_query($con, $sql);
                       mysqli_close($con);
@@ -471,35 +468,11 @@ if (isset($_POST['logout'])) {
    <?php
 function add()
 {
-  echo '<form action="" method="POST" enctype="multipart/form-data">';
-  echo '<div class="form-group"><label class="bmd-label-floating">Food Name</label>
-        <input type="text" name="name" class="form-control"required> </div>';
-	
-  echo '<div class="form-group"><label class="bmd-label-floating">Price</label>
-        <input type="number" name="price" class="form-control"required> </div>';
-	
-  echo '<div class="form-group"><label class="bmd-label-floating">Description</label>
-        <input type="text" name="description" class="form-control"required> </div>';
-	
-  echo '<div class="form-group"><label class="bmd-label-floating">Category</label><br>
-  		<select name="category" class="form-control"required>
-  		<option>Main</option>
-		<option>Kids</option>
-		<option>Sides</option>
-		<option>IKEA Family</option>
-		<option>IKEA Cafe</option>
-		</select>
- 		</div>';
-	
-  echo '<div class="form-group"><label class="bmd-label-floating">Photo</label><br>
-  			
-			<input type="file"  name="image" class="text-center center-block file-upload">	
-			<div class="form-group">
-			<div class="col-xs-12"><br>
-			</div></div>
-		</div>';
-	
-  echo '<input type="submit" name="addMenu" value="Add Menu"  class="btn btn-primary pull-right" >';
+  echo '<form action="" method="POST" >';
+  echo '<div class="form-group"><label class="bmd-label-floating">Table Pax</label>
+        <input type="text" name="tablepax" class="form-control"required> </div>';
+
+  echo '<input type="submit" name="addTable" value="Add Table"  class="btn btn-primary pull-right" >';
   echo '</form>';
   //header( "refresh:1; url=menusupdated.php" );
 }

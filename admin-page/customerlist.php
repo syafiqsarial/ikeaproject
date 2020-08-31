@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Foods Menu</title>
+<title>List Menu</title>
 </head>
 
 <body><!DOCTYPE html>
@@ -18,6 +18,151 @@ if (isset($_POST['logout'])) {
   header("Location: ../signup-login-cust-admin/logout.php");
 }
   ?>
+	<style>
+body {
+    color: #566787;
+    background: #f5f5f5;
+    font-family: 'Roboto', sans-serif;
+}
+.table-responsive {
+    margin: 30px 0;
+}
+.table-wrapper {
+    min-width: 1000px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.table-title {
+    padding-bottom: 10px;
+    margin: 0 0 10px;
+    min-width: 100%;
+}
+.table-title h2 {
+    margin: 8px 0 0;
+    font-size: 22px;
+}
+.search-box {
+    position: relative;        
+    float: right;
+}
+.search-box input {
+    height: 34px;
+    border-radius: 20px;
+    padding-left: 35px;
+    border-color: #ddd;
+    box-shadow: none;
+}
+.search-box input:focus {
+    border-color: #3FBAE4;
+}
+.search-box i {
+    color: #a0a5b1;
+    position: absolute;
+    font-size: 19px;
+    top: 8px;
+    left: 10px;
+}
+table.table tr th, table.table tr td {
+    border-color: #e9e9e9;
+}
+table.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #fcfcfc;
+}
+table.table-striped.table-hover tbody tr:hover {
+    background: #f5f5f5;
+}
+table.table th i {
+    font-size: 13px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+table.table td:last-child {
+    width: 130px;
+}
+table.table td a {
+    color: #a0a5b1;
+    display: inline-block;
+    margin: 0 5px;
+}
+table.table td button {
+    color: #a0a5b1;
+    display: inline-block;
+ 
+}
+table.table td a.view {
+    color: #03A9F4;
+}
+table.table td button.edit {
+    color: #FFC107;
+	border: none;
+	background-color: Transparent;
+}
+table.table td button.delete {
+    color: #E34724;
+	border: none;
+	background-color: Transparent;
+	
+}
+table.table td i {
+    font-size: 19px;
+}    
+.pagination {
+    float: right;
+    margin: 0 0 5px;
+}
+.pagination li a {
+    border: none;
+    font-size: 95%;
+    width: 30px;
+    height: 30px;
+    color: #999;
+    margin: 0 2px;
+    line-height: 30px;
+    border-radius: 30px !important;
+    text-align: center;
+    padding: 0;
+}
+.pagination li button {
+    border: none;
+    font-size: 95%;
+    width: 30px;
+    height: 30px;
+    color: #999;
+    margin: 0 2px;
+    line-height: 30px;
+    border-radius: 30px !important;
+    text-align: center;
+    padding: 0;
+}
+.pagination li a:hover {
+    color: #666;
+}	
+.pagination li.active a {
+    background: #03A9F4;
+}
+.pagination li.active a:hover {        
+    background: #0397d6;
+}
+.pagination li.active button {
+    background: #03A9F4;
+}
+.pagination li.active button:hover {        
+    background: #0397d6;
+}
+.pagination li.disabled i {
+    color: #ccc;
+}
+.pagination li i {
+    font-size: 16px;
+    padding-top: 6px
+}
+.hint-text {
+    float: left;
+    margin-top: 6px;
+    font-size: 95%;
+}    
+</style>
 
 <head>
 
@@ -27,12 +172,25 @@ if (isset($_POST['logout'])) {
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Foods Menu</title>
+  <title>Admin - Profile</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
 
   <!-- Custom styles for this template-->
@@ -91,7 +249,7 @@ if (isset($_POST['logout'])) {
       </li>
 	  
 	  <!-- Nav Item - Customer List -->
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="customerlist.php">
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
           <span>Customer List</span></a>
@@ -105,7 +263,7 @@ if (isset($_POST['logout'])) {
       </li>-->
 	  
 	  <!-- Nav Item - Menus Updated -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="menusupdated.php">
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
           <span>Food Menu List</span></a>
@@ -322,8 +480,8 @@ if (isset($_POST['logout'])) {
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Food Menu</h1>
-          <p class="mb-4">Add new menus to the menu list.</p>
+          <h1 class="h3 mb-2 text-gray-800">Customer List</h1>
+          <p class="mb-4">List of customer which can edit or delete.</p>
 
           <!-- Content Row -->
 			
@@ -334,69 +492,82 @@ if (isset($_POST['logout'])) {
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Add Food Menu</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Customer List</h6>
                   
                 </div>
                 <!-- Setting Info Body -->
                 <div class="card-body">
 				<?php
-					add();
-					$con = mysqli_connect("localhost", "ikea", "ikea", "ikea"); 
+					include "function.php";
+					//echo '<a href="menus.php" class="btn btn-primary float-right">Add Menu</a> <br>';
 					
-					$name = $_POST['name'];
-				    $price = $_POST['price'];
-				    $description = $_POST['description'];
-				    $category = $_POST['category'];
-
-					$imgData =addslashes(file_get_contents($_FILES['image']['tmp_name']));
-					$imageProperties = getimagesize($_FILES['image']['tmp_name']);
-  
-					if (isset($_POST['addMenu'])) {
-                      if (!$con) {
+					$con=mysqli_connect("localhost","ikea","ikea","ikea");
+					
+						if (!$con) {
                         echo  mysqli_connect_error();
                         exit;
-                      }
-					  
-                      $sql = "INSERT INTO `menus` (`name`, `price`, `description`, `category`, `imageType` ,`imageData`) VALUES ('$name', '$price', '$description', '$category', '{$imageProperties['mime']}', '{$imgData}') ";
-                      $result = mysqli_query($con, $sql);
-						
+						}
+					
+						$sql = "SELECT * FROM customers";
 
-                      //check if insert successful
-                      if ($result)
-                        echo '<script>alert("Insertion Successful.")</script>';
-                      else
-                        echo '<script>alert("Insertion Failed.")</script>';
+					    $result = mysqli_query($con, $sql);
+						mysqli_close($con);
+						$qry = $result;
+					
+ 						//$list = mysqli_num_rows($qry);
+					
+					    //// display menu info
+						echo '<table class="table table-striped table-hover table-bordered">
 						
-             			$sql = "SELECT * FROM menus";
-
-                      $result = mysqli_query($con, $sql);
-                      mysqli_close($con);
-                      $qry = $result;
-					  
-					   //if(is_uploaded_file($_FILES['image']['tmp_name'])) {
-						  //require_once "db.php";
-						//$imgData =addslashes(file_get_contents($_FILES['image']['tmp_name']));
-						//$imageProperties = getimagesize($_FILES['image']['tmp_name']);
-						
-						//$sql = "UPDATE `menus` SET `imageData` = '{$imgData}', imageType = '{$imageProperties['mime']}' WHERE `menus`.`id` = '" . $_SESSION['id'] . "'";
-						//$sql = "INSERT INTO menus (`imageType` ,`imageData`) VALUES('{$imageProperties['mime']}', '{$imgData}')";
+							<thead class=" text-primary">
+								<tr>
+								<th>Username</th>
+								<th>Name</th>
+								<th>Email</th>
+								<th>Phone Number</th>
+								<th>Password</th>
+								<th>Actions</th>
+								
+								</tr>
+							</thead>';
+						$i=1;
+						while ($row = mysqli_fetch_assoc($qry)) {
+						//$menusIDAlterValue = $row['id'];
+						  echo '<tbody><tr>';
+                          //echo '<form action="" method="POST">';
+                          echo "<td> " . $row['username'] . "";
+                          echo "<td> " . $row['name'] . "";
+                          echo "<td> " . $row['email'] . "";
+                          echo "<td> " . $row['phonenumber'] . "";
+						  echo "<td> " . $row['password'] . "";
+						  echo '<td><a href="imageView3.php?id='.$row['id'].'" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>';
+						  $username = $row['username'];
+							//<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+						  ///////////////////////////////////// to update menu
+						  //echo '<td>';
+							echo '<form style="display:inline-block" action="updatecustomer.php" method="post" >';
+							echo   "<input type='hidden' value='$username' name='customerToUpdate'>";
+						  	echo   '<button type="submit" name="updatecustomer" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></button>';
+							//echo   '<button type="submit" name="updatecustomer" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></button>';
+							//echo   '<input type="submit" name="updatecustomer" value="Update">';
+							echo '</form>';
+						  //echo '</td>';
+						  ///////////////////////////////////// to delete
+						  //echo '<td>';
+							echo '<form style="display:inline-block" action="process.php" method="post" >';
+							echo 	"<input type='hidden' value='$username' name='customerToDelete'>";
+							echo	'<button type="submit" name="deletecustomer" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i>';
+							//echo   '<input type="submit" name="deletecustomer" value="Delete">';
+							echo '</form>';
+					      echo '</td>';
 							
-						//$current_id = mysqli_query($con, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($con));
-					   //}
-					  
-					}
-					 else {
-                      if (!$con) {
-                        echo  mysqli_connect_error();
-                        exit;
-                      }
-                      $sql = "SELECT * FROM menus";
-
-                      $result = mysqli_query($con, $sql);
-                      mysqli_close($con);
-                      $qry = $result;
-                    }
+						  echo '</tbody></tr>';
+							$i++;
+						}
+						echo '</table>';
+					
 						?>
+					
                 </div>		
               </div>
           </div>
@@ -468,44 +639,9 @@ if (isset($_POST['logout'])) {
   <script src="js/demo/chart-bar-demo.js"></script>
 
 </body>
-   <?php
-function add()
-{
-  echo '<form action="" method="POST" enctype="multipart/form-data">';
-  echo '<div class="form-group"><label class="bmd-label-floating">Food Name</label>
-        <input type="text" name="name" class="form-control"required> </div>';
-	
-  echo '<div class="form-group"><label class="bmd-label-floating">Price</label>
-        <input type="number" name="price" class="form-control"required> </div>';
-	
-  echo '<div class="form-group"><label class="bmd-label-floating">Description</label>
-        <input type="text" name="description" class="form-control"required> </div>';
-	
-  echo '<div class="form-group"><label class="bmd-label-floating">Category</label><br>
-  		<select name="category" class="form-control"required>
-  		<option>Main</option>
-		<option>Kids</option>
-		<option>Sides</option>
-		<option>IKEA Family</option>
-		<option>IKEA Cafe</option>
-		</select>
- 		</div>';
-	
-  echo '<div class="form-group"><label class="bmd-label-floating">Photo</label><br>
-  			
-			<input type="file"  name="image" class="text-center center-block file-upload">	
-			<div class="form-group">
-			<div class="col-xs-12"><br>
-			</div></div>
-		</div>';
-	
-  echo '<input type="submit" name="addMenu" value="Add Menu"  class="btn btn-primary pull-right" >';
-  echo '</form>';
-  //header( "refresh:1; url=menusupdated.php" );
-}
 
 
-?>	  
+	
         
        
 </html>

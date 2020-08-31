@@ -91,7 +91,7 @@ if (isset($_POST['logout'])) {
       </li>
 	  
 	  <!-- Nav Item - Customer List -->
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="customerlist.php">
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
           <span>Customer List</span></a>
@@ -105,7 +105,7 @@ if (isset($_POST['logout'])) {
       </li>-->
 	  
 	  <!-- Nav Item - Menus Updated -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="menusupdated.php">
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
           <span>Food Menu List</span></a>
@@ -323,7 +323,7 @@ if (isset($_POST['logout'])) {
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Food Menu</h1>
-          <p class="mb-4">Add new menus to the menu list.</p>
+          <p class="mb-4">Update existing menu.</p>
 
           <!-- Content Row -->
 			
@@ -334,68 +334,60 @@ if (isset($_POST['logout'])) {
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Add Food Menu</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Update Existing Customer</h6>
                   
                 </div>
                 <!-- Setting Info Body -->
                 <div class="card-body">
 				<?php
-					add();
-					$con = mysqli_connect("localhost", "ikea", "ikea", "ikea"); 
 					
-					$name = $_POST['name'];
-				    $price = $_POST['price'];
-				    $description = $_POST['description'];
-				    $category = $_POST['category'];
+					$con = mysqli_connect("localhost", "ikea", "ikea", "ikea"); 
+					//if (!$con) {
+//                        echo  mysqli_connect_error();
+//                        exit;
+//                      }
+//                      $sql = "SELECT * FROM menus";
+//
+//                      $result = mysqli_query($con, $sql);
+//                      mysqli_close($con);
+//                      $qry = $result;
+					
+					include "function.php";
+					$username=$_POST['customerToUpdate'];
+					$qry = getCustomerInformation($username); ///////buat function.php to store all functions
+					$row = mysqli_fetch_assoc($qry);
+					
+					//assign data to variable
+					//$oldname = $_POST['name'];
+					//$newname = $_POST['newname'];
+					$name = $row['name'];
+					$email =$row['email'];
+					$phonenumber =$row['phonenumber'];
+					
+					
+					
+					
+					  echo '<form action="process.php" method="POST">';
+					
+					  echo '<div class="form-group"><label class="bmd-label-floating">Username</label>';  
+					   echo 	"<input type='text' name='newusername' value='".$row['username']."' class='form-control' required> ";
+					   //echo 	"<input type='text' name='newname' value='$name' class='form-control' required> </div>";
+					   echo     "<input type='hidden' name='username' value='".$row['username']."'> </div>";
 
-					$imgData =addslashes(file_get_contents($_FILES['image']['tmp_name']));
-					$imageProperties = getimagesize($_FILES['image']['tmp_name']);
-  
-					if (isset($_POST['addMenu'])) {
-                      if (!$con) {
-                        echo  mysqli_connect_error();
-                        exit;
-                      }
-					  
-                      $sql = "INSERT INTO `menus` (`name`, `price`, `description`, `category`, `imageType` ,`imageData`) VALUES ('$name', '$price', '$description', '$category', '{$imageProperties['mime']}', '{$imgData}') ";
-                      $result = mysqli_query($con, $sql);
-						
+					  echo '<div class="form-group"><label class="bmd-label-floating">Name</label>'; 
+					  echo 		"<input type='text' name='name' value='".$row['name']."' class='form-control'> </div>";
+					  //echo 		"<input type='number' name='price' value='$price' class='form-control'> </div>";
 
-                      //check if insert successful
-                      if ($result)
-                        echo '<script>alert("Insertion Successful.")</script>';
-                      else
-                        echo '<script>alert("Insertion Failed.")</script>';
-						
-             			$sql = "SELECT * FROM menus";
+					  echo '<div class="form-group"><label class="bmd-label-floating">Email</label>'; 
+					  echo 		"<input type='text' name='email' value='".$row['email']."' class='form-control'> </div>";
+					  //echo 		"<input type='text' name='price' value='$description' class='form-control'> </div>";
+					
+					  echo '<div class="form-group"><label class="bmd-label-floating">Phone Number</label>'; 
+					  echo 		"<input type='text' name='phonenumber' value='".$row['phonenumber']."' class='form-control'> </div>";
+					  //echo 		"<input type='text' name='price' value='$description' class='form-control'> </div>";
 
-                      $result = mysqli_query($con, $sql);
-                      mysqli_close($con);
-                      $qry = $result;
-					  
-					   //if(is_uploaded_file($_FILES['image']['tmp_name'])) {
-						  //require_once "db.php";
-						//$imgData =addslashes(file_get_contents($_FILES['image']['tmp_name']));
-						//$imageProperties = getimagesize($_FILES['image']['tmp_name']);
-						
-						//$sql = "UPDATE `menus` SET `imageData` = '{$imgData}', imageType = '{$imageProperties['mime']}' WHERE `menus`.`id` = '" . $_SESSION['id'] . "'";
-						//$sql = "INSERT INTO menus (`imageType` ,`imageData`) VALUES('{$imageProperties['mime']}', '{$imgData}')";
-							
-						//$current_id = mysqli_query($con, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($con));
-					   //}
-					  
-					}
-					 else {
-                      if (!$con) {
-                        echo  mysqli_connect_error();
-                        exit;
-                      }
-                      $sql = "SELECT * FROM menus";
-
-                      $result = mysqli_query($con, $sql);
-                      mysqli_close($con);
-                      $qry = $result;
-                    }
+					  echo '<input type="submit" name="updatecustomer" value="Update Customer"  class="btn btn-primary pull-right" >';
+					  echo '</form>';
 						?>
                 </div>		
               </div>
@@ -468,44 +460,8 @@ if (isset($_POST['logout'])) {
   <script src="js/demo/chart-bar-demo.js"></script>
 
 </body>
-   <?php
-function add()
-{
-  echo '<form action="" method="POST" enctype="multipart/form-data">';
-  echo '<div class="form-group"><label class="bmd-label-floating">Food Name</label>
-        <input type="text" name="name" class="form-control"required> </div>';
+ 
 	
-  echo '<div class="form-group"><label class="bmd-label-floating">Price</label>
-        <input type="number" name="price" class="form-control"required> </div>';
-	
-  echo '<div class="form-group"><label class="bmd-label-floating">Description</label>
-        <input type="text" name="description" class="form-control"required> </div>';
-	
-  echo '<div class="form-group"><label class="bmd-label-floating">Category</label><br>
-  		<select name="category" class="form-control"required>
-  		<option>Main</option>
-		<option>Kids</option>
-		<option>Sides</option>
-		<option>IKEA Family</option>
-		<option>IKEA Cafe</option>
-		</select>
- 		</div>';
-	
-  echo '<div class="form-group"><label class="bmd-label-floating">Photo</label><br>
-  			
-			<input type="file"  name="image" class="text-center center-block file-upload">	
-			<div class="form-group">
-			<div class="col-xs-12"><br>
-			</div></div>
-		</div>';
-	
-  echo '<input type="submit" name="addMenu" value="Add Menu"  class="btn btn-primary pull-right" >';
-  echo '</form>';
-  //header( "refresh:1; url=menusupdated.php" );
-}
-
-
-?>	  
         
        
 </html>

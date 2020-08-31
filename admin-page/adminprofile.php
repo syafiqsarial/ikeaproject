@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-	<?php
+<?php
   session_start();
 
-if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
-  session_destroy();
-  header("Location: ../../IKEA E-Restaurant/homepage-static.html");
-}
-if (isset($_POST['logout'])) {
-  header("Location: ../signup-login-cust-admin/logout.php");
-}
+	if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
+	  session_destroy();
+	  header("Location: ../../IKEA E-Restaurant/homepage-static.html");
+	}
+	if (isset($_POST['logout'])) {
+	  header("Location: ../signup-login-cust-admin/logout.php");
+	}
   ?>
+<!DOCTYPE html>
+<html lang="en">
+	
 
 <head>
 
@@ -82,12 +83,19 @@ if (isset($_POST['logout'])) {
           <i class="fas fa-user fa-sm fa-fw mr-2 "></i>
           <span>Setting Profile</span></a>
       </li>
-
-      <!-- Nav Item - Menus Add -->
-      <li class="nav-item">
+	  
+	  <!-- Nav Item - Menus Add -->
+      <!--<li class="nav-item">
         <a class="nav-link" href="menus.php">
           <i class="fas fa-table fa-sm fa-fw mr-2 "></i>
           <span>Menus - Add</span></a>
+      </li>-->
+	  
+	  <!-- Nav Item - Menus Updated -->
+      <li class="nav-item">
+        <a class="nav-link" href="menusupdated.php">
+          <i class="fas fa-table fa-sm fa-fw mr-2"></i>
+          <span>Food Menu List</span></a>
       </li>
 	  
 	  <!-- Nav Item - Menus Updated -->
@@ -99,9 +107,9 @@ if (isset($_POST['logout'])) {
 	  
       <!-- Nav Item - Tables Booking -->
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="tableslist.php">
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
-          <span>Tables Booking</span></a>
+          <span>Table List</span></a>
       </li>
 
       <!-- Divider -->
@@ -274,7 +282,7 @@ if (isset($_POST['logout'])) {
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">             
-				  <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+				  <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
 				  <?php echo '<img src="imageView.php?username='.$_SESSION['username'].'" class="img-profile rounded-circle">'; ?>
               </a>
               <!-- Dropdown - User Information -->
@@ -342,15 +350,15 @@ if (isset($_POST['logout'])) {
 							echo        '<div class="column">';
 
 							echo          '<div class="col-md-12">';  
-							echo              'Username';				       
+							echo              '<h5>Username</h5>';				       
 							echo          '</div><br>';
 
 							echo         '<div class="col-md-12">';      
-							echo              'Name';                  
+							echo              '<h5>Name</h5>';                  
 							echo         '</div><br>';
 							
 							echo         '<div class="col-md-12">';      
-							echo              'Email';                  
+							echo              '<h5>Email</h5>';                  
 							echo         '</div><br>';
 
 							//echo          '<div class="col-md-12">';       
@@ -368,9 +376,9 @@ if (isset($_POST['logout'])) {
 							echo       '</div>';
 
 							echo          '<div class="col-md-6">';   
-							echo              $row['username']. '<br><br>'; 
-							echo 			  $row['name']. '<br><br>'; 
-							echo 			  $row['email']. '<br><br>';
+							echo            '<h5>'.$row['username'].'</h5><br>'; 
+							echo 			'<h5>'.$row['name']. '</h5><br>'; 
+							echo 			'<h5>'.$row['email']. '</h5><br>';
 							echo          '</div>';
 							echo '</div>';
 							echo '</form>';
