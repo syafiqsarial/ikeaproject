@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login</title>
+	<title>Reset your password</title>
 	<link rel="icon" href="images/ikea-logo3.png" type="image/png">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -155,7 +155,6 @@ a:hover {
   color: #4f4f4f;
 }
 
-
 </style>
 	
 </head>
@@ -184,10 +183,11 @@ a:hover {
 					
 					
 					<div class="form-group wrap-input100 validate-input" data-validate="New Password is required">
-						<input class="input100" type="password" name="password">
+						<input class="input100" type="password" name="password" id="myInput">
 						<span class="focus-input100"></span>
 						<span class="label-input100">New Password</span>
-					</div><br>
+					</div>
+					<input type="checkbox" onclick="myFunction()">&nbsp;&nbsp;Show Password</input><br><br>
 			
 
 					<div class="container-login100-form-btn">
@@ -226,6 +226,17 @@ a:hover {
 	<script src="js/main.js"></script>
 	
 	</body>
+	
+<script>
+function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
 </html>
 
 <?php
