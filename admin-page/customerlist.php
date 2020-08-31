@@ -517,8 +517,9 @@ table.table td i {
  						//$list = mysqli_num_rows($qry);
 					
 					    //// display menu info
-						echo '<table class="table table-striped table-hover table-bordered">
-						
+						echo '
+						<table  class="table table-striped table-hover table-bordered">
+						 
 							<thead class=" text-primary">
 								<tr>
 								<th>Username</th>
@@ -639,7 +640,6 @@ table.table td i {
   <script src="js/demo/chart-bar-demo.js"></script>
 
 </body>
-
 
 	
         

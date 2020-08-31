@@ -159,7 +159,7 @@ if (isset($_POST['logout'])) {
 					   <?php echo '<img src="imageView.php?username='.$_SESSION['username'].'" class="avatar img-circle img-thumbnail">'; ?>
 						<br><br>
 				
-					<input type="file"  name="image" class="text-center center-block file-upload"> <br><br>	
+					<input type="file"  name="image" class="text-center center-block file-upload word-wrap: break-word"> <br><br>	
 					<div class="form-group">
 				     
 				       <input type='submit' name='upload' class='btn btn-primary  vertical-center' style="background-color: #c9c9a3; border-color: #bfbf9d">
@@ -225,25 +225,25 @@ if (isset($_POST['logout'])) {
 									echo              'Username';				       
 									echo          '</div><br><br>'; */
 
-									echo         '<div class="col-md-12">';      
+									echo         '<div class="col-md-12" align="left">';      
 									echo              'Username';                  
 									echo         '</div><br><br>';
 
-									echo         '<div class="col-md-12">';      
+									echo         '<div class="col-md-12" align="left">';      
 									echo              'Name';                  
 									echo         '</div><br><br>';
 
-									echo          '<div class="col-md-12">';       
+									echo          '<div class="col-md-12" align="left">';       
 									echo              'Email';                    
 									echo         '</div><br><br>';
 
-									echo          '<div class="col-md-12">';       
+									echo          '<div class="col-md-12" align="left">';       
 									echo              'Phone Number';                    
 									echo         '</div><br><br>';
 
 									echo       '</div>';
 
-									echo          '<div class="col-md-6">';   
+									echo          '<div class="col-md-6" align="left">';   
 									echo              $row['username']. '<br><br>'; 
 									echo 			  $row['name']. '<br><br>'; 
 									echo 			  $row['email']. '<br><br>';
