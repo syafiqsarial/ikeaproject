@@ -19,28 +19,150 @@ if (isset($_POST['logout'])) {
 }
   ?>
 	<style>
-		table.table td a.add {
-			color: #27C46B;
-		}
-		table.table td a.edit {
-			color: #FFC107;
-		}
-		table.table td a.delete {
-			color: #E34724;
-		}
-		table.table td .add {
-			display: none;
-		}
-		table.table td a.add i {
-			font-size: 24px;
-			margin-right: -1px;
-			position: relative;
-			top: 3px;
-		}   
-		table.table .form-control.error {
-			border-color: #f50000;
-		}
-	</style>
+body {
+    color: #566787;
+    background: #f5f5f5;
+    font-family: 'Roboto', sans-serif;
+}
+.table-responsive {
+    margin: 30px 0;
+}
+.table-wrapper {
+    min-width: 1000px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.table-title {
+    padding-bottom: 10px;
+    margin: 0 0 10px;
+    min-width: 100%;
+}
+.table-title h2 {
+    margin: 8px 0 0;
+    font-size: 22px;
+}
+.search-box {
+    position: relative;        
+    float: right;
+}
+.search-box input {
+    height: 34px;
+    border-radius: 20px;
+    padding-left: 35px;
+    border-color: #ddd;
+    box-shadow: none;
+}
+.search-box input:focus {
+    border-color: #3FBAE4;
+}
+.search-box i {
+    color: #a0a5b1;
+    position: absolute;
+    font-size: 19px;
+    top: 8px;
+    left: 10px;
+}
+table.table tr th, table.table tr td {
+    border-color: #e9e9e9;
+}
+table.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #fcfcfc;
+}
+table.table-striped.table-hover tbody tr:hover {
+    background: #f5f5f5;
+}
+table.table th i {
+    font-size: 13px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+table.table td:last-child {
+    width: 130px;
+}
+table.table td a {
+    color: #a0a5b1;
+    display: inline-block;
+    margin: 0 5px;
+}
+table.table td button {
+    color: #a0a5b1;
+    display: inline-block;
+ 
+}
+table.table td a.view {
+    color: #03A9F4;
+}
+table.table td button.edit {
+    color: #FFC107;
+	border: none;
+	background-color: Transparent;
+}
+table.table td button.delete {
+    color: #E34724;
+	border: none;
+	background-color: Transparent;
+	
+}
+table.table td i {
+    font-size: 19px;
+}    
+.pagination {
+    float: right;
+    margin: 0 0 5px;
+}
+.pagination li a {
+    border: none;
+    font-size: 95%;
+    width: 30px;
+    height: 30px;
+    color: #999;
+    margin: 0 2px;
+    line-height: 30px;
+    border-radius: 30px !important;
+    text-align: center;
+    padding: 0;
+}
+.pagination li button {
+    border: none;
+    font-size: 95%;
+    width: 30px;
+    height: 30px;
+    color: #999;
+    margin: 0 2px;
+    line-height: 30px;
+    border-radius: 30px !important;
+    text-align: center;
+    padding: 0;
+}
+.pagination li a:hover {
+    color: #666;
+}	
+.pagination li.active a {
+    background: #03A9F4;
+}
+.pagination li.active a:hover {        
+    background: #0397d6;
+}
+.pagination li.active button {
+    background: #03A9F4;
+}
+.pagination li.active button:hover {        
+    background: #0397d6;
+}
+.pagination li.disabled i {
+    color: #ccc;
+}
+.pagination li i {
+    font-size: 16px;
+    padding-top: 6px
+}
+.hint-text {
+    float: left;
+    margin-top: 6px;
+    font-size: 95%;
+}    
+</style>
 
 <head>
 
@@ -56,6 +178,13 @@ if (isset($_POST['logout'])) {
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -388,7 +517,7 @@ if (isset($_POST['logout'])) {
  						//$list = mysqli_num_rows($qry);
 					
 					    //// display menu info
-						echo '<table class="table">
+						echo '<table class="table table-striped table-hover table-bordered">
 						
 							<thead class=" text-primary">
 								<tr>
@@ -397,9 +526,8 @@ if (isset($_POST['logout'])) {
 								<th>Email</th>
 								<th>Phone Number</th>
 								<th>Password</th>
-								<th>Image</th>
-								<th>Update</th>
-								<th>Delete</th>
+								<th>Actions</th>
+								
 								</tr>
 							</thead>';
 						$i=1;
@@ -412,19 +540,21 @@ if (isset($_POST['logout'])) {
                           echo "<td> " . $row['email'] . "";
                           echo "<td> " . $row['phonenumber'] . "";
 						  echo "<td> " . $row['password'] . "";
-						  echo '<td><a href="imageView3.php?id='.$row['id'].'">Click Me</a>';
+						  echo '<td><a href="imageView3.php?id='.$row['id'].'" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>';
 						  $username = $row['username'];
+							//<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
 						  ///////////////////////////////////// to update menu
-						  echo '<td>';
-							echo '<form action="updatecustomer.php" method="post" >';
+						  //echo '<td>';
+							echo '<form style="display:inline-block" action="updatecustomer.php" method="post" >';
 							echo   "<input type='hidden' value='$username' name='customerToUpdate'>";
-						  	echo   '<button type="submit" name="updatecustomer" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i>';
+						  	echo   '<button type="submit" name="updatecustomer" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></button>';
+							//echo   '<button type="submit" name="updatecustomer" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></button>';
 							//echo   '<input type="submit" name="updatecustomer" value="Update">';
 							echo '</form>';
-						  echo '</td>';
+						  //echo '</td>';
 						  ///////////////////////////////////// to delete
-						  echo '<td>';
-							echo '<form action="process.php" method="post" >';
+						  //echo '<td>';
+							echo '<form style="display:inline-block" action="process.php" method="post" >';
 							echo 	"<input type='hidden' value='$username' name='customerToDelete'>";
 							echo	'<button type="submit" name="deletecustomer" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i>';
 							//echo   '<input type="submit" name="deletecustomer" value="Delete">';
