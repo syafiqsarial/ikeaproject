@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <?php
@@ -43,11 +42,14 @@ if (isset($_POST['logout'])) {
       </div>
     </div>
   </div>
+</div>
+</div>
 
   <div class="col">
     <div class="row">
       <div class="col mb-3">
         <div class="card">
+			
           <div class="card-body">
             <div class="e-profile">
               <div class="row">
@@ -55,11 +57,8 @@ if (isset($_POST['logout'])) {
                   <div class="mx-auto" style="width: 140px;">
                     <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
                     <?php
-                      $con = mysqli_connect("localhost", "root", "root", "ikea");
+                      $con = mysqli_connect("localhost", "ikea", "ikea", "ikea");
 					            if(isset($_POST['upload'])){
-						
-						          
-					
 						          if(count($_FILES) > 0) {
 						          if(is_uploaded_file($_FILES['image']['tmp_name'])) {
 							        //require_once "db.php";
@@ -68,7 +67,7 @@ if (isset($_POST['logout'])) {
 						
 							        $sql = "UPDATE `customers` SET `imageData` = '{$imgData}', imageType = '{$imageProperties['mime']}' WHERE `customers`.`username` = '" . $_SESSION['username'] . "'";
 							        //$sql = "INSERT INTO admin(imageType ,imageData) VALUES('{$imageProperties['mime']}', '{$imgData}')";
-							        $current_id = mysqli_query($con, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($conn));
+							        $current_id = mysqli_query($con, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($con));
 							        if(isset($current_id)) {
 								
 								      //mysqli_close($conn);     
@@ -81,45 +80,48 @@ if (isset($_POST['logout'])) {
 					            }						
 						        ?>
 
-                    <form method="POST" action="" enctype="multipart/form-data">
-                    <div class="text-center" >
-					          <?php echo '<img src="imageView.php?username='.$_SESSION['username'].'" class="avatar img-circle img-thumbnail">'; ?>
-						        <br><br>
-                    <!--<input type="file" name="image" class="file-uploader pull-left">-->
-					          <!--<input type="file"  name="image" class="text-center center-block file-upload"> <br><br>	-->
-					          <div class="form-group">
-				     
-				            <!--<input type='submit' name='upload' class='btn btn-primary  vertical-center' style="background-color: #c9c9a3; border-color: #bfbf9d">-->
-				   
-				            </div>
-				            </div><br>
+								<form method="POST" action="" enctype="multipart/form-data">
+								<div class="text-center" >
+									  <?php echo '<img src="imageView.php?username='.$_SESSION['username'].'" class="avatar img-circle img-thumbnail">'; ?>
+										<br><br>
+							<!--<input type="file" name="image" class="file-uploader pull-left">-->
+									  <!--<input type="file"  name="image" class="text-center center-block file-upload"> <br><br>	-->
+									  <div class="form-group">
+
+									<!--<input type='submit' name='upload' class='btn btn-primary  vertical-center' style="background-color: #c9c9a3; border-color: #bfbf9d">-->
+
+				           			</div>
+				            	</div><br>
 					          </form>
                       <!--<span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">140x140</span>-->
                     </div>
                     <input type="file"  name="image" class="text-center center-block file-upload" style="font-size: 12px">
                   </div>
                 </div>
+				  
+				  
+				  
                 <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
                   <div class="text-center text-sm-left mb-2 mb-sm-0">
                   <?php
-								    //create connection								
-								    $con=mysqli_connect("localhost","root","root","ikea");
-								    if (!$con) {
-								    echo  mysqli_connect_error();
-								    exit;
-							    	}
-								
-								    $sql = 'SELECT * FROM customers where username = "' . $_SESSION['username'] . '"';
+					//create connection								
+					$con=mysqli_connect("localhost","ikea","ikea","ikea");
+					if (!$con) {
+					echo  mysqli_connect_error();
+					exit;
+					}
 
-							    	$result = mysqli_query($con, $sql);
-							    	mysqli_close($con);
+					$sql = 'SELECT * FROM customers where username = "' . $_SESSION['username'] . '"';
+
+					$result = mysqli_query($con, $sql);
+					mysqli_close($con);
                     $qry = $result;
                     while ($row = mysqli_fetch_assoc($qry)) {
                     echo    $row['name']; '<h4 class="pt-sm-2 pb-1 mb-0 text-nowrap"></h4>';
                     echo    $row['username']; '<p class="mb-0"></p>';
                     echo    $row['email']; '<p class="mb-0"></p>';
                     echo    $row['phonenumber']; '<p class="mb-0"></p>';
-                    ?>
+                   ?>
                     <br>
                     <div class="mt-2">
                       <button class="btn btn-primary vertical-center" style="background-color: #c9c9a3; border-color: #bfbf9d; font-size: 15px" type="submit" name='upload'>
@@ -145,7 +147,7 @@ if (isset($_POST['logout'])) {
                         <div class="row">
                           <div class="col">
                           <?php
-                            $con = mysqli_connect("localhost", "root", "root", "ikea");
+                            $con = mysqli_connect("localhost", "ikea", "ikea", "ikea");
 														  if (!$con) {
 															  die("Connection failed: " . mysqli_connect_error());
 																exit();
@@ -157,7 +159,7 @@ if (isset($_POST['logout'])) {
                             echo   '<form class="form" action="" method="POST" id="registrationForm">';
                             echo    '<div class="form-group">';
                             echo    '<label>Full Name</label>';
-                            echo    '<input class="form-control" type="name" name="name" placeholder="John Smith" value='$name'>';
+                            echo    "<input class='form-control' type='name' name='name' placeholder='John Smith' value='$name'>";
                             echo    '</div>';
                             echo    '</div>';
                             echo    '<div class="col">';
@@ -166,32 +168,32 @@ if (isset($_POST['logout'])) {
                             echo    '</div>';
                             echo    '
                         
-                        <div class="row">
-                          <div class="col">
-                            <div class="form-group">
-                              <label>Email</label>
-                              <input class="form-control" type="tel" placeholder="Phone Number" value='$phonenumber'>
-                            </div>
-                          </div>
-                        </div>
+									<div class="row">
+									  <div class="col">
+										<div class="form-group">
+										  <label>Email</label>';
+							echo			  "<input class='form-control' type='tel' placeholder='Phone Number' value='$phonenumber'>";
+							echo'			</div>
+									  </div>
+									</div>
                         
-                      </div>
-                    </div>
+									  </div>
+									</div>
                     
-                    <div class="row">
-                      <div class="col d-flex justify-content-end">
-                        <button class="btn btn-primary" name="updatebutton" type="submit" style="background-color: #948757; border-color: #bfbf9d">Update Profile</button>
-                      </div>
-                    </div>
-                  </form>';
-                  ?>
+									<div class="row">
+									  <div class="col d-flex justify-content-end">
+										<button class="btn btn-primary" name="updatebutton" type="submit" style="background-color: #948757; border-color: #bfbf9d">Update Profile</button>
+									  </div>
+									</div>
+								  </form>';
+							?>
 
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+							</div>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				  </div>
 
       <div class="col-12 col-md-3 mb-3">
         <div class="card mb-3">
@@ -212,15 +214,15 @@ if (isset($_POST['logout'])) {
           </div>
         </div>
       </div>
+				  
     </div>
-
   </div>
 </div>
 </div>
+		</div>
+	  </div>
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-	
-</script>
+<!--<script src="http://netdna.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+-->
 </body>
 </html>

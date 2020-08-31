@@ -401,17 +401,18 @@ if (isset($_POST['logout'])) {
 				  echo                '<label for="email"><h4>Email</h4></label>';
 				  echo                "<input type='email' class='form-control' name='email'  placeholder='".$row['email']."' title='enter your email if any.' value='$email' >";
 				  echo            '</div>';
-				  echo        '</div>' ;       
+				  echo        '</div>' ;
+					
 				  echo       '<div class="form-group">';
 				  echo            '<div class="col-xs-6">';
 				  echo               '<label for="password"><h4>Password</h4></label>';
 				  echo					'<div class="input-group" id="show_hide_password">';
 				  echo                		"<input type='password' class='form-control' name='password'  placeholder='Password' title='enter your password if any.' value='$password' >";
 				  echo						'<div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-eye-slash fa-sm aria-hidden="true""></i>
-                </button>
-              </div>';
+                								<button class="btn btn-primary" type="button">
+												<i class="fas fa-eye-slash fa-sm aria-hidden="true""></i>
+                								</button>
+              								</div>';
 				  echo 					'</div>';
 				  echo            '</div>';
 				  echo        '</div>';

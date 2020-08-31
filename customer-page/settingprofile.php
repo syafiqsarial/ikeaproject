@@ -225,17 +225,28 @@ if (isset($_POST['logout'])) {
 																	echo            '<div class="col-xs-12">';
 
 
-																	echo                "<input type='name' class='form-control' name='name'  placeholder='Name' title='enter your name.' value='$name' >";
+																	echo                "<input type='name' class='form-control' name='name'  placeholder='Name' title='Enter your name.' value='$name' >";
 																	echo  '<br>';
 																	echo                "<input type='email' class='form-control' name='email'  placeholder='Email' title='Enter your email.' value='$email' >";
 																	echo  '<br>';
 																	echo                "<input type='tel' class='form-control' name='phonenumber'  placeholder='Phone Number' title='Enter your phone number.'  value='$phonenumber' >";
 																	echo  '<br>';
-																/*	echo                "<input type='datetime' class='form-control' name='birthdate'   title='enter your phone number.'  value='$birthdate' >";
-																	echo  '<br>'; */
-																	echo                "<input type='password' class='form-control' name='password'  placeholder='Password' title='Enter your email.' value='$password' >";
 																	echo            '</div>';
 																	echo        '</div>';
+																/*	echo                "<input type='datetime' class='form-control' name='birthdate'   title='enter your phone number.'  value='$birthdate' >";
+																	echo  '<br>'; */
+																	echo   '<div class="form-group">';
+																	echo   '<div class="col-xs-12">';
+																	echo	  '<div class="input-group" id="show_hide_password">';
+																	echo                "<input type='password' class='form-control' name='password'  placeholder='Password' title='Enter your new password.' value='$password' >";
+																	echo				'<div class="input-group-append">
+																							<button class="btn btn-primary" type="button">
+																							<i class="fas fa-eye-slash fa-sm aria-hidden="true""></i>
+																							</button>
+																						</div>';
+																	echo       '</div>';
+																	echo     '</div>';
+																	echo     '</div>';
 
 
 																	echo        '<div class="form-group">';
@@ -362,6 +373,22 @@ if (isset($_POST['updatebutton'])) {
 	}
 	$_SESSION['password'] = $setChangePWD;
 }
-
-
 ?>
+<script>
+
+		$(document).ready(function() {
+    $("#show_hide_password button").on('click', function(event) {
+        event.preventDefault();
+        if($('#show_hide_password input').attr("type") == "text"){
+            $('#show_hide_password input').attr('type', 'password');
+            $('#show_hide_password i').addClass( "fa-eye-slash" );
+            $('#show_hide_password i').removeClass( "fa-eye" );
+        }else if($('#show_hide_password input').attr("type") == "password"){
+            $('#show_hide_password input').attr('type', 'text');
+            $('#show_hide_password i').removeClass( "fa-eye-slash" );
+            $('#show_hide_password i').addClass( "fa-eye" );
+        }
+    });
+});
+
+</script>
