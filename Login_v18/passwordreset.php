@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Reset your password</title>
+	<title>Password Reset</title>
 	<link rel="icon" href="images/ikea-logo3.png" type="image/png">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -117,6 +117,7 @@ a:hover {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
+
   display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
@@ -163,37 +164,23 @@ a:hover {
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form method="post" action="" class="login100-form validate-form" style="padding: 80px 55px 0px 55px;">
-					
+				<form method="post" action="php/server.php" class="login100-form validate-form" style="padding: 80px 55px 0px 55px;">
+					<?php include('php/errors.php') ?>
 				  <span class="login100-form-title p-b-43">
 				  <a class="navbar-brand"><img src="../IKEA%20E-Restaurant/images/ikea-logo.png" alt="Ikea Logo" style="width: 145px; height: 55px;"></a><br><br>
-				  Forgot Password?<br>
+				  Reset Password.<br>
 				</span>
 					<div class="text-center p-b-30">
 					<span class="txt3">
-							That's okay, it happens! Please enter your email and new password. Check your email once you submitted.
+							Your password has been reset. <br><br>
 						</span>
+						<a href="../Login_v18/login-cust.php">Click here to login.</a>
 					</div><br>
 					
-					<div class="form-group wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="email" name="email">
-						<span class="focus-input100"></span>
-						<span class="label-input100">Email</span>
-				  </div>
 					
-					
-					<div class="form-group wrap-input100 validate-input" data-validate="New Password is required">
-						<input class="input100" type="password" name="password" id="myInput">
-						<span class="focus-input100"></span>
-						<span class="label-input100">New Password</span>
-					</div>
-					<input type="checkbox" onclick="myFunction()">&nbsp;&nbsp;Show Password</input><br><br>
 			
 
-					<div class="container-login100-form-btn">
-						<button type="submit" onclick="myFunction()" class="login100-form-btn btn btn-dark" name="resetPassword">Reset password</button>	
 					
-					</div>
 					
 
 		      </form>
@@ -251,7 +238,7 @@ function myFunction() {
         
          
         Please click this link to reset your password:
-        http://localhost/masterfolder_ikea/Login_v18/php/verifypassword.php?email='. $_POST['email'].' &password= '.$_POST['password'].'
+        http://localhost/IKEA%20E-System/Login_v18/php/verifypassword.php?email=' . $_POST['email'] . '&password=' . $_POST['password'] . '
          
         ';
     $headers = 'From: ikeasd02@gmail.com';

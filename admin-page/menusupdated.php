@@ -184,6 +184,13 @@ table.table td i {
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
 
   <!-- Custom styles for this template-->
@@ -242,7 +249,7 @@ table.table td i {
       </li>
 	  
 	  <!-- Nav Item - Customer List -->
-      <li class="nav-item">
+      <li class="nav-item ">
         <a class="nav-link" href="customerlist.php">
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
           <span>Customer List</span></a>
@@ -473,8 +480,8 @@ table.table td i {
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Food Menu</h1>
-          <p class="mb-4">Add new menus to the menu list.</p>
+          <h1 class="h3 mb-2 text-gray-800">Food Menu List</h1>
+          <p class="mb-4">List of menus which can add, edit or delete.</p>
 
           <!-- Content Row -->
 			
@@ -485,12 +492,12 @@ table.table td i {
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Menu List</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Food Menu List</h6>
                   
                 </div>
                 <!-- Setting Info Body -->
                 <div class="card-body">
-				<?php
+                <?php
 					include "function.php";
 					echo '<a href="menus.php" class="btn btn-primary float-right">Add Menu</a> <br>';
 					
@@ -628,7 +635,6 @@ table.table td i {
   <script src="js/demo/chart-bar-demo.js"></script>
 
 </body>
-
 
 	
         

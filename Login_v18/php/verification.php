@@ -13,9 +13,9 @@ $sql = "UPDATE customers SET `usertype` = 'customer' where email = '" . $_GET['e
 echo $sql;
 $result = mysqli_query($db, $sql);
 	if ($result) {
-		header('location: ../../IKEA E-Restaurant/homepage-static.html');
+		header('location: ../../Login_v18/verifiedemail.php');
 	} else {
-		header('location: ../../IKEA E-Restaurant/homepage-static.html');
+		header('location: ../../IKEA E-Restaurant/homepage-static.html'); ////////something error occur
 	}
 		  
 }

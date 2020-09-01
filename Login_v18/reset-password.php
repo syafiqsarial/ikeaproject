@@ -95,7 +95,7 @@
 						</div>
 						 <br>
 						<div class="form-input">
-						  <button type="submit" class="login100-form-btn btn btn-dark" name="resetPassword">Reset password</button>
+						  <button type="submit" onclick="myFunction()" class="login100-form-btn btn btn-dark" name="resetPassword">Reset password</button>
 						</div>
 						 </form> 
                         <!--[if (gte mso 9)|(IE)]><br>&nbsp;<![endif]-->
@@ -152,9 +152,35 @@
 </center>
 <![endif]-->
 
-
+	<!--<script src="php/server.php"></script>-->
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
 </body>
 </html>
+<script>
+function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
 <?php
 	
 	if (isset($_POST['resetPassword'])) {

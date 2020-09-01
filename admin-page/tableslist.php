@@ -184,6 +184,13 @@ table.table td i {
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
 
   <!-- Custom styles for this template-->
@@ -256,7 +263,7 @@ table.table td i {
       </li>-->
 	  
 	  <!-- Nav Item - Menus Updated -->
-      <li class="nav-item ">
+      <li class="nav-item">
         <a class="nav-link" href="menusupdated.php">
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
           <span>Food Menu List</span></a>
@@ -473,8 +480,8 @@ table.table td i {
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-          <p class="mb-4">Add new tables to the table list.</p>
+          <h1 class="h3 mb-2 text-gray-800">Table List</h1>
+          <p class="mb-4">List of tables which can add, edit or delete.</p>
 
           <!-- Content Row -->
 			
@@ -490,7 +497,7 @@ table.table td i {
                 </div>
                 <!-- Setting Info Body -->
                 <div class="card-body">
-				<?php
+                <?php
 					include "function.php";
 					echo '<a href="tablesadd.php" class="btn btn-primary float-right">Add Table</a> <br>';
 					
@@ -624,7 +631,6 @@ table.table td i {
   <script src="js/demo/chart-bar-demo.js"></script>
 
 </body>
-
 
 	
         
