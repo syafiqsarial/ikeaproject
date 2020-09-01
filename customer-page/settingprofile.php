@@ -133,7 +133,7 @@ if (isset($_POST['logout'])) {
 									<?php
 									if (isset($_POST['upload'])) {
 
-										$conn = mysqli_connect("localhost", "ikea", "ikea", "ikea");
+										$conn = mysqli_connect("localhost", "root", "root", "ikea");
 
 										if (count($_FILES) > 0) {
 											if (is_uploaded_file($_FILES['image']['tmp_name'])) {
@@ -209,7 +209,7 @@ if (isset($_POST['logout'])) {
 																<div class="card-body">
 																	<?php
 
-																	$con = mysqli_connect("localhost", "ikea", "ikea", "ikea");
+																	$con = mysqli_connect("localhost", "root", "root", "ikea");
 																	if (!$con) {
 																		die("Connection failed: " . mysqli_connect_error());
 																		exit();
