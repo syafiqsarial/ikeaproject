@@ -272,6 +272,8 @@ if (isset($_POST['logout'])) {
 			  <i class="fa fa-user mr-2" style="color: #948757"></i><span>Profile</span></a>         
 		  <a class="nav-link px-2" href="settingprofile.php" style="color: #948757">
 			  <i class="fa fa-fw fa-cog mr-1" style="color: #948757"></i><span>Settings</span></a> 
+		  <!--<a class="nav-link px-2" href="settingpassword.php" style="color: #948757">
+			  <i class="fa fa-fw fa-cog mr-1" style="color: #948757"></i><span>Change Password</span></a> -->
 			<br>       
 		  </div>
         <div class="card">
