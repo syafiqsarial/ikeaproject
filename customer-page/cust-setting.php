@@ -483,7 +483,10 @@ if (isset($_POST['updatebutton'])) {
 		die("Connection failed: " . mysqli_connect_error());
 		exit();
 	}
-	$sql = "UPDATE `customers` SET `username` = '" . $_SESSION['username'] . "' ,`name` = '" . $setChangeNAME . "',`email` = '" . $setChangeEMAIL . "', `phonenumber` = '" . $setChangePHONENUMBER . "',`password` = '" . $setChangePWD . "'  WHERE `customers`.`username` = '" . $_SESSION['username'] . "'";
+	$salt = "codeflix";
+	$hash = sha1($setChangePWD.$salt);
+	
+	$sql = "UPDATE `customers` SET `username` = '" . $_SESSION['username'] . "' ,`name` = '" . $setChangeNAME . "',`email` = '" . $setChangeEMAIL . "', `phonenumber` = '" . $setChangePHONENUMBER . "',`password` = '" . $hash . "'  WHERE `customers`.`username` = '" . $_SESSION['username'] . "'";
 	$result = mysqli_query($con, $sql) or trigger_error("Query Failed! SQL: $sql - Error: " . mysqli_error($con), E_USER_ERROR);
 
 	if ($result) {
