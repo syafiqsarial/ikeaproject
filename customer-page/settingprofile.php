@@ -133,7 +133,7 @@ if (isset($_POST['logout'])) {
 									<?php
 									if (isset($_POST['upload'])) {
 
-										$conn = mysqli_connect("localhost", "root", "root", "ikea");
+										$conn = mysqli_connect("localhost", "ikea", "ikea", "ikea");
 
 										if (count($_FILES) > 0) {
 											if (is_uploaded_file($_FILES['image']['tmp_name'])) {
@@ -209,7 +209,7 @@ if (isset($_POST['logout'])) {
 																<div class="card-body">
 																	<?php
 
-																	$con = mysqli_connect("localhost", "root", "root", "ikea");
+																	$con = mysqli_connect("localhost", "ikea", "ikea", "ikea");
 																	if (!$con) {
 																		die("Connection failed: " . mysqli_connect_error());
 																		exit();
@@ -223,13 +223,11 @@ if (isset($_POST['logout'])) {
 
 																	echo       '<div class="form-group">';
 																	echo            '<div class="col-xs-12">';
-
-
-																	echo                "<input type='name' class='form-control' name='name'  placeholder='Name' title='Enter your name.' value='$name' >";
+																	echo                "<input type='name' class='form-control' name='name'  placeholder='".$row['name']."' title='Enter your name.' value='$name' >";
 																	echo  '<br>';
-																	echo                "<input type='email' class='form-control' name='email'  placeholder='Email' title='Enter your email.' value='$email' >";
+																	echo                "<input type='email' class='form-control' name='email'  placeholder='".$row['email']."' title='Enter your email.' value='$email' >";
 																	echo  '<br>';
-																	echo                "<input type='tel' class='form-control' name='phonenumber'  placeholder='Phone Number' title='Enter your phone number.'  value='$phonenumber' >";
+																	echo                "<input type='tel' class='form-control' name='phonenumber'  placeholder='".$row['phonenumber']."' title='Enter your phone number.'  value='$phonenumber' >";
 																	echo  '<br>';
 																	echo            '</div>';
 																	echo        '</div>';
@@ -363,7 +361,10 @@ if (isset($_POST['updatebutton'])) {
 		die("Connection failed: " . mysqli_connect_error());
 		exit();
 	}
-	$sql = "UPDATE `customers` SET `username` = '" . $_SESSION['username'] . "' ,`name` = '" . $setChangeNAME . "',`email` = '" . $setChangeEMAIL . "', `phonenumber` = '" . $setChangePHONENUMBER . "',`password` = '" . $setChangePWD . "'  WHERE `customers`.`username` = '" . $_SESSION['username'] . "'";
+	$salt = "codeflix";
+	$hash = sha1($setChangePWD.$salt);
+
+	$sql = "UPDATE `customers` SET `username` = '" . $_SESSION['username'] . "' ,`name` = '" . $setChangeNAME . "',`email` = '" . $setChangeEMAIL . "', `phonenumber` = '" . $setChangePHONENUMBER . "',`password` = '" . $hash . "'  WHERE `customers`.`username` = '" . $_SESSION['username'] . "'";
 	$result = mysqli_query($con, $sql) or trigger_error("Query Failed! SQL: $sql - Error: " . mysqli_error($con), E_USER_ERROR);
 
 	if ($result) {
