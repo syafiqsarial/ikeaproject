@@ -9,13 +9,13 @@ if(!empty($_GET["action"])) {
 switch($_GET["action"]) {
 	case "add":
 		if(!empty($_POST["quantity"])) {
-			$productByMenuID = $db_handle->runQuery("SELECT * FROM cart WHERE menuID='" . $_GET["menuID"] . "'");
-			$itemArray = array($productByMenuID[0]["menuID"]=>array('name'=>$productByMenuID[0]["name"], 'category'=>$productByMenuID[0]["category"], 'quantity'=>$_POST["quantity"], 'price'=>$productByMenuID[0]["price"], 'image'=>$productByMenuID[0]["image"]));
+			$productByid = $db_handle->runQuery("SELECT * FROM menus WHERE id='" . $_GET["id"] . "'");
+			$itemArray = array($productByid[0]["id"]=>array('name'=>$productByid[0]["name"], 'price'=>$productByid[0]["price"], 'description'=>$productByid[0]["description"],'category'=>$productByid[0]["category"], 'quantity'=>$_POST["quantity"], 'imageType'=>$productByid[0]["imageType"], 'imageData'=>$productByid[0]["imageData"],));
 			
 			if(!empty($_SESSION["cart_item"])) {
-				if(in_array($productByMenuID[0]["menuID"],array_keys($_SESSION["cart_item"]))) {
+				if(in_array($productByid[0]["id"],array_keys($_SESSION["cart_item"]))) {
 					foreach($_SESSION["cart_item"] as $k => $v) {
-							if($productByMenuID[0]["menuID"] == $k) {
+							if($productByid[0]["id"] == $k) {
 								if(empty($_SESSION["cart_item"][$k]["quantity"])) {
 									$_SESSION["cart_item"][$k]["quantity"] = 0;
 								}
@@ -33,7 +33,7 @@ switch($_GET["action"]) {
 	case "remove":
 		if(!empty($_SESSION["cart_item"])) {
 			foreach($_SESSION["cart_item"] as $k => $v) {
-					if($_GET["menuID"] == $k)
+					if($_GET["id"] == $k)
 						unset($_SESSION["cart_item"][$k]);				
 					if(empty($_SESSION["cart_item"]))
 						unset($_SESSION["cart_item"]);
@@ -245,13 +245,13 @@ if(isset($_SESSION["cart_item"])){
         $item_price = $item["quantity"]*$item["price"];
 		?>
 				<tr>
-				<td><img src="<?php echo $item["image"]; ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
+				<td><img src="<?php echo $item["imageType"]; ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
 				<!--<td><?php echo $item["name"]; ?></td>-->
 				<td><?php echo $item["category"]; ?></td>
 				<td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
 				<td  style="text-align:right;"><?php echo "RM ".$item["price"]; ?></td>
 				<td  style="text-align:right;"><?php echo "RM ". number_format($item_price,2); ?></td>
-				<td style="text-align:center;"><a href="add-to-cart.php?action=remove&menuID=<?php echo $item["menuID"]; ?>" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
+				<td style="text-align:center;"><a href="add-to-cart.php?action=remove&id=<?php echo $item["id"]; ?>" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
 				</tr>
 				<?php
 				$total_quantity += $item["quantity"];
@@ -281,12 +281,12 @@ if(isset($_SESSION["cart_item"])){
 <div id="product-grid">
 	<div class="txt-heading">Products</div>
 	<?php
-	$product_array = $db_handle->runQuery("SELECT * FROM cart");
+	$product_array = $db_handle->runQuery("SELECT * FROM menus");
 	if (!empty($product_array)) { 
 		foreach($product_array as $key=>$value){
 	?>
 		<div class="product-item">
-			<form method="post" action="add-to-cart.php?action=add&menuID=<?php echo $product_array[$key]["menuID"]; ?>">
+			<form method="post" action="add-to-cart.php?action=add&id=<?php echo $product_array[$key]["id"]; ?>">
 			<div class="product-image"><img src="<?php echo $product_array[$key]["image"]; ?>"></div>
 			<div class="product-tile-footer"><br><br><br><br><br><br>
 			<div class="product-title"><?php echo $product_array[$key]["name"]; ?></div>
