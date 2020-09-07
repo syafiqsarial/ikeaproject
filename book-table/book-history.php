@@ -186,9 +186,9 @@ hr.new1 {
 						<div class="dropdown">
     					<a href="#" class="fas fa-user-alt dropdown-toggle" style="font-size: 18px" type="button" data-toggle="dropdown"></a>
     						<ul class="dropdown-menu">
-      							<li><a href="cust-profile.php" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;My Account</a></li>
+      							<li><a href="../customer-page/cust-profile.php" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;My Account</a></li>
       							<li><a href="#" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;Order History</a></li>
-      							<li><a href="../book-table/book-history.php" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;Booking History</a></li>
+      							<li><a href="book-history.php" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;Booking History</a></li>
 	 			 				<hr>
 	  							<li><a href="../IKEA E-Restaurant/homepage-static.html" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;Logout</a></li>
     						</ul>
@@ -203,52 +203,7 @@ hr.new1 {
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container">
 <div class="row flex-lg-nowrap">
-  <div class="col-12 col-lg-auto mb-3" style="width: 280px;">
-    <div class="card p-3">
-      
-	  <div class="card-body">
-					<?php
-					if(isset($_POST['upload'])){
-						
-						$conn = mysqli_connect("localhost", "root", "root", "ikea");
-					
-						if(count($_FILES) > 0) {
-						if(is_uploaded_file($_FILES['image']['tmp_name'])) {
-							//require_once "file:///C|/Users/User/Downloads/db.php";
-							$imgData =addslashes(file_get_contents($_FILES['image']['tmp_name']));
-							$imageProperties = getimagesize($_FILES['image']['tmp_name']);
-						
-							$sql = "UPDATE `customers` SET `imageData` = '{$imgData}', imageType = '{$imageProperties['mime']}' WHERE `customers`.`username` = '" . $_SESSION['username'] . "'";
-							//$sql = "INSERT INTO admin(imageType ,imageData) VALUES('{$imageProperties['mime']}', '{$imgData}')";
-							$current_id = mysqli_query($conn, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($conn));
-							if(isset($current_id)) {
-								
-								//mysqli_close($conn);     
-							}
-							
-							//mysqli_close($conn); 
-						}
-						}
-						
-					}						
-						?>
-					
-					<form method="POST" action="" enctype="multipart/form-data">
-                   <div class="text-center" >
-					   <?php echo '<img src="imageView.php?username='.$_SESSION['username'].'" class="avatar img-circle img-thumbnail">'; ?>
-						<br><br>
-				
-					<input type="file"  name="image" class="text-center center-block file-upload word-wrap: break-word" style="font-size: 13px"> <br><br>	
-					<div class="form-group">
-				     
-				       <input type='submit' name='upload' class='btn btn-dark vertical-center' style="font-size: 13px; letter-spacing: 0.9px">
-				   
-				    </div>
-				  </div><br>
-					</form>
-                </div>
-    </div>
-  </div>
+  
 
   <div class="col">
     <div class="row">
@@ -262,15 +217,15 @@ hr.new1 {
 				</div>
                 <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3" >
                   <div class=" mb-5 mb-sm-0" style="text-align:center">
-                    <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap" style="letter-spacing: 1.5px; font-size: 22px; font-weight: 500">MY PROFILE</h4>
+                    <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap" style="letter-spacing: 2.0px; font-size: 22px; font-weight: 500 ">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;BOOKING INFO</h4>
                   </div>
                
                 </div>
               </div>
              
               <ul class="nav nav-tabs">
-				<li class="nav-item"><a href="" class="active nav-link" style="font-size: 15px;">Info</a></li>&ensp;
-                <li class="nav-item"><a href="cust-setting.php" class="active nav-link" style="font-size: 15px;">Settings</a></li>
+				<li class="nav-item"><a href="" class="active nav-link" style="font-size: 15px;">Booking Info</a></li>&ensp;
+                <!--<li class="nav-item"><a href="cust-setting.php" class="active nav-link" style="font-size: 15px;">Settings</a></li>-->
               </ul>
 			  <div class="tab-content pt-3">
                 <div class="tab-pane active">
@@ -286,7 +241,7 @@ hr.new1 {
 								exit;
 								}
 								
-								 $sql = 'SELECT * FROM customers where username = "' . $_SESSION['username'] . '"';
+								 $sql = 'SELECT * FROM booktable where username = "' . $_SESSION['username'] . '"';
 
 								$result = mysqli_query($con, $sql);
 								mysqli_close($con);
@@ -297,28 +252,48 @@ hr.new1 {
 									echo        '<div class="column">';
 
 									echo         '<div class="col-md-12" align="right" style="color: grey">';      
-									echo              'Username  :';                  
+									echo              'Reference ID  :';                  
 									echo         '</div><br>';
 
 									echo         '<div class="col-md-12" align="right" style="color: grey">';      
-									echo              'Name  :';                  
+									echo              'Username  :';                  
+									echo         '</div><br>';
+
+									echo          '<div class="col-md-12" align="right" style="color: grey">';       
+									echo              'Name  :';                    
 									echo         '</div><br>';
 
 									echo          '<div class="col-md-12" align="right" style="color: grey">';       
 									echo              'Email  :';                    
 									echo         '</div><br>';
-
+									
 									echo          '<div class="col-md-12" align="right" style="color: grey">';       
-									echo              'Phone Number  :';                    
+									echo              'Date Reserved  :';                    
+									echo         '</div><br>';
+									
+									echo          '<div class="col-md-12" align="right" style="color: grey">';       
+									echo              'Time Reserved  :';                    
+									echo         '</div><br>';
+									
+									echo          '<div class="col-md-12" align="right" style="color: grey">';       
+									echo              'No. of people  :';                    
+									echo         '</div><br>';
+									
+									echo          '<div class="col-md-12" align="right" style="color: grey">';       
+									echo              'Special Request  :';                    
 									echo         '</div><br>';
 
 									echo       '</div>';
 
 									echo          '<div class="col-md-6" align="left">';   
-									echo              $row['username']. '<br><br>'; 
-									echo 			  $row['name']. '<br><br>'; 
-									echo 			  $row['email']. '<br><br>';
-									echo 			  $row['phonenumber']. '<br><br>';
+									echo              $row['referenceid']. '<br><br>'; 
+									echo 			  $row['username']. '<br><br>'; 
+									echo 			  $row['customername']. '<br><br>';
+									echo 			  $row['customeremail']. '<br><br>';
+									echo              $row['datereserved']. '<br><br>'; 
+									echo 			  $row['timereserved']. '<br><br>'; 
+									echo 			  $row['paxnumber']. '<br><br>';
+									echo 			  $row['messages']. '<br><br>';
 									echo          '</div>';
 									echo '</div>';
 									echo '</form>';

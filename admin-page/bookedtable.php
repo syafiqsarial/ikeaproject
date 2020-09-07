@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Foods Menu</title>
+<title>List Menu</title>
 </head>
 
 <body><!DOCTYPE html>
@@ -18,6 +18,151 @@ if (isset($_POST['logout'])) {
   header("Location: ../signup-login-cust-admin/logout.php");
 }
   ?>
+	<style>
+body {
+    color: #566787;
+    background: #f5f5f5;
+    font-family: 'Roboto', sans-serif;
+}
+.table-responsive {
+    margin: 30px 0;
+}
+.table-wrapper {
+    min-width: 1000px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.table-title {
+    padding-bottom: 10px;
+    margin: 0 0 10px;
+    min-width: 100%;
+}
+.table-title h2 {
+    margin: 8px 0 0;
+    font-size: 22px;
+}
+.search-box {
+    position: relative;        
+    float: right;
+}
+.search-box input {
+    height: 34px;
+    border-radius: 20px;
+    padding-left: 35px;
+    border-color: #ddd;
+    box-shadow: none;
+}
+.search-box input:focus {
+    border-color: #3FBAE4;
+}
+.search-box i {
+    color: #a0a5b1;
+    position: absolute;
+    font-size: 19px;
+    top: 8px;
+    left: 10px;
+}
+table.table tr th, table.table tr td {
+    border-color: #e9e9e9;
+}
+table.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #fcfcfc;
+}
+table.table-striped.table-hover tbody tr:hover {
+    background: #f5f5f5;
+}
+table.table th i {
+    font-size: 13px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+table.table td:last-child {
+    width: 130px;
+}
+table.table td a {
+    color: #a0a5b1;
+    display: inline-block;
+    margin: 0 5px;
+}
+table.table td button {
+    color: #a0a5b1;
+    display: inline-block;
+ 
+}
+table.table td a.view {
+    color: #03A9F4;
+}
+table.table td button.edit {
+    color: #FFC107;
+	border: none;
+	background-color: Transparent;
+}
+table.table td button.delete {
+    color: #E34724;
+	border: none;
+	background-color: Transparent;
+	
+}
+table.table td i {
+    font-size: 19px;
+}    
+.pagination {
+    float: right;
+    margin: 0 0 5px;
+}
+.pagination li a {
+    border: none;
+    font-size: 95%;
+    width: 30px;
+    height: 30px;
+    color: #999;
+    margin: 0 2px;
+    line-height: 30px;
+    border-radius: 30px !important;
+    text-align: center;
+    padding: 0;
+}
+.pagination li button {
+    border: none;
+    font-size: 95%;
+    width: 30px;
+    height: 30px;
+    color: #999;
+    margin: 0 2px;
+    line-height: 30px;
+    border-radius: 30px !important;
+    text-align: center;
+    padding: 0;
+}
+.pagination li a:hover {
+    color: #666;
+}	
+.pagination li.active a {
+    background: #03A9F4;
+}
+.pagination li.active a:hover {        
+    background: #0397d6;
+}
+.pagination li.active button {
+    background: #03A9F4;
+}
+.pagination li.active button:hover {        
+    background: #0397d6;
+}
+.pagination li.disabled i {
+    color: #ccc;
+}
+.pagination li i {
+    font-size: 16px;
+    padding-top: 6px
+}
+.hint-text {
+    float: left;
+    margin-top: 6px;
+    font-size: 95%;
+}    
+</style>
 
 <head>
 
@@ -27,12 +172,25 @@ if (isset($_POST['logout'])) {
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Foods Menu</title>
+  <title>Admin - Profile</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
 
   <!-- Custom styles for this template-->
@@ -116,6 +274,13 @@ if (isset($_POST['logout'])) {
         <a class="nav-link" href="tableslist.php">
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
           <span>Table List</span></a>
+      </li>
+	  
+	  <!-- Nav Item - Tables Booking -->
+      <li class="nav-item">
+        <a class="nav-link" href="bookedtable.php">
+          <i class="fas fa-table fa-sm fa-fw mr-2"></i>
+          <span>Booked Table</span></a>
       </li>
 
       <!-- Divider -->
@@ -322,8 +487,8 @@ if (isset($_POST['logout'])) {
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Food Menu</h1>
-          <p class="mb-4">Update existing menu.</p>
+          <h1 class="h3 mb-2 text-gray-800">Customer List</h1>
+          <p class="mb-4">List of customer which can edit or delete.</p>
 
           <!-- Content Row -->
 			
@@ -334,60 +499,73 @@ if (isset($_POST['logout'])) {
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Update Existing Customer</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Booked table.</h6>
                   
                 </div>
                 <!-- Setting Info Body -->
                 <div class="card-body">
 				<?php
-					
-					$con = mysqli_connect("localhost", "ikea", "ikea", "ikea"); 
-					//if (!$con) {
-//                        echo  mysqli_connect_error();
-//                        exit;
-//                      }
-//                      $sql = "SELECT * FROM menus";
-//
-//                      $result = mysqli_query($con, $sql);
-//                      mysqli_close($con);
-//                      $qry = $result;
-					
 					include "function.php";
-					$tableid=$_POST['tableToUpdate'];
-					$qry = getTableInformation($tableid); ///////buat function.php to store all functions
-					$row = mysqli_fetch_assoc($qry);
+					//echo '<a href="menus.php" class="btn btn-primary float-right">Add Menu</a> <br>';
 					
-					//assign data to variable
-					//$oldname = $_POST['name'];
-					//$newname = $_POST['newname'];
-					$tablepax = $row['tablepax'];
-
+					$con=mysqli_connect("localhost","ikea","ikea","ikea");
 					
-					  echo '<form action="process.php" method="POST">';
+						if (!$con) {
+                        echo  mysqli_connect_error();
+                        exit;
+						}
 					
-					  echo '<div class="form-group"><label class="bmd-label-floating">Table Pax</label>';  
-					   echo 	"<input type='text' name='newtablepax' value='".$row['tablepax']."' class='form-control' required> ";
-					   //echo 	"<input type='text' name='newname' value='$name' class='form-control' required> </div>";
-					   echo     "<input type='hidden' name='tablepax' value='".$row['tablepax']."'> </div>";
+						$sql = "SELECT * FROM booktable";
+						//$sql .= "order by datereserved, timereserved";
 
-					  //echo '<div class="form-group"><label class="bmd-label-floating">Name</label>'; 
-//					  echo 		"<input type='text' name='name' value='".$row['name']."' class='form-control'> </div>";
-//					  //echo 		"<input type='number' name='price' value='$price' class='form-control'> </div>";
-//
-//					  echo '<div class="form-group"><label class="bmd-label-floating">Email</label>'; 
-//					  echo 		"<input type='text' name='email' value='".$row['email']."' class='form-control'> </div>";
-//					  //echo 		"<input type='text' name='price' value='$description' class='form-control'> </div>";
-//					
-//					  echo '<div class="form-group"><label class="bmd-label-floating">Phone Number</label>'; 
-//					  echo 		"<input type='text' name='phonenumber' value='".$row['phonenumber']."' class='form-control'> </div>";
-//					  //echo 		"<input type='text' name='price' value='$description' class='form-control'> </div>";
-
-					  echo '<input type="submit" name="updatetable" value="Update Table"  class="btn btn-primary pull-right" >';
-					  echo '</form>';
+					    $result = mysqli_query($con, $sql);
+						mysqli_close($con);
+						$qry = $result;
+					
+ 						//$list = mysqli_num_rows($qry);
+					
+					    //// display menu info
+						echo '
+						<table  class="table table-striped table-hover table-bordered">
+						 
+							<thead class=" text-primary">
+								<tr>
+								<th>Reference ID</th>
+								<th>Booked By</th>
+								<th>Name</th>
+								<th>Email</th>
+								<th>Date Reserved</th>
+								<th>Time Reserved</th>
+								<th>No. of People</th>
+								<th>Special Request</th>
+								</tr>
+							</thead>';
+						$i=1;
+						while ($row = mysqli_fetch_assoc($qry)) {
+						//$menusIDAlterValue = $row['id'];
+						  echo '<tbody><tr>';
+                          //echo '<form action="" method="POST">';
+                          echo "<td> " . $row['referenceid'] . "";
+                          echo "<td> " . $row['username'] . "";
+                          echo "<td> " . $row['customername'] . "";
+                          echo "<td> " . $row['customeremail'] . "";
+						  echo "<td> " . $row['datereserved'] . "";
+						  echo "<td> " . $row['timereserved'] . "";
+						  echo "<td> " . $row['paxnumber'] . "";
+						  echo "<td> " . $row['messages'] . "";
+							
+							
+						  echo '</tbody></tr>';
+							$i++;
+						}
+						echo '</table>';
+					
 						?>
+					
                 </div>		
               </div>
           </div>
+			 
 
         </div>
         <!-- /.container-fluid -->
@@ -456,7 +634,7 @@ if (isset($_POST['logout'])) {
   <script src="js/demo/chart-bar-demo.js"></script>
 
 </body>
- 
+
 	
         
        

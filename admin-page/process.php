@@ -49,6 +49,10 @@ else if(isSet($_POST['deletetable']))
 		</script>";
 	header( "refresh:1; url=tableslist.php" );
 	}
-
+else if(isSet($_POST['updateadmin']))
+	{
+	getAdminInformation();
+	header( "refresh:1; url=adminprofile.php" );
+	}
 
 ?>

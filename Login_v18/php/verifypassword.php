@@ -11,8 +11,14 @@ if (isset($_GET['email']) && !empty($_GET['email']) and isset($_GET['password'])
 	$result = mysqli_query($con, $sql);
 	$count = mysqli_num_rows($result); //check how many matching record - should be 1 if correct
 	$row = mysqli_fetch_assoc($result);
+	
+	
 	if ($count == 1) {
-		$sql = "UPDATE customers SET `password` = '" . $_GET['password'] . "' where email = '" . $_GET['email'] . "'";
+		$password = $_GET['password'];
+		$salt = "codeflix";
+		$hash = sha1($password.$salt);
+		
+		$sql = "UPDATE customers SET password = '" . $hash . "' where email = '" . $_GET['email'] . "'";
 		$result = mysqli_query($con, $sql)or die(mysqli_error($con));
 		if ($result) {
 			header("location: ../../Login_v18/login-cust.php");

@@ -381,7 +381,15 @@
 							echo 			'<h5>'.$row['email']. '</h5><br>';
 							echo          '</div>';
 							echo '</div>';
+							
 							echo '</form>';
+							
+							//echo '<form  action="adminsetting.php" method="post" >';
+//							
+//							echo   		"<input type='hidden' value='$username' name='adminToUpdate'>";
+//							echo 	 	"<button type='submit' name='updateadmin'  class='btn btn-lg btn-success' ><i class='glyphicon glyphicon-ok-sign'></i>Update Info</button>";		   
+//							
+//							echo '</form>';
 						}						
 					 ?>					 
 				</table>

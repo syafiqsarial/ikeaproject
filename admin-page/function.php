@@ -1,4 +1,42 @@
 <?php
+/////////////////////////////////////////////////////////////////////////////////////////////////============CUSTOMER====GET INFO===========
+function getAdminInformation($username)
+{
+//create connection
+$con=mysqli_connect("localhost","ikea","ikea","ikea");
+if(!$con)
+	{
+	echo  mysqli_connect_error(); 
+	exit;
+	}
+$sql = "select * from admin where username = '".$username."'";
+
+$qry = mysqli_query($con,$sql);//run query
+return $qry;  //return query
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////================MENU===UPDATE MENU=========
+function updateAdminInformation()
+{
+//create connection
+$con=mysqli_connect("localhost","ikea","ikea","ikea");
+if(!$con)
+	{
+	echo  mysqli_connect_error(); 
+	exit;
+	}
+//get the data to update
+ $oldusername = $_POST['username'];
+ $newusername = $_POST['newusername'];
+ $name = $_POST['name'];
+ $email = $_POST['description'];
+ $password = $_POST['password'];
+
+ 
+$sql = 'update admin SET username ="'.$newusername.'", name = "'.$name.'", email = "'.$email.'", password = "'.$password.'" WHERE username = "'.$oldusername.'"';
+	//echo $sql;
+$qry = mysqli_query($con,$sql);//run query
+return $qry;  //return query
+}
 ////////////////////////////////////////////////////////////////////////////////////////////////////============MENU====GET INFO=========
 function getMenuInformation($name)
 {

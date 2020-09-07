@@ -346,6 +346,40 @@ if (isset($_POST['logout'])) {
                 <!-- Setting Info Body -->
                 <div class="card-body">
 				<?php
+					//$con = mysqli_connect("localhost", "ikea", "ikea", "ikea"); 
+//					
+//					include "function.php";
+//					$username=$_POST['adminToUpdate'];
+//					$qry = getAdminInformation($username); ///////buat function.php to store all functions
+//					$row = mysqli_fetch_assoc($qry);
+//					
+//					$username = $row['username'];
+//					$name = $row['name'];
+//					$email =$row['email'];
+//					$password =$row['password'];
+//					
+//					
+//					echo '<form action="process.php" method="POST">';
+//					
+//					  echo '<div class="form-group"><label class="bmd-label-floating">Username</label>';  
+//					   echo 	"<input type='text' name='newusername' value='".$row['username']."' class='form-control' required> ";
+//					   //echo 	"<input type='text' name='newname' value='$name' class='form-control' required> </div>";
+//					   echo     "<input type='hidden' name='username' value='".$row['username']."'> </div>";
+//
+//					  echo '<div class="form-group"><label class="bmd-label-floating">Name</label>'; 
+//					  echo 		"<input type='text' name='name' value='".$row['name']."' class='form-control'> </div>";
+//					  //echo 		"<input type='number' name='price' value='$price' class='form-control'> </div>";
+//
+//					  echo '<div class="form-group"><label class="bmd-label-floating">Email</label>'; 
+//					  echo 		"<input type='text' name='email' value='".$row['email']."' class='form-control'> </div>";
+//					  //echo 		"<input type='text' name='price' value='$description' class='form-control'> </div>";
+//					
+//					  echo '<div class="form-group"><label class="bmd-label-floating">Password</label>'; 
+//					  echo 		"<input type='text' name='password' value='".$row['password']."' class='form-control'> </div>";
+//					  //echo 		"<input type='text' name='price' value='$description' class='form-control'> </div>";
+//
+//					  echo '<input type="submit" name="updateadmin" value="Update Admin"  class="btn btn-primary pull-right" >';
+//					  echo '</form>';
 					if (isset($_POST['updatebutton'])) {
 
                     if (empty($_POST['password'])) {
@@ -428,8 +462,8 @@ if (isset($_POST['logout'])) {
 
 				  echo	'</form>';
 							//<!--<div class="input-group-append">
-//													<a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
-//											 </div>-->	
+////													<a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+////											 </div>-->	
 					?> 
                 </div>		
               </div>
