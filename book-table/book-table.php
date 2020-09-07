@@ -186,7 +186,7 @@ hr.new1 {
 			<div class="collapse navbar-collapse navbar-1">
 				<ul class="site-navigation nav">
 					<li>
-						<a href="../IKEA E-Restaurant/homepage-dynamic.html">HUNGRY?</a>
+						<a href="../food-order/index.php">HUNGRY?</a>
 					</li>
 					<li>
 						<a href="../book-table/book-table.php">BOOK A TABLE</a>
@@ -198,7 +198,7 @@ hr.new1 {
 						<div class="dropdown">
     					<a href="#" class="fas fa-user-alt dropdown-toggle" style="font-size:19px; padding-top: 16px" type="button" data-toggle="dropdown"></a>
     						<ul class="dropdown-menu">
-      							<li><a href="../customer-page/customerprofile.php" style="letter-spacing: 0.4px; font-size: 16px">My Account</a></li>
+      							<li><a href="../customer-page/cust-profile.php" style="letter-spacing: 0.4px; font-size: 16px">My Account</a></li>
       							<li><a href="#" style="letter-spacing: 0.4px; font-size: 16px">Order History</a></li>
       							<li><a href="book-history.php" style="letter-spacing: 0.4px; font-size: 16px">Booking History</a></li>
 	 			 				<li class="divider"></li>

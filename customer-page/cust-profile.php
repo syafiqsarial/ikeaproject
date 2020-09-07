@@ -177,7 +177,7 @@ hr.new1 {
 			<div class="">
 				<ul class="site-navigation nav">
 					<li>
-						<a href="../IKEA E-Restaurant/homepage-dynamic.html" style="font-size: 17px; letter-spacing: 0.7px">HUNGRY?</a>&emsp;&emsp;
+						<a href="../food-order/index.php" style="font-size: 17px; letter-spacing: 0.7px">HUNGRY?</a>&emsp;&emsp;
 					</li>
 					<li>
 						<a href="../book-table/book-table.php" style="font-size: 17px; letter-spacing: 0.2px">BOOK A TABLE</a>&emsp;&emsp;&emsp;&emsp;&emsp;
