@@ -48,8 +48,10 @@ switch($_GET["action"]) {
 ?>
 <HTML>
 <HEAD>
-<TITLE>Simple PHP Shopping Cart</TITLE>
+<TITLE>Menu Cart</TITLE>
 <link href="style.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="icon" href="../IKEA E-Restaurant/images/ikea-logo3.png" type="image/png">
 </HEAD>
 <BODY>
 <div id="shopping-cart">
@@ -67,8 +69,8 @@ if(isset($_SESSION["cart_item"])){
 <table class="tbl-cart" cellpadding="10" cellspacing="1">
 <tbody>
 <tr>
-<th style="text-align:left;">Ticket Name</th>
-<th style="text-align:left;">TicketID</th>
+<th style="text-align:left;">Menu Name</th>
+<th style="text-align:left;">ID</th>
 <th style="text-align:right;" width="5%">Quantity</th>
 <th style="text-align:right;" width="10%">Unit Price</th>
 <th style="text-align:right;" width="10%">Price</th>
@@ -79,7 +81,7 @@ if(isset($_SESSION["cart_item"])){
         $item_price = $item["quantity"]*$item["price"];
 		?>
 				<tr>
-				<td><img src="<?php echo '<a href="imageView2.php?id='.$row['id'].'" </a>' ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
+				<td><img src="<?php echo 'imageView2.php?id='.$item["id"]; ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
 				<td><?php echo $item["id"]; ?></td>
 				<td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
 				<td  style="text-align:right;"><?php echo "RM ".$item["price"]; ?></td>
@@ -120,38 +122,37 @@ if(isset($_SESSION["cart_item"])){
 		}
 	}
 	?>
-	
+	<div id="shopping-cart">
 	<form id="contact" action="processMenu.php" method="post">
-		<div class="txt-heading">Order Details</div><br>
-		<form>
-			<div class="form-group">
-				<div class="col-12 col-sm-4 mb-4">
-				<label>Name</label>
-				<input type="text" class="form-control" id="custName" name="custName" placeholder="Enter name">
-			</div>
-			<div class="form-group">
-				<div class="col-12 col-sm-4 mb-4">
-				<label>Email</label>
-				<input type="email" class="form-control" id="custEmail" name="custEmail" placeholder="Enter email">
-			</div>
-			<div class="form-group">
-				<div class="col-12 col-sm-4 mb-4">
-				<label>Phone Number</label>
-				<input type="tel" class="form-control" id="custContact" name="custContact" placeholder="Enter phone number">
-			</div>
-				
-				<?php 
-					echo '<input type="hidden" value="'.$orderQuantity.'" name="orderQuantity">'; 
-					echo '<input type="hidden" value="'.$orderTotal.'" name="orderTotal">';
-				?>
-			<div class="col-12 col-sm-4 mb-4">
-				<button type="submit" id="form-submit" name="checkout" class="btn btn-dark">Checkout</button></div>
-			<br><br>
-		</form>
-	
-	<form style="display:inline-block" action="processMenu.php" method="post" >
-<input id="btnEmpty" type="submit" name="next" value="Next"> </input>
+<div class="txt-heading">Order Details</div><br>
+<form>
+  <div class="form-group">
+	<div class="col-12 col-sm-4 mb-4">
+    <label>Name</label>
+    <input type="text" class="form-control" id="custName" name="custName" placeholder="Enter name">
+  </div>
+  <div class="form-group">
+	<div class="col-12 col-sm-4 mb-4">
+    <label>Email</label>
+    <input type="email" class="form-control" id="custEmail" name="custEmail" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+	<div class="col-12 col-sm-4 mb-4">
+    <label>Phone Number</label>
+    <input type="tel" class="form-control" id="custContact" name="custContact" placeholder="Enter phone number">
+  </div>
+	  
+	<?php 
+		echo '<input type="hidden" value="'.$orderQuantity.'" name="orderQuantity">'; 
+		echo '<input type="hidden" value="'.$orderTotal.'" name="orderTotal">';
+	?>
+  <div class="col-12 col-sm-4 mb-4">
+	  <button type="submit" id="form-submit" name="checkout" class="btn btn-dark">Checkout</button></div>
+  <br><br>
 </form>
 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </BODY>
 </HTML>
