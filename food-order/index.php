@@ -84,7 +84,7 @@ switch($_GET["action"]) {
 }
 
 .navbar{
-	margin-bottom: 30px;
+	margin-bottom: -10px;
 }
 .navbar-brand{
 	font-size: 25px;
@@ -175,9 +175,6 @@ width: 100%;
   padding-top: 60px;
 }
 
-hr.new1 {
-  border: 0.5px solid #c4c4c4;	
-}
 	
 ul {
   list-style-type: none;
@@ -255,11 +252,11 @@ a:hover{
 			</div>
 		</nav>
 	</div>
-</div>
+</div><hr>
 <!-- Navigation Block END -->
 	
 <div id="shopping-cart">
-<div class="txt-heading">Shopping Cart</div>
+<div class="txt-heading">Order Cart</div>
 
 <a id="btnEmpty" href="index.php?action=empty">Empty Cart</a> &emsp;
 <!--<form style="display:inline-block" action="processBook.php" method="post" >
