@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
+	<!-- Site title
+   ================================================== -->
+	<title>About Us</title>
+	<link rel="icon" href="images/ikea-logo3.png" type="image/png">
+
+	<!-- Bootstrap CSS
+   ================================================== -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<!-- Animate CSS
+   ================================================== -->
+	<link rel="stylesheet" href="css/animate.min.css">
+	
+	<!-- W3School CSS
+	================================================= -->
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+	<!-- Font Icons CSS
+   ================================================== -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/ionicons.min.css">
+
+	<!-- Main CSS
+   ================================================== -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Google web font 
+   ================================================== -->	
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+	
+</head>
+
+<style>
+	
+* {box-sizing: border-box;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 5s;
+  animation-name: fade;
+  animation-duration: 5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 2}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 2}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+	
+/* NavBar */
+#nav-bloc {
+  margin-top: 1px;
+  z-index: 9999;
+}
+
+.navbar{
+	margin-bottom: 0px;
+}
+.navbar-brand{
+	font-size: 25px;
+	font-weight: bold;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 600;
+}
+.navbar-brand img{
+	width: auto;
+	max-height: 70px;
+}
+.navbar-brand{
+	padding: 20px 20px;
+	margin: 5px 5px 0 0;
+}
+.navbar .nav{
+	padding-top: 20px;
+	margin-right: -16px;
+	float:right;
+}
+.nav > li{
+	float: left;
+	margin-top: 4px;
+	font-size: 20px;
+	font-weight: 400;
+}
+.nav > li a:hover{
+	background:transparent;
+}
+.navbar-toggle{
+	margin: 12px;
+	border: 0px;
+}
+.navbar-toggle:hover{
+	background:transparent!important;
+}
+.navbar-toggle .icon-bar{
+	background-color: rgba(0,0,0,.5);
+	width: 26px;
+}
+.navbar-collapse.in {
+overflow-y: visible;
+float: left;
+width: 100%;
+}
+.navbar-1 {
+  float: right;
+}
+.site-navigation:first-child {
+  float: left;
+}
+.site-navigation:nth-child(2) {
+  float: right;
+}
+.site-navigation:nth-child(2) a {
+  color: #ccc;
+  font-size: 85%;
+  padding-right: 0px;
+}
+
+.site-navigation .nav > .active{
+  color: #333;
+}
+
+.navbtn {
+  background-color: #000000;
+  border: none;
+  color: white;
+  padding: 9px 17px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  margin: -20px 1px 0 0;
+  opacity: 1;
+  transition: 0.3s;
+  letter-spacing: 0.15rem;
+}
+	
+.navbtn:hover {opacity: 0.6}
+	
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
+hr.new1 {
+  border: 0.5px solid #c4c4c4;	
+}
+	
+hr.new2 {
+  border: 0.5px solid grey;
+  opacity: 0.2;
+}
+
+</style>
+	
+<body>
+
+<!-- Preloader section
+================================================== -->
+<div class="preloader">
+
+	<div class="sk-spinner sk-spinner-pulse"></div>
+
+</div>
+
+
+<!-- Navigation section
+================================================== -->
+<div class="bloc l-bloc" id="nav-bloc" style="background: #ffffff">
+	<div class="container">
+		<nav class="navbar row">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"><img src="images/ikea-logo.png" alt="Ikea Logo" style="width: 130px; height: 50px;"></a>
+				<button id="nav-toggle" type="button" class="ui-navbar-toggle navbar-toggle" data-toggle="collapse" data-target=".navbar-1">
+					<span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse navbar-1">
+				<ul class="site-navigation nav">
+					<li>
+						<a href="about-static.html">ABOUT US</a>
+					</li>
+					<li>
+						<a href="#">FEEDBACK</a>
+					</li>
+					<li>
+						<a href="../Login_v18/login-cust.php"><button class="navbtn">LOGIN</button></a>
+					</li>
+          </ul>
+			</div>
+		</nav>
+	</div>
+</div>
+<!-- Navigation Block END -->
+
+<!-- Header section
+================================================== -->
+<section id="header" class="header-two">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8">
+            	<div class="header-thumb">
+              		 <h1 class="wow fadeIn" data-wow-delay="0.6s">About Us</h1>
+					 <hr class="new1"> 
+              		 <h3 class="wow fadeInUp" data-wow-delay="0.9s">IKEA CHERAS&nbsp;</h3>
+           		</div>
+			</div>
+
+		</div>
+	</div>		
+</section>
+
+
+<!-- About section
+================================================== -->
+	
+<section id="about">
+   <div class="container">
+      <div class="row">
+
+        <div class="wow fadeInUp col-md-8 col-sm-2" data-wow-delay="1.3s">
+        	<h1>Food at IKEA</h1><br>
+			<p style="color: black; font-size: 20px; font-weight: 400">We want to offer food that’s delicious, sustainable and nutritionally balanced. That’s why we include a variety of more sustainable options at our IKEA Restaurants, IKEA Swedish Food Markets, and IKEA Café.</p>
+		</div>
+		
+		<div class="clearfix"></div>
+		
+		<div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="1.6s"><br><br>
+			<iframe width="550" height="320" src="https://www.youtube.com/embed/YkrgzngHkqw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+		  
+		<div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="1.6s"><br><br>
+			<h4 style="font-size: 20px;"><strong>&emsp;Responsibly sourced seafood</strong></h4>
+			<blockquote style="color: black; font-size: 17.5px; letter-spacing: 0.7px; font-weight: 400">Healthy and tasty fish make for healthy and happy customers. That’s why IKEA was part of a dialogue with global environmental experts to develop responsible salmon farming standards that are better for the fish and for the environment. All IKEA salmon comes from farms that are certified to the Aquaculture Stewardship Council (ASC) standards.</blockquote>
+		</div>
+		  
+		<div class="clearfix"></div>
+		  
+		<div class="wow fadeInUp col-md-8 col-sm-2" data-wow-delay="1.3s"><br>
+			<p style="color: grey; font-size: 17px; letter-spacing: 0.7px; font-weight: 400">Responsible sourcing helps keep the ocean stocked</p>
+		</div>
+		  
+		<div class="clearfix"></div>
+		  
+		<div class="wow fadeInUp col-md-9 col-sm-2" data-wow-delay="1.3s"><br><br>
+			<p style="color: black; font-size: 26px; letter-spacing: 0.8px; line-height: 1.2; font-weight: 600">"Today, 90% of the world’s fish stocks are fully exploited or over &nbsp;&nbsp;exploited – by sourcing responsibly we can ensure fish stocks &nbsp;&nbsp;won’t decline further."</p>
+		</div>
+		  
+		<div class="clearfix"></div>
+		  
+		<div class="wow fadeInUp col-md-7 col-sm-6" data-wow-delay="1.6s"><br><br><br>
+			<img src="images/about.webp" alt="IKEA Food Market" width="550" height="320">
+		</div>
+		  
+		<div class="wow fadeInUp col-md-5 col-sm-6" data-wow-delay="1.6s"><br><br><br>
+			<h4 style="font-size: 20px; line-height: 1.3"><strong>&emsp;Offering you tasty, <br>&emsp;more sustainable seafood</strong></h4>
+			<blockquote style="color: black; font-size: 17.5px; letter-spacing: 0.7px; font-weight: 400">All wild-caught fish and shrimps served and sold at IKEA come from fisheries which are independently certified to Marine Stewardship Council (MSC) standards. When you enjoy MSC certified seafood you can be sure you are supporting sustainable fishing and protecting seafood supplies for generations to come.</blockquote>
+		</div>
+		<br>
+		<br>
+		<div class="clearfix"></div><br>
+		<hr class="new2">
+		<div class="wow fadeInUp col-md-4 col-sm-6" data-wow-delay="1.6s"><br>
+			<img src="images/about2.webp" alt="IKEA Food Market" width="400" height="250">
+		</div>
+		  
+		<div class="wow fadeInUp col-md-4 col-sm-6" data-wow-delay="1.6s"><br>
+			<p style="color: black; font-size: 17.5px; letter-spacing: 0.5px; font-weight: 500">All the coffee that we serve and sell in the IKEA Restaurant is both EU organic and UTZ certified. The tasty beans meet strict, independent requirements to ensure sustainable farming standards and fair conditions for workers. </p>
+		</div>
+		
+		<div class="wow fadeInUp col-md-4 col-sm-6" data-wow-delay="1.6s"><br>
+			<iframe width="350" height="210" src="https://www.youtube.com/embed/R8iMjmt-VBI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+		<br><br>
+		  
+		<div class="clearfix"></div>
+		<hr class="new2">
+		<div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="1.6s"><br><br><br>
+			<img src="images/about3.webp" alt="IKEA Food Market" width="550" height="320">
+		</div>
+		
+		<div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="1.6s"><br><br><br>
+			<h4 style="font-size: 20px; line-height: 1.3"><strong>&emsp;Enjoy veggies in a tasty ball</strong></h4>
+			<blockquote style="color: black; font-size: 17.5px; letter-spacing: 0.7px; font-weight: 400">The development of a vegetable ball was driven by the fact that IKEA, as a responsible business, wanted to develop the food range to contain more sustainable products. Our vegetable balls are packed with fresh ingredients, such as chickpeas, green peas, carrots, bell peppers, corn and kale. You’ll enjoy a nutritious meal that is full of protein and nutrients. Plus, they come with a lower carbon footprint. All in all, they’re a delicious alternative to our iconic meatballs.</blockquote>
+		</div>
+		  
+		<div class="clearfix"></div>
+		<div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="1.6s"><br><br><br>
+			<img src="images/about4.jpg" alt="IKEA Food Market" width="550" height="320">
+		</div>
+		
+		<div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="1.6s"><br><br><br>
+			<h4 style="font-size: 20px; line-height: 1.3"><strong>&emsp;We’ve picked some great organic <br>&emsp;options for you</strong></h4>
+			<blockquote style="color: black; font-size: 17.5px; letter-spacing: 0.7px; font-weight: 400">You can always find organic food at our Swedish Food Market, like lingonberry jam, coffee and cookies. We also offer at least one organic meal on the menu at our restaurants, as well as an organic children’s meal.</blockquote>
+		</div>
+		
+		<div class="clearfix"></div>
+		<div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="1.6s"><br><br><br>
+			<img src="images/about5.webp" alt="IKEA Food Market" width="550" height="320">
+		</div>
+		
+		<div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="1.6s"><br><br><br>
+			<h4 style="font-size: 20px; line-height: 1.3"><strong>&emsp;IKEA café is now ready to serve!</strong></h4>
+			<blockquote style="color: black; font-size: 17.5px; letter-spacing: 0.7px; font-weight: 400">Indulge yourself in the delicate flavours and aroma of our freshly brewed premium coffee or enjoy our selection of tasty bites and beverages at affordable prices with the cosy atmosphere - for the fresh start of the day or right after the shopping saga.</blockquote>
+		</div>
+		  
+		<div class="clearfix"></div><br>
+		<hr class="new2">
+
+      </div>
+   </div>
+</section>
+
+<!-- Footer section
+================================================== -->
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer{
+  background: #152F4F;
+	color:white; }
+  
+.links{
+    ul {list-style-type: none;}
+    li a{
+      color: white;
+      transition: color .2s;
+    }
+ }  
+
+a:hover{
+        text-decoration:none;
+        color: #949494;
+        }
+	
+.about-company{
+    i{font-size: 25px;}
+    a{
+      color:white;
+      transition: color .2s;
+      &:hover{color:#949494;}
+    }
+} 
+	
+.location{
+    i{font-size: 18px;}
+}
+	
+.copyright p{border-top:1px solid rgba(255,255,255,.1);} 
+	
+</style>
+
+<div class="mt-5 pt-5 pb-5 footer">
+<div class="container">
+  <div class="row"><br><br>
+    <div class="col-lg-5 col-xs-12 about-company">
+      <h2 style="font-size: 27px; font-weight: 600; letter-spacing: 0.1rem">Food at IKEA</h2>
+      <p class="pr-5 text-white-50" style="font-size: 16px; font-weight: 300; color: #dedede">We want to offer food that’s delicious, sustainable and nutritionally balanced. That’s why we include a variety<br> of more sustainable options at our IKEA Restaurants,<br> IKEA Swedish Food Markets, and IKEA Café. </p><br>
+      <p><a href="https://www.facebook.com/IKEAMalaysia"><i class="fab fa-facebook" style="font-size: 20px">&nbsp;&nbsp;</i></a><a href="https://www.instagram.com/ikeamalaysia/"><i class="fab fa-instagram" style="font-size: 20px">&nbsp;&nbsp;</i></a><a href="https://www.linkedin.com/company/ikea-southeast-asia/"><i class="fab fa-linkedin" style="font-size: 20px">&nbsp;&nbsp;</i></a><a href="https://www.youtube.com/user/ikeamalaysia"><i class="fab fa-youtube" style="font-size: 20px">&nbsp;&nbsp;</i></a></p>
+    </div>
+    <div class="col-lg-3 col-xs-12 links">
+      <h4 class="mt-lg-0 mt-sm-4" style="font-size: 20px; font-weight: 400; letter-spacing: 0.1rem">Our Company</h4>
+        <ul class="m-0 p-0">
+          <li><a href="about-static.html" style="font-size: 17px; font-weight: 300; color: #e6e6e6; letter-spacing: 0.5px">About us</a></li>
+          <li><a href="#" style="font-size: 17px; font-weight: 300; color: #e6e6e6; letter-spacing: 0.5px">Feedback</a></li>
+        </ul>
+    </div>
+    <div class="col-lg-4 col-xs-12 location">
+      <h4 class="mt-lg-0 mt-sm-4" style="font-size: 20px; font-weight: 400; letter-spacing: 0.1rem">Location</h4>
+      <p style="font-size: 16px; font-weight: 300; ">2A, Jalan Cochrane, Maluri, 55100 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia.</p>
+      <p class="mb-0" style="font-size: 16px; font-weight: 300; color: #e6e6e6"><i class="fas fa-phone-alt">&nbsp;</i><a href="tel:+60379527575">+603-7952 7575</a></p>
+      <p style="font-size: 16px; font-weight: 300; color: #e6e6e6"><i class="fas fa-envelope">&nbsp;</i><a href="mailto:customerservice.ikeamy@ikano.asia">customerservice.ikeamy@ikano.asia</a></p>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col copyright"><br>
+      <p class="" style="color: #dedede"><small class="text-white-50">© Inter IKEA Systems B.V. 1999-2020</small></p><br><br>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- Javascript 
+================================================== -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/isotope.js"></script>
+<script src="js/imagesloaded.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>	
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("nav-bloc");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+	
+</body>
+</html>

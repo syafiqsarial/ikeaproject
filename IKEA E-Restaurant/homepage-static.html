@@ -46,7 +46,6 @@ img {vertical-align: middle;}
 
 /* Slideshow container */
 .slideshow-container {
-  padding-top: 23px;
   max-width: 1000px;
   position: relative;
   margin: auto;
@@ -76,13 +75,13 @@ img {vertical-align: middle;}
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .2} 
-  to {opacity: 1}
+  from {opacity: .4} 
+  to {opacity: 2}
 }
 
 @keyframes fade {
-  from {opacity: .2} 
-  to {opacity: 1}
+  from {opacity: .4} 
+  to {opacity: 2}
 }
 
 /* On smaller screens, decrease text size */
@@ -97,7 +96,7 @@ img {vertical-align: middle;}
 }
 
 .navbar{
-	margin-bottom: 0;
+	margin-bottom: 0px;
 }
 .navbar-brand{
 	font-size: 25px;
@@ -108,10 +107,10 @@ img {vertical-align: middle;}
 .navbar-brand img{
 	width: auto;
 	max-height: 70px;
-	margin: 5px 5px 0 0;
 }
 .navbar-brand{
 	padding: 20px 20px;
+	margin: 5px 5px 0 0;
 }
 .navbar .nav{
 	padding-top: 20px;
@@ -122,6 +121,7 @@ img {vertical-align: middle;}
 	float: left;
 	margin-top: 4px;
 	font-size: 20px;
+	font-weight: 400;
 }
 .nav > li a:hover{
 	background:transparent;
@@ -161,10 +161,6 @@ width: 100%;
   color: #333;
 }
 
-hr.new1 {
-  border: 0.5px solid #c4c4c4;
-}
-	
 .navbtn {
   background-color: #000000;
   border: none;
@@ -180,7 +176,7 @@ hr.new1 {
 }
 	
 .navbtn:hover {opacity: 0.6}
-
+	
 .sticky {
   position: fixed;
   top: 0;
@@ -191,6 +187,14 @@ hr.new1 {
   padding-top: 60px;
 }
 
+hr.new1 {
+  border: 0.5px solid #c4c4c4;	
+}
+	
+hr.new2 {
+  border: 0.5px solid grey;
+  opacity: 0.2;
+}
 </style>
 	
 <body>
@@ -218,7 +222,10 @@ hr.new1 {
 			<div class="collapse navbar-collapse navbar-1">
 				<ul class="site-navigation nav">
 					<li>
-						<a href="../Login_v18/signup-cust.php"><button class="navbtn">SIGN UP</button></a>
+						<a href="about-static.html">ABOUT US</a>
+					</li>
+					<li>
+						<a href="#">FEEDBACK</a>
 					</li>
 					<li>
 						<a href="../Login_v18/login-cust.php"><button class="navbtn">LOGIN</button></a>
@@ -818,7 +825,7 @@ a:hover{
     <div class="col-lg-3 col-xs-12 links">
       <h4 class="mt-lg-0 mt-sm-4" style="font-size: 20px; font-weight: 400; letter-spacing: 0.1rem">Our Company</h4>
         <ul class="m-0 p-0">
-          <li><a href="#" style="font-size: 17px; font-weight: 300; color: #e6e6e6; letter-spacing: 0.5px">About us</a></li>
+          <li><a href="about-static.html" style="font-size: 17px; font-weight: 300; color: #e6e6e6; letter-spacing: 0.5px">About us</a></li>
           <li><a href="#" style="font-size: 17px; font-weight: 300; color: #e6e6e6; letter-spacing: 0.5px">Feedback</a></li>
         </ul>
     </div>
