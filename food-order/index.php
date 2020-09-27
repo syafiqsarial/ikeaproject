@@ -223,7 +223,7 @@ a:hover{
 	<div class="container">
 		<nav class="navbar row">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#"><img src="../IKEA E-Restaurant/images/ikea-logo.png" alt="Ikea Logo" style="width: 130px; height: 50px"></a>
+				<a class="navbar-brand" href="../IKEA E-Restaurant/about-dynamic.html"><img src="../IKEA E-Restaurant/images/ikea-logo.png" alt="Ikea Logo" style="width: 130px; height: 50px"></a>
 				<button id="nav-toggle" type="button" class="ui-navbar-toggle navbar-toggle" data-toggle="collapse" data-target=".navbar-1">
 					<span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
 				</button>
@@ -231,18 +231,18 @@ a:hover{
 			<div class="">
 				<ul class="site-navigation nav">
 					<li>
-						<a href="../IKEA E-Restaurant/homepage-dynamic.html" style="font-size: 17px; letter-spacing: 0.7px">HUNGRY?</a>&emsp;&nbsp;&nbsp;
+						<a href="index.php" style="font-size: 17px; letter-spacing: 0.7px">HUNGRY?</a>&emsp;&nbsp;&nbsp;
 					</li>
 					<li>
-						<a href="../book-table/book-table.html" style="font-size: 17px; letter-spacing: 0.2px">BOOK A TABLE</a>&emsp;&emsp;&emsp;
+						<a href="../book-table/book-table.php" style="font-size: 17px; letter-spacing: 0.2px">BOOK A TABLE</a>&emsp;&emsp;&emsp;
 					</li>
 					<li>
 						<div class="dropdown">
     					<a href="#" class="fas fa-user-alt dropdown-toggle" style="font-size: 18px; padding-top: 7px" type="button" data-toggle="dropdown"></a>
     						<ul class="dropdown-menu">
-      							<li><a href="#" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;My Account</a></li>
+      							<li><a href="../customer-page/cust-profile.php" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;My Account</a></li>
       							<li><a href="#" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;Order History</a></li>
-      							<li><a href="#" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;Booking History</a></li>
+      							<li><a href="../book-table/book-history.php" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;Booking History</a></li>
 	 			 				<hr>
 	  							<li><a href="../IKEA E-Restaurant/homepage-static.html" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;Logout</a></li>
     						</ul>
@@ -339,6 +339,7 @@ if(isset($_SESSION["cart_item"])){
 	}
 	?>
 </div>
+	
 	
 <!-- Javascript 
 ================================================== -->
