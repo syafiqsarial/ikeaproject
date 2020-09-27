@@ -191,9 +191,9 @@ hr.new1 {
 					<li>
 						<a href="../book-table/book-table.php">BOOK A TABLE</a>
 					</li>
-					<li>
+					<!--<li>
 						<a href="#"><i class="fas fa-shopping-cart" style="width: 33px; height: 40px; padding-bottom: 10px; margin-left: 50px"></i></a>
-					</li>
+					</li>-->
 					<li>
 						<div class="dropdown">
     					<a href="#" class="fas fa-user-alt dropdown-toggle" style="font-size:19px; padding-top: 16px" type="button" data-toggle="dropdown"></a>
@@ -355,8 +355,8 @@ a:hover{
     <div class="col-lg-3 col-xs-12 links">
       <h4 class="mt-lg-0 mt-sm-4" style="font-size: 20px; font-weight: 400; letter-spacing: 0.1rem">Our Company</h4>
         <ul class="m-0 p-0">
-          <li><a href="#" style="font-size: 17px; font-weight: 300; color: #e6e6e6; letter-spacing: 0.5px">About us</a></li>
-          <li><a href="#" style="font-size: 17px; font-weight: 300; color: #e6e6e6; letter-spacing: 0.5px">Feedback</a></li>
+          <li><a href="../IKEA E-Restaurant/about-dynamic.html" style="font-size: 17px; font-weight: 300; color: #e6e6e6; letter-spacing: 0.5px">About us</a></li>
+          <li><a href="../feedback/feedback-dynamic.php" style="font-size: 17px; font-weight: 300; color: #e6e6e6; letter-spacing: 0.5px">Feedback</a></li>
         </ul>
     </div>
     <div class="col-lg-4 col-xs-12 location">
