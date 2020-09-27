@@ -249,7 +249,7 @@ table.table td i {
       </li>
 	  
 	  <!-- Nav Item - Customer List -->
-      <li class="nav-item active">
+      <li class="nav-item ">
         <a class="nav-link" href="customerlist.php">
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
           <span>Customer List</span></a>
@@ -277,10 +277,17 @@ table.table td i {
       </li>
 	  
 	  <!-- Nav Item - Tables Booking -->
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="bookedtable.php">
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
           <span>Booked Table</span></a>
+      </li>
+	  
+	  <!-- Nav Item - Feedback Booking -->
+      <li class="nav-item">
+        <a class="nav-link" href="feedback.php">
+          <i class="fas fa-table fa-sm fa-fw mr-2"></i>
+          <span>Feedback</span></a>
       </li>
 
       <!-- Divider -->
@@ -487,8 +494,8 @@ table.table td i {
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Customer List</h1>
-          <p class="mb-4">List of customer which can edit or delete.</p>
+          <h1 class="h3 mb-2 text-gray-800">Tables.</h1>
+          <p class="mb-4">List of tables that has been booked</p>
 
           <!-- Content Row -->
 			

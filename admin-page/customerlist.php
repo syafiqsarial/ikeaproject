@@ -275,6 +275,20 @@ table.table td i {
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
           <span>Table List</span></a>
       </li>
+	  
+	  	  <!-- Nav Item - Tables Booking -->
+      <li class="nav-item">
+        <a class="nav-link" href="bookedtable.php">
+          <i class="fas fa-table fa-sm fa-fw mr-2"></i>
+          <span>Booked Table</span></a>
+      </li>
+	  
+	  <!-- Nav Item - Feedback Booking -->
+      <li class="nav-item">
+        <a class="nav-link" href="feedback.php">
+          <i class="fas fa-table fa-sm fa-fw mr-2"></i>
+          <span>Feedback</span></a>
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
