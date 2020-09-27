@@ -258,13 +258,27 @@ hr.new2 {
 			echo'<form action="" method="POST" class="contact100-form validate-form flex-sb flex-w">';
 			echo	'<span class="contact100-form-title">';
 			echo		'Drop Us Your Feedback';
-			echo	'</span>';
+			echo	'</span><br>';
 			
+			echo	'<div class="form-group wrap-input100 rs1 validate-input" data-validate = "Name is required">';
+			echo		"<input type='text' name='name' class='input100' placeholder='Name' style='font-size: 16px'>";
+			echo		'<span class="focus-input100"></span>';
+			echo	'</div>';
 			
+			echo	'<div class="form-group wrap-input100 rs1 validate-input" data-validate = "Email is required: a@b.c">';
+			echo		"<input type='text' name='email' class='input100' placeholder='Email Address' style='font-size: 16px'>";
+			echo		'<span class="focus-input100"></span>';
+			echo	'</div>';
 			//echo	'<form action="" method="POST">';
-			echo	'<div class="row"><br>';
+
+			echo	'<div class="form-group wrap-input100 validate-input" data-validate = "Message is required">';
+			echo		'<textarea name="message" class="input100" placeholder="Write Us A Message"></textarea>';
+			echo		'<span class="focus-input100"></span>';
+			echo	'</div>';
+			
+			echo	'<div class="row">';
             echo    	'<div class="form-group col-sm-12 ">';
-            echo        	'<label style="font-family: OpenSans-Regular; letter-spacing: 0.4px; font-size: 16px; display: inline-block">How do you rate your overall experience?</label>';
+            echo        	'<label style="font-family: OpenSans-Regular; letter-spacing: 0.4px; font-size: 16px; display: inline-block">How do you rate your overall experience?					</label>';
 			echo				'<p style="color: black; font-family: OpenSans-Regular">';
             echo                	'<label class="radio-inline">';
             echo                    	"<input type='radio' name='experience'  value='bad'>Bad";
@@ -278,21 +292,6 @@ hr.new2 {
             echo                '</p>';
             echo        '</div>';
             echo    '</div>';
-
-			echo	'<div class="form-group wrap-input100 validate-input" data-validate = "Message is required">';
-			echo		'<textarea name="message" class="input100" placeholder="Write Us A Message"></textarea>';
-			echo		'<span class="focus-input100"></span>';
-			echo	'</div>';
-				
-			echo	'<div class="form-group wrap-input100 rs1 validate-input" data-validate = "Name is required">';
-			echo		"<input type='text' name='name' class='input100' placeholder='Name'>";
-			echo		'<span class="focus-input100"></span>';
-			echo	'</div>';
-
-			echo	'<div class="form-group wrap-input100 rs1 validate-input" data-validate = "Email is required: a@b.c">';
-			echo		"<input type='text' name='email' class='input100' placeholder='Email Address'>";
-			echo		'<span class="focus-input100"></span>';
-			echo	'</div>';
 			
 			echo	'<div class="container-contact100-form-btn">';
 			echo		'<button type="submit" name="feedbackbutton" class="contact100-form-btn">Send</button>';
@@ -433,7 +432,7 @@ function myFunction() {
 }
 </script>
 	<?php
-	$con = mysqli_connect("localhost", "ikea", "ikea", "ikea");
+	$con = mysqli_connect("localhost", "root", "root", "ikea");
 	
 	$username = $_SESSION['username']; ///////////////tambah username dalam db
 	$name = $_POST['name'];
