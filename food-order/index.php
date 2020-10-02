@@ -324,7 +324,7 @@ if(isset($_SESSION["cart_item"])){
 	if (!empty($product_array)) { 
 		foreach($product_array as $key=>$value){
 	?>
-		<div class="product-item image">
+		<div class="product-item image" style=" margin-left: auto; margin-right: auto; text-align: center; width: 18em">
 			<form method="post" action="index.php?action=add&id=<?php echo $product_array[$key]["id"]; ?>">
 			<div class="product-image"><img style="margin: 10px;" src="<?php echo 'imageView2.php?id='.$product_array[$key]['id']; ?>"></div>
 			<div class="product-tile-footer"><br><br><br><br><br><br>
@@ -340,7 +340,7 @@ if(isset($_SESSION["cart_item"])){
 	?>
 </div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	
 </div>
 <!-- Footer section
@@ -416,8 +416,6 @@ a:hover{
   </div>
 </div>
 </div>
-</div>
-	
 <!-- Javascript 
 ================================================== -->
 <script src="js/jquery.js"></script>
