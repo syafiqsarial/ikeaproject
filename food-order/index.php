@@ -410,7 +410,7 @@ a:hover{
     </div>
   </div>
   <div class="row mt-5">
-    <div class="col copyright"><br>
+    <div class="col copyright">
       <p class="" style="color: #dedede"><small class="text-white-50">© Inter IKEA Systems B.V. 1999-2020</small></p>
     </div>
   </div>

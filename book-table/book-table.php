@@ -18,19 +18,9 @@ if (isset($_POST['logout'])) {
 
 	<title>Book A Table</title>
 	<link rel="icon" href="../IKEA E-Restaurant/images/ikea-logo3.png" type="image/png">
-
-	<!-- Google font -->
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 	
 	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="css/style-book.css" />
-
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
+	<link type="text/css" rel="stylesheet" href="css/style-book.css">
 	
 	<!-- Bootstrap CSS
    ================================================== -->
@@ -191,16 +181,14 @@ hr.new1 {
 					<li>
 						<a href="../book-table/book-table.php">BOOK A TABLE</a>
 					</li>
-					<!--<li>
-						<a href="#"><i class="fas fa-shopping-cart" style="width: 33px; height: 40px; padding-bottom: 10px; margin-left: 50px"></i></a>
-					</li>-->
+					<li>&emsp;&emsp;</li>
 					<li>
 						<div class="dropdown">
-    					<a href="#" class="fas fa-user-alt dropdown-toggle" style="font-size:19px; padding-top: 16px" type="button" data-toggle="dropdown"></a>
+    					<a href="#" class="fas fa-user-alt dropdown-toggle" style="font-size: 18px; padding-top: 16px" type="button" data-toggle="dropdown"></a>
     						<ul class="dropdown-menu">
       							<li><a href="../customer-page/cust-profile.php" style="letter-spacing: 0.4px; font-size: 16px">My Account</a></li>
       							<li><a href="#" style="letter-spacing: 0.4px; font-size: 16px">Order History</a></li>
-      							<li><a href="book-history.php" style="letter-spacing: 0.4px; font-size: 16px">Booking History</a></li>
+      							<li><a href="../book-table/book-history.php" style="letter-spacing: 0.4px; font-size: 16px">Booking History</a></li>
 	 			 				<li class="divider"></li>
 	  							<li><a href="homepage-static.html" style="letter-spacing: 0.4px; font-size: 16px">Logout</a></li>
     						</ul>
@@ -220,9 +208,7 @@ hr.new1 {
 					<div class="col-md-6 col-md-push-6">
 						<div class="booking-cta">
 							<h1>Book Your Table</h1>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi facere, soluta magnam consectetur molestias itaque
-								ad sint fugit architecto incidunt iste culpa perspiciatis possimus voluptates aliquid consequuntur cumque quasi.
-								Perspiciatis.
+							<p>While you’re at the store, take some time to relax and refresh in the IKEA Restaurant. Pop in for a quick snack or stay for a leisurely breakfast, lunch or dinner – the whole family is welcome. To keep the little ones happy we have highchairs, changing areas and a play area, plus FREE baby food with any purchase.
 							</p>
 						</div>
 					</div>
@@ -376,12 +362,12 @@ a:hover{
 
 <!-- Javascript 
 ================================================== -->
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/isotope.js"></script>
-<script src="js/imagesloaded.min.js"></script>
-<script src="js/wow.min.js"></script>
-<script src="js/custom.js"></script>
+<script src="../IKEA E-Restaurant/js/jquery.js"></script>
+<script src="../IKEA E-Restaurant/js/bootstrap.min.js"></script>
+<script src="../IKEA E-Restaurant/js/isotope.js"></script>
+<script src="../IKEA E-Restaurant/js/imagesloaded.min.js"></script>
+<script src="../IKEA E-Restaurant/js/wow.min.js"></script>
+<script src="../IKEA E-Restaurant/js/custom.js"></script>
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 	
 <script>
@@ -399,7 +385,7 @@ function myFunction() {
 }
 </script>
 <?php
-	$con = mysqli_connect("localhost", "ikea", "ikea", "ikea");
+	$con = mysqli_connect("localhost", "root", "root", "ikea");
 	
 	$username = $_SESSION['username']; ///////////////tambah username dalam db
 	$name = $_POST['name'];

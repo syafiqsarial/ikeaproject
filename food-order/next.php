@@ -1,4 +1,4 @@
-<?php
+ <?php
 session_start();
 require_once("dbcontroller.php");
 $db_handle = new DBController();
@@ -233,7 +233,7 @@ a:hover{
 						<a href="../IKEA E-Restaurant/homepage-dynamic.html" style="font-size: 17px; letter-spacing: 0.7px">HUNGRY?</a>&emsp;&nbsp;&nbsp;
 					</li>
 					<li>
-						<a href="../book-table/book-table.html" style="font-size: 17px; letter-spacing: 0.2px">BOOK A TABLE</a>&emsp;&emsp;&emsp;
+						<a href="../book-table/book-table.php" style="font-size: 17px; letter-spacing: 0.2px">BOOK A TABLE</a>&emsp;&emsp;&emsp;
 					</li>
 					<li>
 						<div class="dropdown">
@@ -326,17 +326,17 @@ if(isset($_SESSION["cart_item"])){
 <div class="txt-heading">Order Details</div><br>
 <form>
   <div class="form-group">
-	<div class="col-12 col-sm-4 mb-4">
+	<div class="col-12 col-sm-6 mb-4">
     <label>Name</label>
     <input type="text" class="form-control" id="custName" name="custName" placeholder="Enter name">
   </div>
   <div class="form-group">
-	<div class="col-12 col-sm-4 mb-4">
+	<div class="col-12 col-sm-6 mb-4">
     <label>Email</label>
     <input type="email" class="form-control" id="custEmail" name="custEmail" placeholder="Enter email">
   </div>
   <div class="form-group">
-	<div class="col-12 col-sm-4 mb-4">
+	<div class="col-12 col-sm-6 mb-4">
     <label>Phone Number</label>
     <input type="tel" class="form-control" id="custContact" name="custContact" placeholder="Enter phone number">
   </div>
@@ -346,9 +346,88 @@ if(isset($_SESSION["cart_item"])){
 		echo '<input type="hidden" value="'.$orderTotal.'" name="orderTotal">';
 	?>
   <div class="col-12 col-sm-4 mb-4">
-	  <button type="submit" id="form-submit" name="checkout" class="btn btn-dark">Checkout</button></div>
+	  <button type="submit" id="form-submit" name="checkout" class="btn btn-dark">Pay</button></div>
   <br><br>
-</form>
+</form> 
+</div>
+</div>
+</div>
+</div>
+	
+<!-- Footer section
+================================================== -->
+
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer{
+  background: #152F4F;
+	color:white; }
+  
+.links{
+    ul {list-style-type: none;}
+    li a{
+      color: white;
+      transition: color .2s;
+    }
+ }  
+
+a:hover{
+        text-decoration:none;
+        color: #949494;
+        }
+	
+.about-company{
+    i{font-size: 25px;}
+    a{
+      color:white;
+      transition: color .2s;
+      &:hover{color:#949494;}
+    }
+} 
+	
+.location{
+    i{font-size: 18px;}
+}
+	
+.copyright p{border-top:1px solid rgba(255,255,255,.1);} 
+	
+</style>
+
+<div class="mt-5 pt-5 pb-5 footer">
+<div class="container">
+  <div class="row"><br><br>
+    <div class="col-lg-5 col-xs-12 about-company">
+      <h2 style="font-size: 27px; font-weight: 600; letter-spacing: 0.1rem">FOOD AT IKEA</h2>
+      <p class="pr-5 text-white-50" style="font-size: 16px; font-weight: 300; color: #dedede">We want to offer food that’s delicious, sustainable and nutritionally balanced. That’s why we include a variety of more sustainable options at our IKEA Restaurants, IKEA Swedish Food Markets, and IKEA Café. </p><br>
+      <p><a href="https://www.facebook.com/IKEAMalaysia"><i class="fab fa-facebook" style="font-size: 20px">&nbsp;&nbsp;</i></a><a href="https://www.instagram.com/ikeamalaysia/"><i class="fab fa-instagram" style="font-size: 20px">&nbsp;&nbsp;</i></a><a href="https://www.linkedin.com/company/ikea-southeast-asia/"><i class="fab fa-linkedin" style="font-size: 20px">&nbsp;&nbsp;</i></a><a href="https://www.youtube.com/user/ikeamalaysia"><i class="fab fa-youtube" style="font-size: 20px">&nbsp;&nbsp;</i></a></p>
+    </div>
+    <div class="col-lg-3 col-xs-12 links">
+      <h4 class="mt-lg-0 mt-sm-4" style="font-size: 20px; font-weight: 400; letter-spacing: 0.1rem">Our Company</h4>
+        <ul class="m-0 p-0">
+          <li><a href="../IKEA E-Restaurant/about-dynamic.html" style="font-size: 17px; font-weight: 300; color: #e6e6e6; letter-spacing: 0.5px">About us</a></li>
+          <li><a href="../feedback/feedback-dynamic.html" style="font-size: 17px; font-weight: 300; color: #e6e6e6; letter-spacing: 0.5px">Feedback</a></li>
+        </ul>
+    </div>
+    <div class="col-lg-4 col-xs-12 location">
+      <h4 class="mt-lg-0 mt-sm-4" style="font-size: 20px; font-weight: 400; letter-spacing: 0.1rem">Location</h4>
+      <p style="font-size: 16px; font-weight: 300; ">2A, Jalan Cochrane, Maluri, 55100 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia.</p>
+      <p class="mb-0" style="font-size: 16px; font-weight: 300; color: #e6e6e6; line-height: 4"><i class="fas fa-phone-alt">&nbsp;</i><a href="tel:+60379527575">+603-7952 7575</a></p>
+      <p style="font-size: 16px; font-weight: 300; color: #e6e6e6; line-height: 1"><i class="fas fa-envelope">&nbsp;</i><a href="mailto:customerservice.ikeamy@ikano.asia">customerservice.ikeamy@ikano.asia</a></p>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col copyright">
+      <p class="" style="color: #dedede"><small class="text-white-50">© Inter IKEA Systems B.V. 1999-2020</small></p>
+    </div>
+  </div>
+</div>
+</div>
+
 	  
 <!-- Javascript 
 ================================================== -->
