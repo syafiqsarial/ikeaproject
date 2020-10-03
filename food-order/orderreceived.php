@@ -172,7 +172,7 @@ a:hover {
 					<div class="text-center p-b-30">
 					<span class="txt3">
 							Please make your payment. <br>
-              You will be directed to the homepage.. Please Wait
+              You will be directed to the payment page.. Please Wait
 						</span>
 						<!--<a href="../../Login_v18/login-cust.php">Click here to login.</a>-->
 					</div><br>
@@ -216,7 +216,7 @@ a:hover {
 	
 <script>
 		setTimeout(function(){
-		   window.location.href = '../IKEA E-Restaurant/homepage-dynamic.html';
+		   window.location.href = '../PAYMENT-GATEWAY/test.php';
 		}, 5000);
 </script>
 </html>
