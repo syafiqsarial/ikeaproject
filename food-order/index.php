@@ -317,13 +317,13 @@ if(isset($_SESSION["cart_item"])){
 ?>
 </div>
 <div class="txt-heading" style="margin: 40px">Products</div>
-<div id="product-grid" style="margin-left: 125px">
+<div id="product-grid" style="margin-left: 120px">
 	<?php
 	$product_array = $db_handle->runQuery("SELECT * FROM menus");
 	if (!empty($product_array)) { 
 		foreach($product_array as $key=>$value){
 	?>
-		<div class="product-item image" style="margin-left: 10px">
+		<div class="product-item image" style="margin-left: 8px">
 			<form method="post" action="index.php?action=add&id=<?php echo $product_array[$key]["id"]; ?>">
 			<div class="product-image"><img style="margin: 10px;" src="<?php echo 'imageView2.php?id='.$product_array[$key]['id']; ?>"></div>
 			<div class="product-tile-footer"><br><br><br><br><br><br>
