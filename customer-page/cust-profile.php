@@ -419,8 +419,8 @@ a:hover{
     <div class="col-lg-3 col-xs-12 links">
       <h4 class="mt-lg-0 mt-sm-4" style="font-size: 20px; font-weight: 400; letter-spacing: 0.1rem">Our Company</h4>
         <ul class="m-0 p-0">
-          <li><a href="#" style="font-size: 16px; font-weight: 300; color: #e6e6e6; letter-spacing: 0.5px">About us</a></li>
-          <li><a href="#" style="font-size: 16px; font-weight: 300; color: #e6e6e6; letter-spacing: 0.5px">Feedback</a></li>
+          <li><a href="../IKEA E-Restaurant/about-dynamic.html" style="font-size: 16px; font-weight: 300; color: #e6e6e6; letter-spacing: 0.5px">About us</a></li>
+          <li><a href="../feedback/feedback-dynamic.php" style="font-size: 16px; font-weight: 300; color: #e6e6e6; letter-spacing: 0.5px">Feedback</a></li>
         </ul>
     </div>
     <div class="col-lg-4 col-xs-12 location">

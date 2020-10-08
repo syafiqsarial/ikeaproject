@@ -480,7 +480,7 @@ function myFunction() {
         mysqli_close($con);
         $qry = $result;
 	}
-	echo $sql;
+	//echo $sql;
 ?>
 </body>
 </html>

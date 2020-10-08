@@ -45,15 +45,18 @@ if(!$con)
  //$orderID=$custName.$orderTotal;
  print_r($_SESSION["cart_item"]);
  $foodname =  json_encode($_SESSION["cart_item"]);//------------------- to masukkan dalam db
- foreach($_SESSION["cart_item"] as $itemfood)
-		$estring .= $itemfood["name"].' | ';
+ foreach($_SESSION["cart_item"] as $itemfood){
+		$estring .= $itemfood["name"].' | ';}
  //$_SESSION["cart_item"] as $item){
  //$item_price = $item["quantity"]*$item["price"];
+	//$json = json_decode(json_encode($_SESSION["cart_item"]));
 
   $sql="INSERT INTO orders (orderID, custName, custEmail, custContact, foodname, orderQuantity, orderTotal) 
-  VALUES ('$charge->id','$custName','$email','$custContact','$estring', '$orderQuantity','$orderTotal')";
- 
-    echo $sql;
+  VALUES ('$charge->id','$custName','$email','$custContact','$foodname', '$orderQuantity','$orderTotal')";
+  //$sql="INSERT INTO orders (orderID, custName, custEmail, custContact, orderQuantity, orderTotal) 
+//  VALUES ('$charge->id','$custName','$email','$custContact', '$orderQuantity','$orderTotal')";
+// 
+    //echo $sql;
 	$qry = mysqli_query($con,$sql);
     mysqli_query($con,$sql);
 	

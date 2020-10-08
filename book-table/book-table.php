@@ -405,7 +405,7 @@ function myFunction() {
 		
 		//check if book successful
 		if ($result)
-			echo '<script>alert("Your booking is successful.")</script>';
+			echo '<script>alert("Your booking is successful. Please check your email for your booking reference.")</script>';
 		else
 			echo '<script>alert("Your booking is failed.")</script>';
 		
@@ -434,6 +434,7 @@ Messages: '.$specialrequest.'
 $headers = 'From: ikeasd02@gmail.com';
 
 mail($to, $subject, $message, $headers);
-	
+
+header('Location: book-confirm.php');
 ?>
 </html>

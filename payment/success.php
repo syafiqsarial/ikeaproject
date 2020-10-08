@@ -174,7 +174,7 @@ a:hover {
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form action="../food-order/index.php" class="login100-form validate-form" style="padding: 80px 55px 0px 55px;">
+				<form action="../IKEA E-Restaurant/homepage-dynamic.html" class="login100-form validate-form" style="padding: 80px 55px 0px 55px;">
 				  <span class="login100-form-title p-b-43">
 				  <a class="navbar-brand"><img src="../IKEA%20E-Restaurant/images/ikea-logo.png" alt="Ikea Logo" style="width: 145px; height: 55px;"></a><br><br>
 				  Thanks you for purchasing in <br> <?php echo $product; ?> <br>
@@ -185,9 +185,9 @@ a:hover {
 					</span>
 						<!--<a href="../../Login_v18/login-cust.php">Click here to login.</a>-->
 					</div><br>
-					<div class="col d-flex justify-content-center">';
-                  	<br>;
-					<input type="submit" name="pay" value="Order Again" class="btn btn-dark pull-right" >';
+					<div class="col d-flex justify-content-center">
+                  	<br>
+					<input type="submit" name="pay" value="Homepage" class="btn btn-dark pull-right" >
 					</div>
 					<!--<button type="submit" name="pay" class="btn btn-dark">Order Again</button>-->
 					
@@ -202,12 +202,7 @@ a:hover {
     <!--<p><a href="index.php" class="btn btn-light mt-2">Go Back</a></p>-->
   </div>
 </body>
-			
-
-					
-					
-
-		      </form>
+		       </form>
 
 				<div class="login100-more" style="background-color: #152F4F;">
 				</div>

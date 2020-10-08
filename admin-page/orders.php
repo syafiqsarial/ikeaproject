@@ -423,8 +423,35 @@ a, a:hover{
 						//$sql .= "order by datereserved, timereserved";
 
 					    $result = mysqli_query($con, $sql);
+						$result2 = mysqli_query($con, $sql);
+						$result3 = mysqli_query($con,$sql);
+						$result4 = mysqli_query($con, $sql);
 						mysqli_close($con);
 						$qry = $result;
+						$list3 = mysqli_num_rows($result3);
+						$array = array();
+						echo $list3;
+						$i=0;
+						$j=0;
+						$tempArr = array();
+						$foodMerge = array();
+						$row = mysqli_fetch_assoc($result2);
+						while($i < $list3){
+							while($j <  $row['orderQuantity']){
+								
+								$row2 = mysqli_fetch_assoc($result4);
+								array_push($array,json_decode($row2['foodname'], true));
+								array_push($foodMerge, $array[$i][$j]['name']);
+						
+								$j++;
+							}
+							$i++;
+							$j=0;
+							
+								
+							$row = mysqli_fetch_assoc($result2);
+						}
+						//print_r($foodMerge);
 					
  						//$list = mysqli_num_rows($qry);
 						echo '<br>
@@ -445,22 +472,39 @@ a, a:hover{
 	
 								</tr>
 							</thead>';
-						$i=1;
+						$i=0;
+						$j=0;
+				
+					//print_r($array);
+							
 						while ($row = mysqli_fetch_assoc($qry)) {
-						//$menusIDAlterValue = $row['id'];
+						
+
+							
 						  echo '<tbody><tr>';
                           //echo '<form action="" method="POST">';
                           echo "<td> " . $row['orderID'] . "";
                           echo "<td> " . $row['custName'] . "";
                           echo "<td> " . $row['custEmail'] . "";
                           echo "<td> " . $row['custContact'] . "";
-						  echo "<td> " . $row['foodname'] . "";
+							echo '<td>'; 
+								
+						  		 while($j < $row['orderQuantity'] ){
+									echo $foodMerge[$i].'<br>';
+								 $j++;	 
+									 $i++;
+								 }	 
+		 					
+							echo '</td>';
+							
 						  echo "<td> " . $row['orderQuantity'] . "";
 						  echo "<td> " . $row['orderTotal'] . "";
 
 						  echo '</tbody></tr>';
-							$i++;
+							$j=0;
+							
 						}
+
 						echo '</table>';
 					
 						?>
