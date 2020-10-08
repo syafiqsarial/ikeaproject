@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Foods Menu</title>
+<title>Update Customer</title>
+<link rel="icon" href="../IKEA E-Restaurant/images/ikea-logo3.png" type="image/png">
 </head>
 
 <body><!DOCTYPE html>
@@ -18,7 +19,21 @@ if (isset($_POST['logout'])) {
   header("Location: ../signup-login-cust-admin/logout.php");
 }
   ?>
-
+<style>
+		
+		a, a:hover{
+		  color:#FFFFFF
+		}
+		
+		.btn-dark{
+			background-color: #152F4F !important;
+			border-color: #152F4F !important;
+		}
+		
+		.text-primary {
+			color: #152F4F
+		}
+</style>
 <head>
 
   <meta charset="utf-8">
@@ -27,7 +42,7 @@ if (isset($_POST['logout'])) {
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Foods Menu</title>
+  <title>Update Customer</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -46,14 +61,14 @@ if (isset($_POST['logout'])) {
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #152F4F">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="indexadmin.php">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+        <div class="sidebar-brand-icon">
+          <img src="../IKEA%20E-Restaurant/images/ikea-logo.png" alt="logo-ikea" style="width: 75px; height: 28px">
         </div>
-        <div class="sidebar-brand-text mx-3">Admin - Dashboard </sup></div>
+        <div class="sidebar-brand-text mx-1">IKEA E-Restaurant</sup></div>
       </a>
 
       <!-- Divider -->
@@ -62,7 +77,7 @@ if (isset($_POST['logout'])) {
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
         <a class="nav-link" href="indexadmin.php">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <i class="fas fa-fw fa-chart-line"></i>
           <span>Dashboard</span></a>
       </li>
 
@@ -155,7 +170,7 @@ if (isset($_POST['logout'])) {
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
+                <button class="btn btn-dark" type="button">
                   <i class="fas fa-search fa-sm"></i>
                 </button>
               </div>
@@ -218,8 +233,7 @@ if (isset($_POST['logout'])) {
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Food Menu</h1>
-          <p class="mb-4">Update existing menu.</p>
+          <h1 class="h4 mb-2 text-gray-800">Update Existing Customer</h1><hr><br>
 
           <!-- Content Row -->
 			
@@ -230,14 +244,14 @@ if (isset($_POST['logout'])) {
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Update Existing Customer</h6>
+                  <h6 class="m-0 font-weight-bold" style="color: #152F4F">Update Customer</h6>
                   
                 </div>
                 <!-- Setting Info Body -->
                 <div class="card-body">
 				<?php
 					
-					$con = mysqli_connect("localhost", "ikea", "ikea", "ikea"); 
+					$con = mysqli_connect("localhost", "root", "root", "ikea"); 
 					//if (!$con) {
 //                        echo  mysqli_connect_error();
 //                        exit;
@@ -265,25 +279,26 @@ if (isset($_POST['logout'])) {
 					
 					  echo '<form action="process.php" method="POST">';
 					
-					  echo '<div class="form-group"><label class="bmd-label-floating">Username</label>';  
+					  echo '<div class="form-group"><label class="bmd-label-floating" style="font-size: 16px; font-weight: bold">Username</label>';  
 					   echo 	"<input type='text' name='newusername' value='".$row['username']."' class='form-control' readonly> ";
 					   //echo 	"<input type='text' name='newname' value='$name' class='form-control' required> </div>";
 					   echo     "<input type='hidden' name='username' value='".$row['username']."' readonly> </div>";
 
-					  echo '<div class="form-group"><label class="bmd-label-floating">Name</label>'; 
+					  echo '<div class="form-group"><label class="bmd-label-floating" style="font-size: 16px; font-weight: bold">Name</label>'; 
 					  echo 		"<input type='text' name='name' value='".$row['name']."' class='form-control'> </div>";
 					  //echo 		"<input type='number' name='price' value='$price' class='form-control'> </div>";
 
-					  echo '<div class="form-group"><label class="bmd-label-floating">Email</label>'; 
+					  echo '<div class="form-group"><label class="bmd-label-floating" style="font-size: 16px; font-weight: bold">Email</label>'; 
 					  echo 		"<input type='text' name='email' value='".$row['email']."' class='form-control'> </div>";
 					  //echo 		"<input type='text' name='price' value='$description' class='form-control'> </div>";
 					
-					  echo '<div class="form-group"><label class="bmd-label-floating">Phone Number</label>'; 
-					  echo 		"<input type='text' name='phonenumber' value='".$row['phonenumber']."' class='form-control'> </div>";
+					  echo '<div class="form-group"><label class="bmd-label-floating" style="font-size: 16px; font-weight: bold">Phone Number</label>'; 
+					  echo 		"<input type='text' name='phonenumber' value='".$row['phonenumber']."' class='form-control'> </div><br>";
 					  //echo 		"<input type='text' name='price' value='$description' class='form-control'> </div>";
-
-					  echo '<input type="submit" name="updatecustomer" value="Update Customer"  class="btn btn-primary pull-right" >';
-					  echo '</form>';
+					  echo             '<div class="col d-flex justify-content-end">';
+  					  echo                  '<br>';
+					  echo '<input type="submit" name="updatecustomer" value="Update Customer"  class="btn btn-dark pull-right" >';
+					  echo '</div></form>';
 						?>
                 </div>		
               </div>
@@ -294,16 +309,6 @@ if (isset($_POST['logout'])) {
 
       </div>
       <!-- End of Main Content -->
-
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2020</span>
-          </div>
-        </div>
-      </footer>
-      <!-- End of Footer -->
 
     </div>
     <!-- End of Content Wrapper -->
@@ -329,7 +334,7 @@ if (isset($_POST['logout'])) {
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="../signup-login-cust-admin/logout.php">Logout</a>
+          <a class="btn btn-dark" href="../signup-login-cust-admin/logout.php">Logout</a>
         </div>
       </div>
     </div>
