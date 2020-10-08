@@ -371,7 +371,7 @@ a, a:hover{
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="adminprofile.php">
+                <a class="dropdown-item" href="adminsetting.php">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
@@ -430,7 +430,7 @@ a, a:hover{
 						$qry = $result;
 						$list3 = mysqli_num_rows($result3);
 						$array = array();
-						echo $list3;
+						//echo $list3;
 						$i=0;
 						$j=0;
 						$tempArr = array();
