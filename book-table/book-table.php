@@ -418,5 +418,24 @@ function myFunction() {
         $qry = $result;
 	}
 	
+$to = $email;
+$subject = 'IKEA E-Restaurant | Booking Table Confirmed';
+$message = '
+
+Thank you for booking with us. 
+Below is reference for your booking.
+
+Reference ID: '.$referenceid.'
+Name: '.$name.'
+Date Reserved: '.$date.'
+Time Reserved: '.$time.'
+Number of People: '.$noofpeople.'
+Messages: '.$specialrequest.'
+     
+';
+$headers = 'From: ikeasd02@gmail.com';
+
+mail($to, $subject, $message, $headers);
+	
 ?>
 </html>
