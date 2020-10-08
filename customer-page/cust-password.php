@@ -218,7 +218,7 @@ hr.new1 {
 					
 						if(count($_FILES) > 0) {
 						if(is_uploaded_file($_FILES['image']['tmp_name'])) {
-							//require_once "file:///C|/Users/User/Downloads/db.php";
+							//require_once "../../../../../../User/Downloads/db.php";
 							$imgData =addslashes(file_get_contents($_FILES['image']['tmp_name']));
 							$imageProperties = getimagesize($_FILES['image']['tmp_name']);
 						
@@ -297,49 +297,42 @@ hr.new1 {
 
 																	echo   '<form class="form" action="" method="POST" id="registrationForm">';
 
+																//	echo   '<div class="form-group">';
+//																	echo   '<div class="col mb-3">';
+																	
+																	//echo   '<label>Full Name</label>';
+//																	echo   "<input type='name' class='form-control' name='name' placeholder='' title='Enter your name.' value='$name' >";
+//																	echo   '<br>';
+//																	
+//																	echo   '<label>Email</label>';
+//																	echo   "<input type='email' class='form-control' name='email'  placeholder='' title='Enter your email.' value='$email' >";
+//																	echo  '<br>';
+//																	
+//																	echo  '<label>Phone Number</label>';
+//																	echo  "<input type='tel' class='form-control' name='phonenumber'  placeholder='' title='Enter your phone number.'  value='$phonenumber' >";
+//																	echo  '<br>';
+																	
+																	//echo  '</div>';
+//																	echo  '</div>';
+																	//echo  '<br><br>';
 																	echo   '<div class="form-group">';
-																	echo   '<div class="col mb-3">';
-																	
-																	echo   '<label>Username</label>';
-																	//echo   "<input type='name' class='form-control' name='name' placeholder='' title='Enter your name.' value='$name' >";
-																	echo '<div ><input type="text" size="50" class="form-control" name="username" value="'.$row['username'].'" ></div>';
-																	echo   '<br>';
-																	
-																	echo   '<label>Full Name</label>';
-																	//echo   "<input type='name' class='form-control' name='name' placeholder='' title='Enter your name.' value='$name' >";
-																	echo '<div ><input type="text" size="50" class="form-control" name="name" value="'.$row['name'].'" ></div>';
-																	echo   '<br>';
-																	
-																	echo   '<label>Email</label>';
-																	//echo   "<input type='email' class='form-control' name='email'  placeholder='' title='Enter your email.' value='$email' >";
-																	echo '<div ><input type="text" size="50" class="form-control" name="email" value="'.$row['email'].'" ></div>';
-																	echo  '<br>';
-																	
-																	echo  '<label>Phone Number</label>';
-																	//echo  "<input type='tel' class='form-control' name='phonenumber'  placeholder='' title='Enter your phone number.'  value='$phonenumber' >";
-																	echo '<div ><input type="text" size="50" class="form-control" name="phonenumber" value="'.$row['phonenumber'].'" ></div>';
-																	echo  '<br>';
-																	echo  '</div>';
-																	echo  '</div>';
-																	echo  '<br';
-																	//echo   '<div class="form-group">';
-//																	echo   '<div class="col-12 col-sm-6 mb-3">';
-//																	echo   '<label>Change Password</label>';
-//																	echo   '<div class="input-group" id="show_hide_password">';
-//																	echo   "<input type='password' class='form-control' name='password' placeholder='New Password' title='Enter your new password.' value='$password' >";
-//																	echo   '<div class="input-group-append">
-//																				<button class="btn btn-dark" type="button">
-//																				<i class="fas fa-eye-slash fa-sm aria-hidden="true""></i>
-//																				</button>
-//																			</div>';
-//																	echo   '</div>';
-//																	echo   '</div>';
-//																	echo   '</div>';
+																	echo   '<div class="col-12 col-sm-6 mb-3">';
+																	echo   '<label>Change Password</label>';
+																	echo   '<div class="input-group" id="show_hide_password">';
+																	echo   "<input type='password' class='form-control' name='password' placeholder='New Password' title='Enter your new password.' value='$password' >";
+																	echo   '<div class="input-group-append">
+																				<button class="btn btn-dark" type="button">
+																				<i class="fas fa-eye-slash fa-sm aria-hidden="true""></i>
+																				</button>
+																			</div>';
+																	echo   '</div>';
+																	echo   '</div>';
+																	echo   '</div>';
 																	
 																	echo   '<br>';
 																	echo   "<div class='row'>
                       														<div class='col d-flex justify-content-end' style='padding-right: 35px'>
-                        													<button class='btn btn-dark' type='submit' formmethod='post' name='updatebutton'style='font-size: 13px; letter-spacing: 0.7px; padding-right: 10px; padding-left: 10px; padding-bottom: 8px; padding-top: 8px'>Save Changes</button>
+                        													<button class='btn btn-dark' type='submit' formmethod='post' name='updateButton'style='font-size: 13px; letter-spacing: 0.7px; padding-right: 10px; padding-left: 10px; padding-bottom: 8px; padding-top: 8px'>Change Password</button>
                       														</div>
                     														</div>";
 																	echo	'</form>';
@@ -465,26 +458,26 @@ a:hover{
 
 <?php
 
-if (isset($_POST['updatebutton'])) {
+if (isset($_POST['updateButton'])) {
 
-	//if (empty($_POST['password'])) {
-//		$setChangePWD = $_SESSION['password'];
-//	} else {
-//		$setChangePWD = $_POST['password'];
+	if (empty($_POST['password'])) {
+		$setChangePWD = $_SESSION['password'];
+	} else {
+		$setChangePWD = $_POST['password'];
+	}
+
+	//if (!empty($_POST['email'])) {
+//		$setChangeEMAIL = $_POST['email'];
 //	}
-
-	if (!empty($_POST['email'])) {
-		$setChangeEMAIL = $_POST['email'];
-	}
-	
-
-	if (!empty($_POST['name'])) {
-		$setChangeNAME = $_POST['name'];
-	}
-	
-	if (!empty($_POST['phonenumber'])) {
-		$setChangePHONENUMBER = $_POST['phonenumber'];
-	}
+//	
+//
+//	if (!empty($_POST['name'])) {
+//		$setChangeNAME = $_POST['name'];
+//	}
+//	
+//	if (!empty($_POST['phonenumber'])) {
+//		$setChangePHONENUMBER = $_POST['phonenumber'];
+//	}
 
 	/*	if (!empty($_POST['username'])) {
 						  $setChangeUSERNAME = $_POST['username'];
@@ -498,7 +491,7 @@ if (isset($_POST['updatebutton'])) {
 	$salt = "codeflix";
 	$hash = sha1($setChangePWD.$salt);
 	
-	$sql = "UPDATE `customers` SET `username` = '" . $_SESSION['username'] . "',`name` = '" . $setChangeNAME . "', `email` = '" . $setChangeEMAIL . "', `phonenumber` = '" . $setChangePHONENUMBER . "' WHERE `customers`.`username` = '" . $_SESSION['username'] . "'";
+	$sql = "UPDATE `customers` SET `password` = '" . $hash . "'  WHERE `customers`.`username` = '" . $_SESSION['username'] . "'";
 	$result = mysqli_query($con, $sql) or trigger_error("Query Failed! SQL: $sql - Error: " . mysqli_error($con), E_USER_ERROR);
 
 	if ($result) {
@@ -506,7 +499,7 @@ if (isset($_POST['updatebutton'])) {
 	} else {
 		echo "<script type='text/javascript'>alert('Error. Unsuccessful!');</script>";
 	}
-	//$_SESSION['password'] = $setChangePWD;
+	$_SESSION['password'] = $setChangePWD;
 }
 ?>
 <script>

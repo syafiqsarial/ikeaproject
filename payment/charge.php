@@ -51,7 +51,7 @@ if(!$con)
  //$item_price = $item["quantity"]*$item["price"];
 
   $sql="INSERT INTO orders (orderID, custName, custEmail, custContact, foodname, orderQuantity, orderTotal) 
-  VALUES ('$charge->id','$custName','$email','$custContact','$foodname', '$orderQuantity','$orderTotal')";
+  VALUES ('$charge->id','$custName','$email','$custContact','$estring', '$orderQuantity','$orderTotal')";
  
     echo $sql;
 	$qry = mysqli_query($con,$sql);
