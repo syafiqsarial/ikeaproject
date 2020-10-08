@@ -267,8 +267,9 @@ hr.new1 {
               </div>
              
               <ul class="nav nav-tabs">
-				<li class="nav-item"><a href="" class="active nav-link" style="font-size: 15px;">Info</a></li>&ensp;
-                <li class="nav-item"><a href="cust-setting.php" class="active nav-link" style="font-size: 15px;">Settings</a></li>
+				<li class="nav-item"><a href="cust-profile.php" class="active nav-link" style="font-size: 15px;">Info</a></li>&ensp;
+                <li class="nav-item"><a href="cust-setting.php" class="active nav-link" style="font-size: 15px;">Settings</a></li>&ensp;
+				<li class="nav-item"><a href="cust-password.php" class="active nav-link" style="font-size: 15px;">Password Setting</a></li>
               </ul>
 			  <div class="tab-content pt-3">
                 <div class="tab-pane active">
