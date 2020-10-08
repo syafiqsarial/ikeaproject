@@ -251,7 +251,7 @@ function myFunction() {
         
          
         Please click this link to reset your password:
-        http://localhost/masterfolder_ikea/Login_v18/php/verifypassword.php?email='. $_POST['email'].' &password= '.$_POST['password'].'
+        http://localhost/masterfolder_ikea/Login_v18/php/verifypassword.php?email='. $_POST['email'].'&password='.$_POST['password'].'
          
         ';
     $headers = 'From: ikeasd02@gmail.com';

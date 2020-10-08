@@ -268,6 +268,7 @@ a:hover{
 if(isset($_SESSION["cart_item"])){
     $orderQuantity = 0;
     $orderTotal = 0;
+	$foodname;
 ?>	
 <table class="tbl-cart" cellpadding="10" cellspacing="1">
 <tbody>
@@ -295,6 +296,7 @@ if(isset($_SESSION["cart_item"])){
 				<?php
 				$orderQuantity += $item["quantity"];
 				$orderTotal += ($item["price"]*$item["quantity"]);
+				$foodname = $item["name"];
 		}
 		?>
 
@@ -307,7 +309,7 @@ if(isset($_SESSION["cart_item"])){
 </tbody>
 </table><br><br>
 <div class='col d-flex justify-content-end'>
-<a href="next.php" class="btn btn-dark">Next</a>
+<a href="checkout.php" class="btn btn-dark">Checkout</a>
   <?php
 } else {
 ?>
@@ -317,13 +319,13 @@ if(isset($_SESSION["cart_item"])){
 ?>
 </div>
 <div class="txt-heading" style="margin: 40px">Products</div>
-<div id="product-grid" style="margin-left: 120px">
+<div id="product-grid" style="margin-left: 110px">
 	<?php
 	$product_array = $db_handle->runQuery("SELECT * FROM menus");
 	if (!empty($product_array)) { 
 		foreach($product_array as $key=>$value){
 	?>
-		<div class="product-item image" style="margin-left: 8px">
+		<div class="product-item image" style="margin-left: 30px">
 			<form method="post" action="index.php?action=add&id=<?php echo $product_array[$key]["id"]; ?>">
 			<div class="product-image"><img style="margin: 10px;" src="<?php echo 'imageView2.php?id='.$product_array[$key]['id']; ?>"></div>
 			<div class="product-tile-footer"><br><br><br><br><br><br>

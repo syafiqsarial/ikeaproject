@@ -370,9 +370,9 @@ if (isset($_POST['logout'])) {
 					  echo '<form action="process.php" method="POST">';
 					
 					  echo '<div class="form-group"><label class="bmd-label-floating">Username</label>';  
-					   echo 	"<input type='text' name='newusername' value='".$row['username']."' class='form-control' required> ";
+					   echo 	"<input type='text' name='newusername' value='".$row['username']."' class='form-control' readonly> ";
 					   //echo 	"<input type='text' name='newname' value='$name' class='form-control' required> </div>";
-					   echo     "<input type='hidden' name='username' value='".$row['username']."'> </div>";
+					   echo     "<input type='hidden' name='username' value='".$row['username']."' readonly> </div>";
 
 					  echo '<div class="form-group"><label class="bmd-label-floating">Name</label>'; 
 					  echo 		"<input type='text' name='name' value='".$row['name']."' class='form-control'> </div>";

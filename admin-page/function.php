@@ -1,4 +1,46 @@
 <?php
+/////////////////////////////////////////////////////////////////////////////////////////////////============GET LIST OF MENU===========
+function getListOfMenu(){
+
+$con = mysqli_connect("localhost", "ikea", "ikea", "ikea");
+if(!$con){
+	echo mysqli_connect_error();
+	exit;
+	}
+$sql = 'select * from menus';
+$qry = mysqli_query($con,$sql);
+return $qry;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////============GET LIST OF MENU===========
+function getListOfTable(){
+
+$con = mysqli_connect("localhost", "ikea", "ikea", "ikea");
+if(!$con){
+	echo mysqli_connect_error();
+	exit;
+	}
+$sql = 'select * from tables';
+$qry = mysqli_query($con,$sql);
+return $qry;
+}
+////////////////////////////////////////////////////////////////////////getListOfPastBookingByCustomer function==================
+//function getListOfPastBookingByCustomer()
+//{
+////create connection
+//$con=mysqli_connect("localhost","ikea","ikea","ikea");
+//if(!$con)
+//	{
+//	echo  mysqli_connect_error(); 
+//	exit;
+//	}
+////get list of past booking
+//$sql = "select * from booktable ";      
+//$sql .= " and (datereserved < CURDATE())";
+//$sql .= " order by datereserved";
+//$qry = mysqli_query($con,$sql);//run query
+//return $qry; 
+//
+//} 
 /////////////////////////////////////////////////////////////////////////////////////////////////============CUSTOMER====GET INFO===========
 function getAdminInformation($username)
 {

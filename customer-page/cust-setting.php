@@ -466,10 +466,12 @@ if (isset($_POST['updatebutton'])) {
 	if (!empty($_POST['email'])) {
 		$setChangeEMAIL = $_POST['email'];
 	}
+	
 
 	if (!empty($_POST['name'])) {
 		$setChangeNAME = $_POST['name'];
 	}
+	
 	if (!empty($_POST['phonenumber'])) {
 		$setChangePHONENUMBER = $_POST['phonenumber'];
 	}

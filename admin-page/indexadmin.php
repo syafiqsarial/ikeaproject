@@ -95,6 +95,12 @@
           <i class="fas fa-utensils fa-sm fa-fw mr-2"></i>
           <span>Food Menu List</span></a>
       </li>
+	  <!-- Nav Item - Orders-->
+      <li class="nav-item">
+        <a class="nav-link" href="orders.php">
+          <i class="fas fa-utensils fa-sm fa-fw mr-2"></i>
+          <span>Orders List</span></a>
+      </li>
 	  
       <!-- Nav Item - Tables Booking -->
       <li class="nav-item">
@@ -116,6 +122,7 @@
           <i class="fas fa-comments fa-sm fa-fw mr-2"></i>
           <span>Feedback</span></a>
       </li>
+	 
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -229,7 +236,26 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Revenue</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">RM 215.00</div>
+						<?php
+						  ini_set('display_errors', 1);
+						  ini_set('display_startup_errors', 1);
+						  error_reporting(E_ALL);
+
+							$con=mysqli_connect("localhost","ikea","ikea","ikea");
+							if(!$con)
+							{
+							echo  mysqli_connect_error(); 
+							exit;
+							}
+
+							$sql="SELECT sum(orderTotal) FROM orders";
+							$qry = mysqli_query($con,$sql);
+
+							while($result = mysqli_fetch_assoc($qry)){
+							echo 'RM '.number_format($result['sum(orderTotal)'],2).'';
+							}
+						
+					  ?>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -245,8 +271,14 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tables Booked</div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Tables</div>
                       <div class="row no-gutters align-items-center">
+						  <?php
+//							  include "function.php";
+//							  $qry = getListOfTable();
+//
+//							  echo mysqli_num_rows($qry)
+//						  ?>
                         <div class="col-auto">
                           <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
                         </div>
@@ -267,7 +299,12 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Total Menus</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                      <?php
+					  include "function.php";
+					  $qry = getListOfMenu();
+
+					  echo mysqli_num_rows($qry)
+					  ?>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-utensils fa-2x text-gray-300"></i>
