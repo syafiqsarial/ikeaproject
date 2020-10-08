@@ -273,14 +273,14 @@ a, a:hover{
       </li>
 	  
 	  <!-- Nav Item - Order List  -->
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="orders.php">
           <i class="fas fa-clipboard-list fa-sm fa-fw mr-2"></i>
           <span>Order List</span></a>
       </li>
 	  
       <!-- Nav Item - Tables Booking -->
-      <li class="nav-item">
+      <li class="nav-item ">
         <a class="nav-link" href="tableslist.php">
           <i class="fas fa-table fa-sm fa-fw mr-2"></i>
           <span>Table List</span></a>

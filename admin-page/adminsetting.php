@@ -253,11 +253,11 @@ if (isset($_POST['logout'])) {
 				<?php
 					if (isset($_POST['updatebutton'])) {
 
-                    if (empty($_POST['password'])) {
-                      $setChangePWD = $_SESSION['password'];
-                    } else {
-                      $setChangePWD = $_POST['password'];
-                    }
+                   // if (empty($_POST['password'])) {
+//                      $setChangePWD = $_SESSION['password'];
+//                    } else {
+//                      $setChangePWD = $_POST['password'];
+//                    }
 
 
                     if (!empty($_POST['email'])) {
@@ -273,7 +273,7 @@ if (isset($_POST['logout'])) {
                       die("Connection failed: " . mysqli_connect_error());
                       exit();
                     }
-                    $sql = "UPDATE `admin` SET  `name` = '" . $setChangeNAME . "',`email` = '" . $setChangeEMAIL . "', `password` = '" . $setChangePWD . "'  WHERE `admin`.`username` = '" . $_SESSION['username'] . "'";
+                    $sql = "UPDATE `admin` SET  `name` = '" . $setChangeNAME . "',`email` = '" . $setChangeEMAIL . "' WHERE `admin`.`username` = '" . $_SESSION['username'] . "'";
                     $result = mysqli_query($con, $sql) or trigger_error("Query Failed! SQL: $sql - Error: " . mysqli_error($con), E_USER_ERROR);
 						
                     if ($result) {
@@ -281,7 +281,7 @@ if (isset($_POST['logout'])) {
                     } else {
                       echo "<script type='text/javascript'>alert('Error. Unsuccessful');</script>";
                     }
-                    $_SESSION['password'] = $setChangePWD;
+                    //$_SESSION['password'] = $setChangePWD;
                   }
 
                   $con = mysqli_connect("localhost", "root", "root", "ikea");
@@ -298,19 +298,24 @@ if (isset($_POST['logout'])) {
 				  echo       '<div class="form-group">';                       
 				  echo            '<div class="col-xs-6">';
 				  echo              '<label for="username"><h5 style="font-size: 17px; font-weight: bold">Username</h5></label>';
-				  echo                "<input type='name' class='form-control' name='username'  placeholder='".$row['username']."' value='$name' readonly>";
+				  //echo                "<input type='name' class='form-control' name='username'  placeholder='".$row['username']."' value='$name' readonly>";
+				  echo '<div ><input type="text" size="50" class="form-control" name="username" value="'.$row['username'].'" placeholder="Username" readonly></div>';
 				  echo            '</div>';
-				  echo        '</div>';      
+				  echo        '</div>';  
+					
 				  echo       '<div class="form-group">';                       
 				  echo            '<div class="col-xs-6">';
 				  echo              '<label for="name"><h5 style="font-size: 17px; font-weight: bold">Name</h5></label>';
-				  echo                "<input type='name' class='form-control' name='name'  placeholder='".$row['name']."' title='enter your name if any.' value='$name' >";
+				  //echo                "<input type='name' class='form-control' name='name'  placeholder='".$row['name']."' title='enter your name if any.' value='$name' >";
+				  echo '<div ><input type="text" size="50" class="form-control" name="name" value="'.$row['name'].'" placeholder="Name"></div>';
 				  echo            '</div>';
-				  echo        '</div>';          
+				  echo        '</div>';  
+					
 				  echo        '<div class="form-group">';                       
 				  echo            '<div class="col-xs-6">';
 				  echo                '<label for="email"><h5 style="font-size: 17px; font-weight: bold">Email</h5></label>';
-				  echo                "<input type='email' class='form-control' name='email'  placeholder='".$row['email']."' title='enter your email if any.' value='$email' >";
+				  //echo                "<input type='email' class='form-control' name='email'  placeholder='".$row['email']."' title='enter your email if any.' value='$email' >";
+				echo '<div ><input type="email" size="50" class="form-control" name="email" value="'.$row['email'].'" placeholder="Name"></div>';
 				  echo            '</div>';
 				  echo        '</div>' ;
 				  //echo		'<br><hr><br>';	

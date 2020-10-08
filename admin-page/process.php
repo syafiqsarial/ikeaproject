@@ -52,7 +52,7 @@ else if(isSet($_POST['deletetable']))
 else if(isSet($_POST['updateadmin']))
 	{
 	getAdminInformation();
-	header( "refresh:1; url=adminprofile.php" );
+	header( "refresh:1; url=adminsetting.php" );
 	}
 
 ?>

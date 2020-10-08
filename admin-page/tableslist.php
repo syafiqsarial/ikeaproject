@@ -175,6 +175,16 @@ a, a:hover{
 .text-primary {
 	color: #152F4F
 }
+		.text-primary {
+	color: #152F4F
+}
+		.scrollit {
+overflow:scroll;
+height:450px;
+}
+/*table.table th{
+position: fixed;
+}*/
 </style>
 
 <head>
@@ -422,7 +432,8 @@ a, a:hover{
 						$qry = $result;
 					
  						//$list = mysqli_num_rows($qry);
-					
+					echo '<br>
+						<div class="scrollit">';
 					    //// display menu info
 						echo '<table class="table table-striped table-hover table-bordered">
 						<br>

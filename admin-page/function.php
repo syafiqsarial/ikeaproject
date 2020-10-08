@@ -70,7 +70,7 @@ if(!$con)
  $oldusername = $_POST['username'];
  $newusername = $_POST['newusername'];
  $name = $_POST['name'];
- $email = $_POST['description'];
+ $email = $_POST['email'];
  $password = $_POST['password'];
 
  

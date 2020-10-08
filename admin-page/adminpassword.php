@@ -260,21 +260,13 @@ if (isset($_POST['logout'])) {
                       $setChangePWD = $_POST['password'];
                     }
 
-
-                    if (!empty($_POST['email'])) {
-                      $setChangeEMAIL = $_POST['email'];
-                    } 
-						
-					if (!empty($_POST['name'])) {
-                      $setChangeNAME = $_POST['name'];
-                    } 
 						
                     $con = mysqli_connect("localhost", "root", "root", "ikea");
                     if (!$con) {
                       die("Connection failed: " . mysqli_connect_error());
                       exit();
                     }
-                    $sql = "UPDATE `admin` SET  `name` = '" . $setChangeNAME . "',`email` = '" . $setChangeEMAIL . "', `password` = '" . $setChangePWD . "'  WHERE `admin`.`username` = '" . $_SESSION['username'] . "'";
+                    $sql = "UPDATE `admin` SET  `password` = '" . $setChangePWD . "'  WHERE `admin`.`username` = '" . $_SESSION['username'] . "'";
                     $result = mysqli_query($con, $sql) or trigger_error("Query Failed! SQL: $sql - Error: " . mysqli_error($con), E_USER_ERROR);
 						
                     if ($result) {
