@@ -185,7 +185,11 @@ a:hover {
 					</span>
 						<!--<a href="../../Login_v18/login-cust.php">Click here to login.</a>-->
 					</div><br>
-					<button type="submit" name="pay" class="button">Order Again</button>
+					<div class="col d-flex justify-content-center">';
+                  	<br>;
+					<input type="submit" name="pay" value="Order Again" class="btn btn-dark pull-right" >';
+					</div>
+					<!--<button type="submit" name="pay" class="btn btn-dark">Order Again</button>-->
 					
 	<!--				<body>
  <form action="../food-order/index.php"> 
