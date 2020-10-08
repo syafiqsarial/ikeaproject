@@ -249,8 +249,6 @@ hr.new2 {
     					<a href="#" class="fas fa-user-alt dropdown-toggle" style="font-size: 18px; padding-top: 16px" type="button" data-toggle="dropdown"></a>
     						<ul class="dropdown-menu">
       							<li><a href="../customer-page/cust-profile.php" style="letter-spacing: 0.4px; font-size: 14px">My Account</a></li>
-      							<li><a href="#" style="letter-spacing: 0.4px; font-size: 14px">Order History</a></li>
-      							<li><a href="../book-table/book-history.php" style="letter-spacing: 0.4px; font-size: 14px">Booking History</a></li>
 	 			 				<li class="divider"></li>
 	  							<li><a href="homepage-static.html" style="letter-spacing: 0.4px; font-size: 14px">Logout</a></li>
     						</ul>
@@ -280,8 +278,21 @@ hr.new2 {
 			echo		'Drop Us Your Feedback';
 			echo	'</span>';
 			
-			
+			echo	'<div class="form-group wrap-input100 rs1 validate-input" data-validate = "Name is required">';
+			echo		"<input type='text' name='name' class='input100' placeholder='Name'>";
+			echo		'<span class="focus-input100"></span>';
+			echo	'</div>';
+
+			echo	'<div class="form-group wrap-input100 rs1 validate-input" data-validate = "Email is required: a@b.c">';
+			echo		"<input type='text' name='email' class='input100' placeholder='Email Address'>";
+			echo		'<span class="focus-input100"></span>';
+			echo	'</div>';
 			//echo	'<form action="" method="POST">';
+
+			echo	'<div class="form-group wrap-input100 validate-input" data-validate = "Message is required">';
+			echo		'<textarea name="message" class="input100" placeholder="Write Us A Message"></textarea>';
+			echo		'<span class="focus-input100"></span>';
+			echo	'</div>';
 			echo	'<div class="row"><br>';
             echo    	'<div class="form-group col-sm-12 ">';
             echo        	'<label style="font-family: OpenSans-Regular; letter-spacing: 0.4px; font-size: 16px; display: inline-block">How do you rate your overall experience?</label>';
@@ -298,21 +309,6 @@ hr.new2 {
             echo                '</p>';
             echo        '</div>';
             echo    '</div>';
-
-			echo	'<div class="form-group wrap-input100 validate-input" data-validate = "Message is required">';
-			echo		'<textarea name="message" class="input100" placeholder="Write Us A Message"></textarea>';
-			echo		'<span class="focus-input100"></span>';
-			echo	'</div>';
-				
-			echo	'<div class="form-group wrap-input100 rs1 validate-input" data-validate = "Name is required">';
-			echo		"<input type='text' name='name' class='input100' placeholder='Name'>";
-			echo		'<span class="focus-input100"></span>';
-			echo	'</div>';
-
-			echo	'<div class="form-group wrap-input100 rs1 validate-input" data-validate = "Email is required: a@b.c">';
-			echo		"<input type='text' name='email' class='input100' placeholder='Email Address'>";
-			echo		'<span class="focus-input100"></span>';
-			echo	'</div>';
 			
 			echo	'<div class="container-contact100-form-btn">';
 			echo		'<button type="submit" name="feedbackbutton" class="contact100-form-btn">Send</button>';
@@ -374,7 +370,7 @@ a:hover{
   <div class="row"><br><br>
     <div class="col-lg-5 col-xs-12 about-company">
       <h2 style="font-size: 27px; font-weight: 600; letter-spacing: 0.1rem">Food at IKEA</h2>
-      <p class="pr-5 text-white-50" style="font-size: 16px; font-weight: 300; color: #dedede">We want to offer food that’s delicious, sustainable and nutritionally balanced. That’s why we include a variety<br> of more sustainable options at our IKEA Restaurants,<br> IKEA Swedish Food Markets, and IKEA Café. </p><br>
+      <p class="pr-5 text-white-50" style="font-size: 16px; font-weight: 300; color: #dedede">We want to offer food that’s delicious, sustainable and nutritionally balanced. That’s why we include a variety of more sustainable options at our IKEA Restaurants, IKEA Swedish Food Markets, and IKEA Café. </p><br>
       <p><a href="https://www.facebook.com/IKEAMalaysia"><i class="fab fa-facebook" style="font-size: 20px">&nbsp;&nbsp;</i></a><a href="https://www.instagram.com/ikeamalaysia/"><i class="fab fa-instagram" style="font-size: 20px">&nbsp;&nbsp;</i></a><a href="https://www.linkedin.com/company/ikea-southeast-asia/"><i class="fab fa-linkedin" style="font-size: 20px">&nbsp;&nbsp;</i></a><a href="https://www.youtube.com/user/ikeamalaysia"><i class="fab fa-youtube" style="font-size: 20px">&nbsp;&nbsp;</i></a></p>
     </div>
     <div class="col-lg-3 col-xs-12 links">

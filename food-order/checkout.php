@@ -49,11 +49,12 @@ switch($_GET["action"]) {
 ?>
 <HTML>
 <HEAD>
-<TITLE>Menu Cart</TITLE>
+<TITLE>Checkout</TITLE>
 <link href="style.css" type="text/css" rel="stylesheet" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="icon" href="../IKEA E-Restaurant/images/ikea-logo3.png" type="image/png">
 <link href="http://netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../payment/css/style.css">
 	
 <!-- W3School CSS
 ================================================= -->
@@ -213,6 +214,10 @@ a:hover{
 }
 	
 .copyright p{border-top:1px solid rgba(255,255,255,.1);} 
+
+.placeholder {
+		opacity: 1;
+	}
 </style>
 	
 </HEAD>
@@ -241,9 +246,7 @@ a:hover{
     					<a href="#" class="fas fa-user-alt dropdown-toggle" style="font-size: 18px; padding-top: 7px" type="button" data-toggle="dropdown"></a>
     						<ul class="dropdown-menu">
       							<li><a href="#" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;My Account</a></li>
-      							<li><a href="#" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;Order History</a></li>
-      							<li><a href="#" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;Booking History</a></li>
-	 			 				<hr>
+	 			 				<li class="dropdown-divider"></li>
 	  							<li><a href="../IKEA E-Restaurant/homepage-static.html" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;Logout</a></li>
     						</ul>
   						</div>
@@ -328,17 +331,11 @@ if(isset($_SESSION["cart_item"])){
 	<!--<form id="contact" action="processMenu.php" method="post">-->
 	<div class="txt-heading">Order Details</div><br>
 	<form action="../payment/charge.php" method="post" id="payment-form">
-		  <div class="form-row">
-			   <input type="text" name="custName" class="form-control mb-3 StripeElement StripeElement--empty" placeholder="Full Name">
-			   <input type="text" name="custContact" class="form-control mb-3 StripeElement StripeElement--empty" placeholder="Contact Number">
-			   <input type="email" name="email" class="form-control mb-3 StripeElement StripeElement--empty" placeholder="Email Address">
-				<!--<input type="number" name="amountToPay" class="form-control mb-3 StripeElement StripeElement--empty" placeholder="Amount to Pay">-->
-			  
-			   <?php /*?><?php
-			   //$FUCKER = 6900;
-			   echo '
-			   <input type="number" name="amountToPay" value="'.$FUCKER.'" class="form-control mb-3 StripeElement StripeElement--empty" placeholder="Email Address" readonly>';
-			   ?><?php */?>
+	<div class="form-row col-12 col-sm-5 mb-4">
+			   <input type="text" name="custName" class="form-control mb-4 StripeElement StripeElement--empty" placeholder="Full Name">
+			   <input type="text" name="custContact" class="form-control mb-4 StripeElement StripeElement--empty" placeholder="Contact Number">
+			   <input type="email" name="email" class="form-control mb-4 StripeElement StripeElement--empty" placeholder="Email Address">
+  	
 				<?php 
 					echo '<input type="hidden" value="'.$orderQuantity.'" name="orderQuantity">'; 
 					echo '<input type="hidden" value="'.$orderTotal.'" name="orderTotal">';
@@ -349,20 +346,20 @@ if(isset($_SESSION["cart_item"])){
 				    <input type="hidden" name="amountToPay" value="'.$pricee.'" class="form-control mb-3 StripeElement StripeElement--empty" placeholder="Amount to Pay" readonly>';
 				?>
 			  
-
-				<div id="card-element" class="form-control">
+				
+				<div id="card-element" class="form-control StripeElement StripeElement--empty">
 				  <!-- a Stripe Element will be inserted here. -->
-				</div>
+					</div></div>
 
 			<!-- Used to display form errors -->
-			<div id="card-errors" role="alert"></div>
+			<div id="card-errors" role="alert" style="margin-left: 15px"></div>
 		  	</div>
 		
-			<br>
-		
+	
 		  <!--<button>Submit Payment</button>-->
-		<input type='submit' name='checkout' value='Submit Payment'>
-	</form>
+		<div class="col-12 col-sm-5"></div>
+		<input type='submit' name='checkout' value='Proceed Payment' class="btn btn-dark" style="margin-left: 50px">
+	</form><br><br><br>
 	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://js.stripe.com/v3/"></script>

@@ -180,16 +180,14 @@ hr.new1 {
 						<a href="../food-order/index.php" style="font-size: 17px; letter-spacing: 0.7px">HUNGRY?</a>&emsp;&emsp;
 					</li>
 					<li>
-						<a href="../book-table/book-table.php" style="font-size: 17px; letter-spacing: 0.2px">BOOK A TABLE</a>&emsp;&emsp;&emsp;&emsp;&emsp;
+						<a href="../book-table/book-table.php" style="font-size: 17px; letter-spacing: 0.2px">BOOK A TABLE</a>&emsp;&emsp;&emsp;
 					</li>
 					<li>
 						<div class="dropdown">
     					<a href="#" class="fas fa-user-alt dropdown-toggle" style="font-size: 18px" type="button" data-toggle="dropdown"></a>
     						<ul class="dropdown-menu">
       							<li><a href="cust-profile.php" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;My Account</a></li>
-      							<li><a href="#" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;Order History</a></li>
-      							<li><a href="../book-table/book-history.php" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;Booking History</a></li>
-	 			 				<hr>
+      							<li class="dropdown-divider"></li>
 	  							<li><a href="../IKEA E-Restaurant/homepage-static.html" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;Logout</a></li>
     						</ul>
   						</div>
