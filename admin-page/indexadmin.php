@@ -33,6 +33,23 @@
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
+<style>
+		
+a, a:hover{
+	color:#FFFFFF
+}
+		
+.btn-dark{
+	background-color: #152F4F !important;
+	border-color: #152F4F !important;
+}
+		
+.text-primary {
+	color: #152F4F
+}
+		
+</style>
+
 
 <body id="page-top">
 
@@ -40,7 +57,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #152F4F">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="indexadmin.php">
@@ -67,19 +84,12 @@
       <div class="sidebar-heading">
         Utilities
       </div>
-		
-	  <!-- Nav Item - Profile -->
-      <li class="nav-item">
-        <a class="nav-link" href="adminprofile.php">
-          <i class="fas fa-user-circle fa-sm fa-fw mr-2 "></i>
-          <span>Profile</span></a>
-      </li>
 	  
 	  <!-- Nav Item - Setting Profile -->
       <li class="nav-item">
         <a class="nav-link" href="adminsetting.php">
-          <i class="fas fa-user fa-sm fa-fw mr-2 "></i>
-          <span>Setting Profile</span></a>
+          <i class="fas fa-user-circle fa-sm fa-fw mr-2 "></i>
+          <span>Profile</span></a>
       </li>
 	  
 	  <!-- Nav Item - Customer List -->
@@ -98,8 +108,8 @@
 	  <!-- Nav Item - Orders-->
       <li class="nav-item">
         <a class="nav-link" href="orders.php">
-          <i class="fas fa-utensils fa-sm fa-fw mr-2"></i>
-          <span>Orders List</span></a>
+          <i class="fas fa-clipboard-list fa-sm fa-fw mr-2"></i>
+          <span>Order List</span></a>
       </li>
 	  
       <!-- Nav Item - Tables Booking -->
@@ -154,7 +164,7 @@
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
+                <button class="btn btn-dark" type="button">
                   <i class="fas fa-search fa-sm"></i>
                 </button>
               </div>
@@ -175,7 +185,7 @@
                   <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                     <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">
+                      <button class="btn btn-dark" type="button">
                         <i class="fas fa-search fa-sm"></i>
                       </button>
                     </div>
@@ -241,7 +251,7 @@
 						  ini_set('display_startup_errors', 1);
 						  error_reporting(E_ALL);
 
-							$con=mysqli_connect("localhost","ikea","ikea","ikea");
+							$con=mysqli_connect("localhost","root","root","ikea");
 							if(!$con)
 							{
 							echo  mysqli_connect_error(); 
@@ -264,8 +274,8 @@
                 </div>
               </div>
             </div>
-
-            <!-- Tables Booked Example -->
+			  
+			<!-- Tables Booked Example -->
             <div class="col-xl-4 col-md-6 mb-4">
               <div class="card border-left-info shadow h-100 py-2">
                 <div class="card-body">
@@ -274,11 +284,11 @@
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Tables</div>
                       <div class="row no-gutters align-items-center">
 						  <?php
-//							  include "function.php";
+							 // include "function.php";
 //							  $qry = getListOfTable();
 //
 //							  echo mysqli_num_rows($qry)
-//						  ?>
+						  ?>
                         <div class="col-auto">
                           <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
                         </div>
@@ -292,7 +302,7 @@
               </div>
             </div>
 
-            <!-- Total Menus Card Example -->
+ 			<!-- Total Menus Card Example -->
             <div class="col-xl-4 col-md-6 mb-4">
               <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
@@ -315,6 +325,8 @@
             </div>
           </div>
 
+           
+           
           <!-- Content Row -->
 
           <div class="row">
@@ -528,16 +540,6 @@
       </div>
       <!-- End of Main Content -->
 
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2020</span>
-          </div>
-        </div>
-      </footer>
-      <!-- End of Footer -->
-
     </div>
     <!-- End of Content Wrapper -->
 
@@ -562,7 +564,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="../signup-login-cust-admin/logout.php">Logout</a>
+          <a class="btn btn-dark" href="../signup-login-cust-admin/logout.php">Logout</a>
         </div>
       </div>
     </div>
