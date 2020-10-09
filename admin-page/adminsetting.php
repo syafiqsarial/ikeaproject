@@ -16,7 +16,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
   header("Location: ../../IKEA E-Restaurant/homepage-static.html");
 }
 if (isset($_POST['logout'])) {
-  header("Location: ../signup-login-cust-admin/logout.php");
+  header("Location: ../login-signup/php/logout.php");
 }
   ?>
 	<style>
@@ -218,7 +218,7 @@ if (isset($_POST['logout'])) {
                 </a>
             
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="..signup-login-cust-admin/logout.php" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="../login-signup/php/logout.php" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -253,13 +253,6 @@ if (isset($_POST['logout'])) {
 				<?php
 					if (isset($_POST['updatebutton'])) {
 
-                   // if (empty($_POST['password'])) {
-//                      $setChangePWD = $_SESSION['password'];
-//                    } else {
-//                      $setChangePWD = $_POST['password'];
-//                    }
-
-
                     if (!empty($_POST['email'])) {
                       $setChangeEMAIL = $_POST['email'];
                     } 
@@ -281,7 +274,6 @@ if (isset($_POST['logout'])) {
                     } else {
                       echo "<script type='text/javascript'>alert('Error. Unsuccessful');</script>";
                     }
-                    //$_SESSION['password'] = $setChangePWD;
                   }
 
                   $con = mysqli_connect("localhost", "root", "root", "ikea");
@@ -298,7 +290,6 @@ if (isset($_POST['logout'])) {
 				  echo       '<div class="form-group">';                       
 				  echo            '<div class="col-xs-6">';
 				  echo              '<label for="username"><h5 style="font-size: 17px; font-weight: bold">Username</h5></label>';
-				  //echo                "<input type='name' class='form-control' name='username'  placeholder='".$row['username']."' value='$name' readonly>";
 				  echo '<div ><input type="text" size="50" class="form-control" name="username" value="'.$row['username'].'" placeholder="Username" readonly></div>';
 				  echo            '</div>';
 				  echo        '</div>';  
@@ -306,7 +297,6 @@ if (isset($_POST['logout'])) {
 				  echo       '<div class="form-group">';                       
 				  echo            '<div class="col-xs-6">';
 				  echo              '<label for="name"><h5 style="font-size: 17px; font-weight: bold">Name</h5></label>';
-				  //echo                "<input type='name' class='form-control' name='name'  placeholder='".$row['name']."' title='enter your name if any.' value='$name' >";
 				  echo '<div ><input type="text" size="50" class="form-control" name="name" value="'.$row['name'].'" placeholder="Name"></div>';
 				  echo            '</div>';
 				  echo        '</div>';  
@@ -314,24 +304,9 @@ if (isset($_POST['logout'])) {
 				  echo        '<div class="form-group">';                       
 				  echo            '<div class="col-xs-6">';
 				  echo                '<label for="email"><h5 style="font-size: 17px; font-weight: bold">Email</h5></label>';
-				  //echo                "<input type='email' class='form-control' name='email'  placeholder='".$row['email']."' title='enter your email if any.' value='$email' >";
 				echo '<div ><input type="email" size="50" class="form-control" name="email" value="'.$row['email'].'" placeholder="Name"></div>';
 				  echo            '</div>';
 				  echo        '</div>' ;
-				  //echo		'<br><hr><br>';	
-//				  echo       '<div class="form-group">';
-//				  echo            '<div class="col-xs-6">';
-//				  echo               '<label for="password"><h5>Change Password</h5></label>';
-//				  echo					'<div class="input-group" id="show_hide_password">';
-//				  echo                		"<input type='password' class='form-control' name='password'  placeholder='Password' title='enter your password if any.' value='$password' >";
-//				  echo						'<div class="input-group-append">
-//                								<button class="btn btn-primary" type="button">
-//												<i class="fas fa-eye-slash fa-sm aria-hidden="true""></i>
-//                								</button>
-//              								</div>';
-//				  echo 					'</div>';
-//				  echo            '</div>';
-//				  echo        '</div>';
 
 				  echo        '<div class="form-group"><br>';
 				  echo             '<div class="col d-flex justify-content-center">';
@@ -370,12 +345,8 @@ if (isset($_POST['logout'])) {
 							$sql = "UPDATE `admin` SET `imageData` = '{$imgData}', imageType = '{$imageProperties['mime']}' WHERE `admin`.`username` = '" . $_SESSION['username'] . "'";
 							//$sql = "INSERT INTO admin(imageType ,imageData) VALUES('{$imageProperties['mime']}', '{$imgData}')";
 							$current_id = mysqli_query($conn, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($conn));
-							if(isset($current_id)) {
-								
-								//mysqli_close($conn);     
+							if(isset($current_id)) {    
 							}
-							
-							//mysqli_close($conn); 
 						}
 						}
 						
@@ -432,7 +403,7 @@ if (isset($_POST['logout'])) {
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-dark" href="../signup-login-cust-admin/logout.php">Logout</a>
+          <a class="btn btn-dark" href="../login-signup/php/logout.php">Logout</a>
         </div>
       </div>
     </div>
@@ -458,24 +429,7 @@ if (isset($_POST['logout'])) {
   <script src="js/demo/chart-pie-demo.js"></script>
   <script src="js/demo/chart-bar-demo.js"></script>
 
-</body>
-	
-	<?php
-	function getadmininfo(){
-		//create connection
-		$con=mysqli_connect("localhost","root","root","ikea");
-		if(!$con)
-			{
-			echo  mysqli_connect_error(); 
-			exit;
-			}
-		$sql = "select * from admin where username = '".$username."'";
-
-		$qry = mysqli_query($con,$sql);//run query
-		return $qry;  //return query
-	}
-	
-      ?>   
+</body>   
 	
 	<script>
 		$(document).ready(function() {

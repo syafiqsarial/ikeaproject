@@ -1,15 +1,5 @@
 <?php
 include "function.php";
-//if(isSet($_POST['addCarButton']))
-//	{
-//	header('Location: carInfo.php');
-//	}
-//else if(isSet($_POST['saveNewCarButton']))
-//	{
-//	addNewCar();
-//	header('Location: menusupdated.php');
-//	}
-//else 
 	if(isSet($_POST['deletemenu']))
 	{
 	deleteMenu();

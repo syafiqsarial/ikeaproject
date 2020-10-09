@@ -223,7 +223,7 @@ a:hover{
 	<div class="container">
 		<nav class="navbar row">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="../IKEA E-Restaurant/about-dynamic.html"><img src="../IKEA E-Restaurant/images/ikea-logo.png" alt="Ikea Logo" style="width: 130px; height: 50px"></a>
+				<a class="navbar-brand" href="../IKEA E-Restaurant/homepage-dynamic.html"><img src="../IKEA E-Restaurant/images/ikea-logo.png" alt="Ikea Logo" style="width: 130px; height: 50px"></a>
 				<button id="nav-toggle" type="button" class="ui-navbar-toggle navbar-toggle" data-toggle="collapse" data-target=".navbar-1">
 					<span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
 				</button>
@@ -242,7 +242,7 @@ a:hover{
     						<ul class="dropdown-menu">
       							<li><a href="../customer-page/cust-profile.php" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;My Account</a></li>
 	 			 				<li class="dropdown-divider"></li>
-	  							<li><a href="../IKEA E-Restaurant/homepage-static.html" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;Logout</a></li>
+	  							<li><a href="../login-signup/php/logout.php" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;Logout</a></li>
     						</ul>
   						</div>
 					</li>				
@@ -257,10 +257,7 @@ a:hover{
 <div class="txt-heading">Order Cart</div>
 
 <a id="btnEmpty" href="index.php?action=empty">Empty Cart</a> &emsp;
-<!--<form style="display:inline-block" action="processBook.php" method="post" >
-<input id="btnEmpty" type="submit" name="next" value="Next"> </input>
-</form>-->
-<!--<a id="btnEmpty" style="float: left" href="next.php">Next</a>-->
+
 
 <?php
 if(isset($_SESSION["cart_item"])){
@@ -316,8 +313,8 @@ if(isset($_SESSION["cart_item"])){
 }
 ?>
 </div>
-<div class="txt-heading" style="margin: 40px">Products</div>
-<div id="product-grid" style="margin-left: 105px">
+<div class="txt-heading" style="margin: 50px">Products</div>
+<div id="product-grid" style="margin-left: 170px">
 	<?php
 	$product_array = $db_handle->runQuery("SELECT * FROM menus");
 	if (!empty($product_array)) { 

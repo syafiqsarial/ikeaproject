@@ -6,7 +6,7 @@
 	  header("Location: ../../IKEA E-Restaurant/homepage-static.html");
 	}
 	if (isset($_POST['logout'])) {
-	  header("Location: ../signup-login-cust-admin/logout.php");
+	  header("Location: ../login-signup/php/logout.php");
 	}
 	
 
@@ -291,13 +291,8 @@
               </div>
             </div>
           <!--</div>-->
-
-	
-
-              
+    
           <!-- Content Row -->
-
-
             <!-- Area Chart -->
             <div class="col-xl-8 col-lg-7">
               <div class="card shadow mb-4">
@@ -396,7 +391,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-dark" href="../signup-login-cust-admin/logout.php">Logout</a>
+          <a class="btn btn-dark" href="../login-signup/php/logout.php">Logout</a>
         </div>
       </div>
     </div>

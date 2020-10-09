@@ -8,7 +8,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
   header("Location: ../../IKEA E-Restaurant/homepage-static.html");
 }
 if (isset($_POST['logout'])) {
-  header("Location: ../signup-login-cust-admin/logout.php");
+  header("Location: ../login-signup/php/logout.php");
 }
 ?>
 <head>
@@ -188,7 +188,7 @@ hr.new1 {
     						<ul class="dropdown-menu">
       							<li><a href="../customer-page/cust-profile.php" style="letter-spacing: 0.4px; font-size: 16px">My Account</a></li>
 	 			 				<li class="divider"></li>
-	  							<li><a href="homepage-static.html" style="letter-spacing: 0.4px; font-size: 16px">Logout</a></li>
+	  							<li><a href="../login-signup/php/logout.php" style="letter-spacing: 0.4px; font-size: 16px">Logout</a></li>
     						</ul>
   						</div>
 					</li>				

@@ -233,7 +233,7 @@ hr.new2 {
 						<a href="feedback-static.php">FEEDBACK</a>
 					</li>
 					<li>
-						<a href="../Login_v18/login-cust.php"><button class="navbtn" style="font-size: 13px; padding: 9px 18px 9px 18px">LOGIN</button></a>
+						<a href="../login-signup/login-cust.php"><button class="navbtn" style="font-size: 13px; padding: 9px 18px 9px 18px">LOGIN</button></a>
 					</li>
           </ul>
 			</div>

@@ -16,7 +16,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
   header("Location: ../../IKEA E-Restaurant/homepage-static.html");
 }
 if (isset($_POST['logout'])) {
-  header("Location: ../signup-login-cust-admin/logout.php");
+  header("Location: ../login-signup/php/logout.php");
 }
   ?>
 	<style>
@@ -219,7 +219,7 @@ if (isset($_POST['logout'])) {
                 </a>
                
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="..signup-login-cust-admin/logout.php" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="../login-signup/php/logout.php" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -287,25 +287,7 @@ if (isset($_POST['logout'])) {
                   $row = mysqli_fetch_assoc($result);
 				
 				  echo   '<form class="form" action="##" method="post" id="registrationForm">';	
-					
-				 // echo       '<div class="form-group">';                       
-//				  echo            '<div class="col-xs-6">';
-//				  echo              '<label for="username"><h5 style="font-size: 17px; font-weight: bold">Username</h5></label>';
-//				  echo                "<input type='name' class='form-control' name='username'  placeholder='".$row['username']."' value='$name' readonly>";
-//				  echo            '</div>';
-//				  echo        '</div>';      
-//				  echo       '<div class="form-group">';                       
-//				  echo            '<div class="col-xs-6">';
-//				  echo              '<label for="name"><h5>Name</h5></label>';
-//				  echo                "<input type='name' class='form-control' name='name'  placeholder='".$row['name']."' title='enter your name if any.' value='$name' >";
-//				  echo            '</div>';
-//				  echo        '</div>';          
-//				  echo        '<div class="form-group">';                       
-//				  echo            '<div class="col-xs-6">';
-//				  echo                '<label for="email"><h5>Email</h5></label>';
-//				  echo                "<input type='email' class='form-control' name='email'  placeholder='".$row['email']."' title='enter your email if any.' value='$email' >";
-//				  echo            '</div>';
-//				  echo        '</div>' ;
+
 				  echo		'<br>';	
 				  echo       '<div class="form-group">';
 				  echo            '<div class="col-xs-6">';
@@ -334,10 +316,7 @@ if (isset($_POST['logout'])) {
                 </div>		
               </div>
           </div>
-			
-					
-					
-			
+
 			<!-- Dropdown Card Example -->
 
         </div>
@@ -371,7 +350,7 @@ if (isset($_POST['logout'])) {
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-dark" href="../signup-login-cust-admin/logout.php">Logout</a>
+          <a class="btn btn-dark" href="../login-signup/php/logout.php">Logout</a>
         </div>
       </div>
     </div>
@@ -397,24 +376,7 @@ if (isset($_POST['logout'])) {
   <script src="js/demo/chart-pie-demo.js"></script>
   <script src="js/demo/chart-bar-demo.js"></script>
 
-</body>
-	
-	<?php
-	function getadmininfo(){
-		//create connection
-		$con=mysqli_connect("localhost","root","root","ikea");
-		if(!$con)
-			{
-			echo  mysqli_connect_error(); 
-			exit;
-			}
-		$sql = "select * from admin where username = '".$username."'";
-
-		$qry = mysqli_query($con,$sql);//run query
-		return $qry;  //return query
-	}
-	
-      ?>   
+</body> 
 	
 	<script>
 		$(document).ready(function() {

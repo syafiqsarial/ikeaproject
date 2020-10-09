@@ -16,7 +16,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
   header("Location: ../../IKEA E-Restaurant/homepage-static.html");
 }
 if (isset($_POST['logout'])) {
-  header("Location: ../signup-login-cust-admin/logout.php");
+  header("Location: ../login-signup/php/logout.php");
 }
   ?>
 	<style>
@@ -178,9 +178,7 @@ a, a:hover{
 overflow:scroll;
 height:450px;
 }
-/*table.table th{
-position: fixed;
-}*/
+
 </style>
 
 <head>
@@ -381,7 +379,7 @@ position: fixed;
                 </a>
                
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="..signup-login-cust-admin/logout.php" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="../login-signup/php/logout.php" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -429,8 +427,7 @@ position: fixed;
 					    $result = mysqli_query($con, $sql);
 						mysqli_close($con);
 						$qry = $result;
-					
- 						//$list = mysqli_num_rows($qry);
+
 					echo '<br>
 						<div class="scrollit">';
 					    //// display menu info
@@ -448,9 +445,7 @@ position: fixed;
 							</thead>';
 						$i=1;
 						while ($row = mysqli_fetch_assoc($qry)) {
-						//$menusIDAlterValue = $row['id'];
 						  echo '<tbody><tr>';
-                          //echo '<form action="" method="POST">';
                           echo "<td> " . $row['name'] . "";
                           echo "<td> " . $row['price'] . "";
                           echo "<td> " . $row['description'] . "";
@@ -458,15 +453,11 @@ position: fixed;
 						  echo '<td><a href="imageView2.php?id='.$row['id'].'" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>';
 						  $name = $row['name'];
 						  ///////////////////////////////////// to update menu
-						  //echo '<td>';
 							echo '<form style="display:inline-block" action="updatemenu.php" method="post" >';
 							echo   "<input type='hidden' value='$name' name='menuToUpdate'>";
 						  	echo   '<button type="submit" name="updatemenu" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i>';
-							//echo   '<input type="submit" name="updatemenu" value="Update">';
 							echo '</form>';
-						  //echo '</td>';
 						  ///////////////////////////////////// to delete
-						  //echo '<td>';
 							echo '<form style="display:inline-block" action="process.php" method="post" >';
 							echo 	"<input type='hidden' value='$name' name='menuToDelete'>";
 							echo	'<button type="submit" name="deletemenu" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>';
@@ -515,7 +506,7 @@ position: fixed;
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-dark" href="../signup-login-cust-admin/logout.php">Logout</a>
+          <a class="btn btn-dark" href="../login-signup/php/logout.php">Logout</a>
         </div>
       </div>
     </div>
@@ -542,10 +533,7 @@ position: fixed;
   <script src="js/demo/chart-bar-demo.js"></script>
 
 </body>
-
-	
-        
-       
+ 
 </html>
 
 </body>

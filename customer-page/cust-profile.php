@@ -8,7 +8,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
   header("Location: ../../IKEA E-Restaurant/homepage-static.html");
 }
 if (isset($_POST['logout'])) {
-  header("Location: ../signup-login-cust-admin/logout.php");
+  header("Location: ../login-signup/php/logout.php");
 }
 ?>
 <head>
@@ -188,7 +188,7 @@ hr.new1 {
     						<ul class="dropdown-menu">
       							<li><a href="cust-profile.php" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;My Account</a></li>
       							<li class="dropdown-divider"></li>
-	  							<li><a href="../IKEA E-Restaurant/homepage-static.html" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;Logout</a></li>
+	  							<li><a href="../login-signup/php/logout.php" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;Logout</a></li>
     						</ul>
   						</div>
 					</li>				
@@ -220,11 +220,9 @@ hr.new1 {
 							//$sql = "INSERT INTO admin(imageType ,imageData) VALUES('{$imageProperties['mime']}', '{$imgData}')";
 							$current_id = mysqli_query($conn, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($conn));
 							if(isset($current_id)) {
-								
-								//mysqli_close($conn);     
+ 
 							}
-							
-							//mysqli_close($conn); 
+
 						}
 						}
 						
@@ -339,25 +337,7 @@ hr.new1 {
       </div>
     </div>
 
-      <!--<div class="col-12 col-md-3 mb-3">
-        <div class="card mb-3">
-          <div class="card-body">
-            <div class="px-xl-3">
-              <button class="btn btn-block btn-secondary">
-                <i class="fa fa-sign-out"></i>
-                <span>Logout</span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <h6 class="card-title font-weight-bold">Support</h6>
-            <p class="card-text">Get fast, free help from our friendly assistants.</p>
-            <button type="button" class="btn btn-primary">Contact Us</button>
-          </div>
-        </div>
-      </div>-->
+ 
   </div>
 
 </div>
@@ -449,18 +429,7 @@ a:hover{
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 	
 <script>
-//window.onscroll = function() {myFunction()};
-//
-//var navbar = document.getElementById("nav-bloc");
-//var sticky = navbar.offsetTop;
-//
-//function myFunction() {
-//  if (window.pageYOffset >= sticky) {
-//    navbar.classList.add("sticky")
-//  } else {
-//    navbar.classList.remove("sticky");
-//  }
-//}
+
 //</script>
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>

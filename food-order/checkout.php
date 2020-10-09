@@ -247,7 +247,7 @@ a:hover{
     						<ul class="dropdown-menu">
       							<li><a href="#" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;My Account</a></li>
 	 			 				<li class="dropdown-divider"></li>
-	  							<li><a href="../IKEA E-Restaurant/homepage-static.html" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;Logout</a></li>
+	  							<li><a href="../login-signup/php/logout.php" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;Logout</a></li>
     						</ul>
   						</div>
 					</li>				

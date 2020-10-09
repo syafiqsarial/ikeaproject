@@ -8,7 +8,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
   header("Location: ../../IKEA E-Restaurant/homepage-static.html");
 }
 if (isset($_POST['logout'])) {
-  header("Location: ../signup-login-cust-admin/logout.php");
+  header("Location: ../login-signup/php/logout.php");
 }
 ?>
 <head>
@@ -193,7 +193,7 @@ hr.new1 {
     						<ul class="dropdown-menu">
       							<li><a href="cust-profile.php" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;My Account</a></li>
 	 			 				<li class="dropdown-divider"></li>
-	  							<li><a href="../IKEA E-Restaurant/homepage-static.html" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;Logout</a></li>
+	  							<li><a href="../login-signup/php/logout.php" style="letter-spacing: 0.4px; font-size: 14px; color: #5c5c5c">&emsp;Logout</a></li>
     						</ul>
   						</div>
 					</li>				
@@ -226,11 +226,9 @@ hr.new1 {
 							//$sql = "INSERT INTO admin(imageType ,imageData) VALUES('{$imageProperties['mime']}', '{$imgData}')";
 							$current_id = mysqli_query($conn, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($conn));
 							if(isset($current_id)) {
-								
-								//mysqli_close($conn);     
+    
 							}
-							
-							//mysqli_close($conn); 
+
 						}
 						}
 						
@@ -297,24 +295,6 @@ hr.new1 {
 
 																	echo   '<form class="form" action="" method="POST" id="registrationForm">';
 
-																//	echo   '<div class="form-group">';
-//																	echo   '<div class="col mb-3">';
-																	
-																	//echo   '<label>Full Name</label>';
-//																	echo   "<input type='name' class='form-control' name='name' placeholder='' title='Enter your name.' value='$name' >";
-//																	echo   '<br>';
-//																	
-//																	echo   '<label>Email</label>';
-//																	echo   "<input type='email' class='form-control' name='email'  placeholder='' title='Enter your email.' value='$email' >";
-//																	echo  '<br>';
-//																	
-//																	echo  '<label>Phone Number</label>';
-//																	echo  "<input type='tel' class='form-control' name='phonenumber'  placeholder='' title='Enter your phone number.'  value='$phonenumber' >";
-//																	echo  '<br>';
-																	
-																	//echo  '</div>';
-//																	echo  '</div>';
-																	//echo  '<br><br>';
 																	echo   '<div class="form-group">';
 																	echo   '<div class="col-12 col-sm-6 mb-3">';
 																	echo   '<label>Change Password</label>';
@@ -439,18 +419,7 @@ a:hover{
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 	
 <script>
-//window.onscroll = function() {myFunction()};
-//
-//var navbar = document.getElementById("nav-bloc");
-//var sticky = navbar.offsetTop;
-//
-//function myFunction() {
-//  if (window.pageYOffset >= sticky) {
-//    navbar.classList.add("sticky")
-//  } else {
-//    navbar.classList.remove("sticky");
-//  }
-//}
+
 //</script>
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -466,22 +435,6 @@ if (isset($_POST['updateButton'])) {
 		$setChangePWD = $_POST['password'];
 	}
 
-	//if (!empty($_POST['email'])) {
-//		$setChangeEMAIL = $_POST['email'];
-//	}
-//	
-//
-//	if (!empty($_POST['name'])) {
-//		$setChangeNAME = $_POST['name'];
-//	}
-//	
-//	if (!empty($_POST['phonenumber'])) {
-//		$setChangePHONENUMBER = $_POST['phonenumber'];
-//	}
-
-	/*	if (!empty($_POST['username'])) {
-						  $setChangeUSERNAME = $_POST['username'];
-						} */
 
 	$con = mysqli_connect("localhost", "root", "root", "ikea");
 	if (!$con) {

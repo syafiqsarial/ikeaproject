@@ -16,7 +16,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
   header("Location: ../../IKEA E-Restaurant/homepage-static.html");
 }
 if (isset($_POST['logout'])) {
-  header("Location: ../signup-login-cust-admin/logout.php");
+  header("Location: ../login-signup/php/logout.php");
 }
   ?>
 <style>
@@ -250,26 +250,13 @@ if (isset($_POST['logout'])) {
                 <!-- Setting Info Body -->
                 <div class="card-body">
 				<?php
-					
 					$con = mysqli_connect("localhost", "root", "root", "ikea"); 
-					//if (!$con) {
-//                        echo  mysqli_connect_error();
-//                        exit;
-//                      }
-//                      $sql = "SELECT * FROM menus";
-//
-//                      $result = mysqli_query($con, $sql);
-//                      mysqli_close($con);
-//                      $qry = $result;
 					
 					include "function.php";
 					$username=$_POST['customerToUpdate'];
 					$qry = getCustomerInformation($username); ///////buat function.php to store all functions
 					$row = mysqli_fetch_assoc($qry);
-					
-					//assign data to variable
-					//$oldname = $_POST['name'];
-					//$newname = $_POST['newname'];
+
 					$name = $row['name'];
 					$email =$row['email'];
 					$phonenumber =$row['phonenumber'];
@@ -334,7 +321,7 @@ if (isset($_POST['logout'])) {
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-dark" href="../signup-login-cust-admin/logout.php">Logout</a>
+          <a class="btn btn-dark" href="../login-signup/php/logout.phpp">Logout</a>
         </div>
       </div>
     </div>
@@ -361,10 +348,7 @@ if (isset($_POST['logout'])) {
   <script src="js/demo/chart-bar-demo.js"></script>
 
 </body>
- 
-	
-        
-       
+    
 </html>
 
 </body>
