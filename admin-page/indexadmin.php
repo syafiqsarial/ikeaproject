@@ -276,9 +276,12 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Total Menus</div>
-                       <div class="col-auto">
-                          <div class="h6 mb-0 mr-3 text-gray-800">9</div>
-                        </div>
+                       <?php
+					  include "function.php";
+					  $qry = getListOfMenu();
+
+					  echo mysqli_num_rows($qry)
+					  ?>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-utensils fa-2x text-gray-300"></i>
@@ -287,129 +290,11 @@
                 </div>
               </div>
             </div>
-          </div>
+          <!--</div>-->
 
 	
 
-              <div class="row">
-			<!-- Dropdown Card Example -->
-			 
-			<div class="col-xl-12 col-lg-7 ">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold" style="color: #152F4F">Food Order</h6>
-                  
-                </div>
-                <!-- Setting Info Body -->
-                <div class="card-body">
-				<?php
-					include "function.php";
-					//echo '<a href="menus.php" class="btn btn-primary float-right">Add Menu</a> <br>';
-					
-					$con=mysqli_connect("localhost","root","root","ikea");
-					
-						if (!$con) {
-                        echo  mysqli_connect_error();
-                        exit;
-						}
-					
-						$sql = "SELECT * FROM orders";
-						//$sql .= "order by datereserved, timereserved";
-
-					    $result = mysqli_query($con, $sql);
-						$result2 = mysqli_query($con, $sql);
-						$result3 = mysqli_query($con,$sql);
-						$result4 = mysqli_query($con, $sql);
-						mysqli_close($con);
-						$qry = $result;
-						$list3 = mysqli_num_rows($result3);
-						$array = array();
-						//echo $list3;
-						$i=0;
-						$j=0;
-						$tempArr = array();
-						$foodMerge = array();
-						$row = mysqli_fetch_assoc($result2);
-						while($i < $list3){
-							while($j <  $row['orderQuantity']){
-								
-								$row2 = mysqli_fetch_assoc($result4);
-								array_push($array,json_decode($row2['foodname'], true));
-								array_push($foodMerge, $array[$i][$j]['name']);
-						
-								$j++;
-							}
-							$i++;
-							$j=0;
-							
-								
-							$row = mysqli_fetch_assoc($result2);
-						}
-						//print_r($foodMerge);
-					
- 						//$list = mysqli_num_rows($qry);
-						echo '<br>
-						<div class="scrollit">';
-					    //// display menu info
-						echo '
-						<table  class="table table-striped table-hover table-bordered">
-						 
-							<thead style="color: #152F4F">
-								<tr>
-								<th>Reference ID</th>
-								<th>Name</th>
-								<th>Email</th>
-								<th>Contact</th>
-								<th>Food Order Details</th>
-								<th>Food Quantity</th>
-								<th>Order Total</th>
-	
-								</tr>
-							</thead>';
-						$i=0;
-						$j=0;
-				
-					//print_r($array);
-							
-						while ($row = mysqli_fetch_assoc($qry)) {
-						
-
-							
-						  echo '<tbody><tr>';
-                          //echo '<form action="" method="POST">';
-                          echo "<td> " . $row['orderID'] . "";
-                          echo "<td> " . $row['custName'] . "";
-                          echo "<td> " . $row['custEmail'] . "";
-                          echo "<td> " . $row['custContact'] . "";
-							echo '<td>'; 
-								
-						  		 while($j < $row['orderQuantity'] ){
-									echo $foodMerge[$i].'<br>';
-								 $j++;	 
-									 $i++;
-								 }	 
-		 					
-							echo '</td>';
-							
-						  echo "<td> " . $row['orderQuantity'] . "";
-						  echo "<td> " . $row['orderTotal'] . "";
-
-						  echo '</tbody></tr>';
-							$j=0;
-							
-						}
-
-						echo '</table>';
-					
-						?>
-					
-                </div>		
-              </div>
-          </div>
-			 
-
-        </div>
+              
           <!-- Content Row -->
 
 
