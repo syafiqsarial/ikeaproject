@@ -183,23 +183,12 @@ a:hover {
 					<span class="txt3">
 						Your transaction ID is <?php echo $tid; ?>
 					</span>
-						<!--<a href="../../Login_v18/login-cust.php">Click here to login.</a>-->
 					</div><br>
 					<div class="col d-flex justify-content-center">
                   	<br>
 					<input type="submit" name="pay" value="Homepage" class="btn btn-dark pull-right" >
 					</div>
-					<!--<button type="submit" name="pay" class="btn btn-dark">Order Again</button>-->
-					
-	<!--				<body>
- <form action="../food-order/index.php"> 
-	<div class="container mt-4">
-    <h2>Thank you for purchasing <?php //echo $product; ?></h2>
-    <hr>
-    <p>Your transaction ID is <?php //echo $tid; ?></p>
-    <p>Check your email for more info</p>
-	<button type="submit" name="pay" class="button">Order Again</button>
-    <!--<p><a href="index.php" class="btn btn-light mt-2">Go Back</a></p>-->
+		
   </div>
 </body>
 		       </form>

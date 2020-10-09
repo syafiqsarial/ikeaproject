@@ -262,7 +262,6 @@ a:hover{
 
 <a id="btnEmpty" href="index.php?action=empty">Empty Cart</a> &emsp;
 
-<!--<a id="btnEmpty" style="float: left" href="index.php?action=empty">Next</a>-->
 
 <?php
 if(isset($_SESSION["cart_item"])){

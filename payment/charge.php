@@ -1,8 +1,6 @@
 <?php
   require_once('../vendor/autoload.php');
   session_start();
-  //include "../food-order/cart.php";
-  //require_once('db.php');
 
   \Stripe\Stripe::setApiKey('sk_test_51HWE0rCTyg8yPbldnVEey4eWXw2umCkZ7HwQT4iApxIUPhqMa33tnjBnNNF5dtsm9M9V90cvuHkvastGwuBVb7UX00dosUdJNs');
 
@@ -47,16 +45,11 @@ if(!$con)
  $foodname =  json_encode($_SESSION["cart_item"]);//------------------- to masukkan dalam db
  foreach($_SESSION["cart_item"] as $itemfood){
 		$estring .= $itemfood["name"].' | ';}
- //$_SESSION["cart_item"] as $item){
- //$item_price = $item["quantity"]*$item["price"];
-	//$json = json_decode(json_encode($_SESSION["cart_item"]));
+
 
   $sql="INSERT INTO orders (orderID, custName, custEmail, custContact, foodname, orderQuantity, orderTotal) 
   VALUES ('$charge->id','$custName','$email','$custContact','$foodname', '$orderQuantity','$orderTotal')";
-  //$sql="INSERT INTO orders (orderID, custName, custEmail, custContact, orderQuantity, orderTotal) 
-//  VALUES ('$charge->id','$custName','$email','$custContact', '$orderQuantity','$orderTotal')";
-// 
-    //echo $sql;
+ 
 	$qry = mysqli_query($con,$sql);
     mysqli_query($con,$sql);
 	
@@ -79,6 +72,7 @@ $headers = 'From: ikeasd02@gmail.com';
 
 mail($to, $subject, $message, $headers);
  
-//echo $message;
 // Redirect to success
 header('Location: success.php?tid='.$charge->id.'&product='.$charge->description);
+
+?>

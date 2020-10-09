@@ -459,22 +459,15 @@ height:450px;
 						  echo "<td> " . $row['password'] . "";
 						  echo '<td><a href="imageView3.php?id='.$row['id'].'" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>';
 						  $username = $row['username'];
-							//<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-						  ///////////////////////////////////// to update menu
-						  //echo '<td>';
+
 							echo '<form style="display:inline-block" action="updatecustomer.php" method="post" >';
 							echo   "<input type='hidden' value='$username' name='customerToUpdate'>";
 						  	echo   '<button type="submit" name="updatecustomer" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></button>';
-							//echo   '<button type="submit" name="updatecustomer" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></button>';
-							//echo   '<input type="submit" name="updatecustomer" value="Update">';
 							echo '</form>';
-						  //echo '</td>';
-						  ///////////////////////////////////// to delete
-						  //echo '<td>';
+						  ///////////////////////////////////// to delete				  
 							echo '<form style="display:inline-block" action="process.php" method="post" >';
 							echo 	"<input type='hidden' value='$username' name='customerToDelete'>";
 							echo	'<button type="submit" name="deletecustomer" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i>';
-							//echo   '<input type="submit" name="deletecustomer" value="Delete">';
 							echo '</form>';
 					      echo '</td>';
 							

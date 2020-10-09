@@ -45,10 +45,6 @@
 	<!-- Main CSS
    ================================================== -->
 	<link rel="stylesheet" href="../IKEA E-Restaurant/css/style.css">
-
-	<!-- Google web font 
-   ================================================== -->	
-    <!--<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">-->
 	
 	
 </head>
@@ -245,9 +241,6 @@ hr.new2 {
 
 	<div class="container-contact100">
 		
-		<!--<div class="contact100-map">
-			<img src="images/feedback-img2.webp" alt="bg-img" width="100%" height="100%" style="opacity: 0.8">
-		</div>-->
 
 		<div class="wrap-contact100">
 			<span class="contact100-form-symbol">
@@ -396,16 +389,7 @@ a:hover{
 	<script src="js/map-custom.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'UA-23581568-13');
-	</script>-->
-	<!-- Include the Google Maps API library - required for embedding maps -->
+	
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 	
 <!-- Javascript 

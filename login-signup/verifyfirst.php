@@ -224,29 +224,3 @@ function myFunction() {
 }
 </script>
 </html>
-
-<?php
-	
-	if (isset($_POST['resetPassword'])) {
-    $to = $_POST['email'];
-    $subject = 'IKEA E-Restaurant Notification | Forget Password';
-    $message = '
- 
-        A request for password change has been activated.
-        You can change your password by visiting the link below.
-        
-         
-        Please click this link to reset your password:
-        http://localhost/IKEA%20E-System/login-signup/php/verifypassword.php?email=' . $_POST['email'] . '&password=' . $_POST['password'] . '
-         
-        ';
-    $headers = 'From: ikeasd02@gmail.com';
-    mail($to, $subject, $message, $headers);
-
-	echo "<meta http-equiv='refresh' content='0;url=login-cust.php'>";
-	$alert = "Please check your email to get reset password link.";
-	echo "<script type='text/javascript'>alert('$alert');</script>";
-	
-	}
-
-?>

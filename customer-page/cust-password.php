@@ -21,10 +21,6 @@ if (isset($_POST['logout'])) {
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 	
-	<!-- Bootstrap CSS
-   ================================================== -->
-	<!--<link type="text/css" rel="stylesheet" href="../IKEA E-Restaurant/css/bootstrap.min.css">-->
-	
 	<!-- W3School CSS
 	================================================= -->
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -37,14 +33,6 @@ if (isset($_POST['logout'])) {
    ================================================== -->
 	<link rel="stylesheet" href="../IKEA E-Restaurant/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../IKEA E-Restaurant/css/ionicons.min.css">
-
-	<!-- Main CSS
-   ================================================== -->
-	<!--<link rel="stylesheet" href="../IKEA E-Restaurant/css/style.css">-->
-
-	<!-- Google web font 
-   ================================================== -->	
-  	<!--<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">-->
 	
 <style>
 		

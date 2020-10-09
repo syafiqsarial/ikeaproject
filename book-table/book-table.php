@@ -269,12 +269,10 @@ hr.new1 {
 						echo			'</div>';
 						echo			'<div class="form-btn">';
 						echo				'<button type="submit" name="booktablebutton" class="submit-btn">Book Table</button>';
-						//echo				"<input type='submit' name='booktablebutton' value='Book Table'>";
 						echo			'</div>';
 						echo			'</form>';
 						echo		'</div>';
 						
-						//echo '<input type="submit" name="addMenu" value="Add Menu"  class="btn btn-primary pull-right" >';
 						?>
 						
 					</div>

@@ -15,7 +15,7 @@ $result = mysqli_query($db, $sql);
 	if ($result) {
 		header('location: ../../login-signup/verifiedemail.php');
 	} else {
-		header('location: ../../IKEA E-Restaurant/homepage-static.html'); ////////something error occur
+		header('location: ../../IKEA E-Restaurant/homepage-static.html'); 
 	}
 		  
 }
