@@ -16,11 +16,10 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
   header("Location: ../../IKEA E-Restaurant/homepage-static.html");
 }
 if (isset($_POST['logout'])) {
-  header("Location: ../signup-login-cust-admin/logout.php");
+  header("Location: ../login-signup/php/logout.php");
 }
   ?>
 <style>
-		
 		a, a:hover{
 		  color:#FFFFFF
 		}
@@ -47,8 +46,6 @@ if (isset($_POST['logout'])) {
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-	
-
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -217,7 +214,7 @@ if (isset($_POST['logout'])) {
                 </a>
              
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="..signup-login-cust-admin/logout.php" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="../login-signup/php/logout.php" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -251,51 +248,24 @@ if (isset($_POST['logout'])) {
                 <div class="card-body">
 				<?php
 					
-					$con = mysqli_connect("localhost", "root", "root", "ikea"); 
-					//if (!$con) {
-//                        echo  mysqli_connect_error();
-//                        exit;
-//                      }
-//                      $sql = "SELECT * FROM menus";
-//
-//                      $result = mysqli_query($con, $sql);
-//                      mysqli_close($con);
-//                      $qry = $result;
-					
+					$con = mysqli_connect("localhost", "root", "root", "ikea");
 					include "function.php";
 					$tableid=$_POST['tableToUpdate'];
 					$qry = getTableInformation($tableid); ///////buat function.php to store all functions
 					$row = mysqli_fetch_assoc($qry);
 					
 					//assign data to variable
-					//$oldname = $_POST['name'];
-					//$newname = $_POST['newname'];
 					$tablepax = $row['tablepax'];
 
-					
 					  echo '<form action="process.php" method="POST">';
-					
 					  echo '<div class="form-group"><label class="bmd-label-floating" style="font-size: 16px; font-weight: bold">Table Pax</label>';  
-					   echo 	"<input type='text' name='newtablepax' value='".$row['tablepax']."' class='form-control' required> ";
-					   //echo 	"<input type='text' name='newname' value='$name' class='form-control' required> </div>";
-					   echo     "<input type='hidden' name='tablepax' value='".$row['tablepax']."'> </div><br>";
-
-					  //echo '<div class="form-group"><label class="bmd-label-floating">Name</label>'; 
-//					  echo 		"<input type='text' name='name' value='".$row['name']."' class='form-control'> </div>";
-//					  //echo 		"<input type='number' name='price' value='$price' class='form-control'> </div>";
-//
-//					  echo '<div class="form-group"><label class="bmd-label-floating">Email</label>'; 
-//					  echo 		"<input type='text' name='email' value='".$row['email']."' class='form-control'> </div>";
-//					  //echo 		"<input type='text' name='price' value='$description' class='form-control'> </div>";
-//					
-//					  echo '<div class="form-group"><label class="bmd-label-floating">Phone Number</label>'; 
-//					  echo 		"<input type='text' name='phonenumber' value='".$row['phonenumber']."' class='form-control'> </div>";
-//					  //echo 		"<input type='text' name='price' value='$description' class='form-control'> </div>";
- 					  echo             '<div class="col d-flex justify-content-end">';
-  					  echo                  '<br>';
+					  echo "<input type='text' name='newtablepax' value='".$row['tablepax']."' class='form-control' required> ";
+					  echo "<input type='hidden' name='tablepax' value='".$row['tablepax']."'> </div><br>";
+ 					  echo '<div class="col d-flex justify-content-end">';
+  					  echo '<br>';
 					  echo '<input type="submit" name="updatetable" value="Update Table"  class="btn btn-dark pull-right" >';
 					  echo '</div></form>';
-						?>
+				  ?>
                 </div>		
               </div>
           </div>
@@ -330,7 +300,7 @@ if (isset($_POST['logout'])) {
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-dark" href="../signup-login-cust-admin/logout.php">Logout</a>
+          <a class="btn btn-dark" href="../login-signup/php/logout.php">Logout</a>
         </div>
       </div>
     </div>
@@ -356,12 +326,7 @@ if (isset($_POST['logout'])) {
   <script src="js/demo/chart-pie-demo.js"></script>
   <script src="js/demo/chart-bar-demo.js"></script>
 
-</body>
- 
-	
-        
-       
+</body>      
 </html>
-
 </body>
 </html>

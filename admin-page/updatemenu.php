@@ -16,7 +16,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
   header("Location: ../../IKEA E-Restaurant/homepage-static.html");
 }
 if (isset($_POST['logout'])) {
-  header("Location: ../signup-login-cust-admin/logout.php");
+  header("Location: ../login-signup/php/logout.php");
 }
   ?>
 <style>
@@ -216,7 +216,7 @@ if (isset($_POST['logout'])) {
                 </a>
                
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="..signup-login-cust-admin/logout.php" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="../login-signup/php/logout.php" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -251,24 +251,13 @@ if (isset($_POST['logout'])) {
 				<?php
 					
 					$con = mysqli_connect("localhost", "root", "root", "ikea"); 
-					//if (!$con) {
-//                        echo  mysqli_connect_error();
-//                        exit;
-//                      }
-//                      $sql = "SELECT * FROM menus";
-//
-//                      $result = mysqli_query($con, $sql);
-//                      mysqli_close($con);
-//                      $qry = $result;
-					
+				
 					include "function.php";
 					$name=$_POST['menuToUpdate'];
 					$qry = getMenuInformation($name); ///////buat function.php to store all functions
 					$row = mysqli_fetch_assoc($qry);
 					
 					//assign data to variable
-					//$oldname = $_POST['name'];
-					//$newname = $_POST['newname'];
 					$price = $row['price'];
 					$description =$row['description'];
 					$category =$row['category'];
@@ -278,18 +267,15 @@ if (isset($_POST['logout'])) {
 					  echo '<form action="process.php" method="POST" enctype="multipart/form-data">';
 					
 					  echo '<div class="form-group"><label class="bmd-label-floating" style="font-size: 16px; font-weight: bold">Food Name</label>';  
-					   echo 	"<input type='text' name='newname' value='".$row['name']."' class='form-control' required> ";
-					   //echo 	"<input type='text' name='newname' value='$name' class='form-control' required> </div>";
-					   echo     "<input type='hidden' name='name' value='".$row['name']."'> </div>";
+					  echo 	"<input type='text' name='newname' value='".$row['name']."' class='form-control' required> ";
+					  echo     "<input type='hidden' name='name' value='".$row['name']."'> </div>";
 
 					  echo '<div class="form-group"><label class="bmd-label-floating" style="font-size: 16px; font-weight: bold">Price</label>'; 
 					  echo 		"<input type='number' name='price' value='".$row['price']."' class='form-control'> </div>";
-					  //echo 		"<input type='number' name='price' value='$price' class='form-control'> </div>";
-
+					
 					  echo '<div class="form-group"><label class="bmd-label-floating" style="font-size: 16px; font-weight: bold">Description</label>'; 
 					  echo 		"<input type='text' name='description' value='".$row['description']."' class='form-control'> </div>";
-					  //echo 		"<input type='text' name='price' value='$description' class='form-control'> </div>";
-
+					
 					  echo '<div class="form-group"><label class="bmd-label-floating" style="font-size: 16px; font-weight: bold">Category</label><br>';
 					  echo	'<select name="category" class="form-control">';
 							if($category == 'Main')
@@ -365,7 +351,7 @@ if (isset($_POST['logout'])) {
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-dark" href="../signup-login-cust-admin/logout.php">Logout</a>
+          <a class="btn btn-dark" href="../login-signup/php/logout.php">Logout</a>
         </div>
       </div>
     </div>
@@ -391,12 +377,7 @@ if (isset($_POST['logout'])) {
   <script src="js/demo/chart-pie-demo.js"></script>
   <script src="js/demo/chart-bar-demo.js"></script>
 
-</body>
- 
-	
-        
-       
+</body>    
 </html>
-
 </body>
 </html>

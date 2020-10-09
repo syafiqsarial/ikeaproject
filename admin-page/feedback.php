@@ -16,7 +16,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
   header("Location: ../../IKEA E-Restaurant/homepage-static.html");
 }
 if (isset($_POST['logout'])) {
-  header("Location: ../signup-login-cust-admin/logout.php");
+  header("Location: ../login-signup/php/logout.php");
 }
   ?>
 	<style>
@@ -179,9 +179,6 @@ a, a:hover{
 overflow:scroll;
 height:450px;
 }
-/*table.table th{
-position: fixed;
-}*/
 </style>
 
 <head>
@@ -380,7 +377,7 @@ position: fixed;
                   Profile
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="..signup-login-cust-admin/logout.php" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="../login-signup/php/logout.php" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -414,7 +411,6 @@ position: fixed;
                 <div class="card-body">
 				<?php
 					include "function.php";
-					//echo '<a href="menus.php" class="btn btn-primary float-right">Add Menu</a> <br>';
 					
 					$con=mysqli_connect("localhost","root","root","ikea");
 					
@@ -424,13 +420,11 @@ position: fixed;
 						}
 					
 						$sql = "SELECT * FROM feedback";
-						//$sql .= "order by datereserved, timereserved";
 
 					    $result = mysqli_query($con, $sql);
 						mysqli_close($con);
 						$qry = $result;
-					
- 						//$list = mysqli_num_rows($qry);
+			
 					echo '<br>
 						<div class="scrollit">';
 					    //// display menu info
@@ -449,9 +443,7 @@ position: fixed;
 							</thead>';
 						$i=1;
 						while ($row = mysqli_fetch_assoc($qry)) {
-						//$menusIDAlterValue = $row['id'];
 						  echo '<tbody><tr>';
-                          //echo '<form action="" method="POST">';
                           echo "<td> " . $row['id'] . "";
                           echo "<td> " . $row['name'] . "";
                           echo "<td> " . $row['email'] . "";
@@ -500,7 +492,7 @@ position: fixed;
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-dark" href="../signup-login-cust-admin/logout.php">Logout</a>
+          <a class="btn btn-dark" href="../login-signup/php/logout.php">Logout</a>
         </div>
       </div>
     </div>
@@ -526,12 +518,7 @@ position: fixed;
   <script src="js/demo/chart-pie-demo.js"></script>
   <script src="js/demo/chart-bar-demo.js"></script>
 
-</body>
-
-	
-        
-       
+</body>       
 </html>
-
 </body>
 </html>
