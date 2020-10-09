@@ -8,7 +8,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
   header("Location: ../../IKEA E-Restaurant/homepage-static.html");
 }
 if (isset($_POST['logout'])) {
-  header("Location: ../signup-login-cust-admin/logout.php");
+  header("Location: ../login-signup/php/logout.php");
 }
 ?>
 <head>
@@ -56,11 +56,6 @@ if (isset($_POST['logout'])) {
 	<!-- Main CSS
    ================================================== -->
 	<link rel="stylesheet" href="../IKEA E-Restaurant/css/style.css">
-
-	<!-- Google web font 
-   ================================================== -->	
-    <!--<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">-->
-	
 	
 </head>
 	
@@ -250,7 +245,7 @@ hr.new2 {
     						<ul class="dropdown-menu">
       							<li><a href="../customer-page/cust-profile.php" style="letter-spacing: 0.4px; font-size: 14px">My Account</a></li>
 	 			 				<li class="divider"></li>
-	  							<li><a href="homepage-static.html" style="letter-spacing: 0.4px; font-size: 14px">Logout</a></li>
+	  							<li><a href="../login-signup/php/logout.php" style="letter-spacing: 0.4px; font-size: 14px">Logout</a></li>
     						</ul>
   						</div>
 					</li>				
@@ -261,13 +256,7 @@ hr.new2 {
 </div>
 <!-- Navigation Block END -->
 
-
 	<div class="container-contact100">
-		
-		<!--<div class="contact100-map">
-			<img src="images/feedback-img2.webp" alt="bg-img" width="100%" height="100%" style="opacity: 0.8">
-		</div>-->
-
 		<div class="wrap-contact100">
 			<span class="contact100-form-symbol">
 				<img src="images/icons/symbol-01.png" alt="SYMBOL-MAIL">
@@ -287,15 +276,14 @@ hr.new2 {
 			echo		"<input type='text' name='email' class='input100' placeholder='Email Address'>";
 			echo		'<span class="focus-input100"></span>';
 			echo	'</div>';
-			//echo	'<form action="" method="POST">';
-
+	
 			echo	'<div class="form-group wrap-input100 validate-input" data-validate = "Message is required">';
 			echo		'<textarea name="message" class="input100" placeholder="Write Us A Message"></textarea>';
 			echo		'<span class="focus-input100"></span>';
 			echo	'</div>';
 			echo	'<div class="row"><br>';
             echo    	'<div class="form-group col-sm-12 ">';
-            echo        	'<label style="font-family: OpenSans-Regular; letter-spacing: 0.4px; font-size: 16px; display: inline-block">How do you rate your overall experience?</label>';
+            echo        	'<label style="font-family: OpenSans-Regular; letter-spacing: 0.4px; font-size: 16px; display: inline-block">How do you rate your overall experience?					</label>';
 			echo				'<p style="color: black; font-family: OpenSans-Regular">';
             echo                	'<label class="radio-inline">';
             echo                    	"<input type='radio' name='experience'  value='bad'>Bad";
@@ -319,7 +307,7 @@ hr.new2 {
 		</div>
 	</div>
 
-	<div id="dropDownSelect1"></div>
+<div id="dropDownSelect1"></div>
 	
 <!-- Footer section
 ================================================== -->
@@ -414,17 +402,7 @@ a:hover{
 	<script src="js/map-custom.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'UA-23581568-13');
-	</script>-->
-	<!-- Include the Google Maps API library - required for embedding maps -->
-<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 	
 <!-- Javascript 
 ================================================== -->
@@ -474,13 +452,11 @@ function myFunction() {
 		else
 			echo '<script>alert("Error occured. Please try again.")</script>';
 		
-		//echo $sql;
 		$sql = "SELECT * FROM feedback";
 		$result = mysqli_query($con, $sql);
         mysqli_close($con);
         $qry = $result;
 	}
-	//echo $sql;
 ?>
 </body>
 </html>
