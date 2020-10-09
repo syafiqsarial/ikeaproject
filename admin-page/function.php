@@ -2,7 +2,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////============GET LIST OF MENU===========
 function getListOfMenu(){
 
-$con = mysqli_connect("localhost", "ikea", "ikea", "ikea");
+$con = mysqli_connect("localhost", "root", "root", "ikea");
 if(!$con){
 	echo mysqli_connect_error();
 	exit;
@@ -14,7 +14,7 @@ return $qry;
 /////////////////////////////////////////////////////////////////////////////////////////////////============GET LIST OF MENU===========
 function getListOfTable(){
 
-$con = mysqli_connect("localhost", "ikea", "ikea", "ikea");
+$con = mysqli_connect("localhost", "root", "root", "ikea");
 if(!$con){
 	echo mysqli_connect_error();
 	exit;
@@ -45,7 +45,7 @@ return $qry;
 function getAdminInformation($username)
 {
 //create connection
-$con=mysqli_connect("localhost","ikea","ikea","ikea");
+$con=mysqli_connect("localhost","root","root","ikea");
 if(!$con)
 	{
 	echo  mysqli_connect_error(); 
@@ -60,7 +60,7 @@ return $qry;  //return query
 function updateAdminInformation()
 {
 //create connection
-$con=mysqli_connect("localhost","ikea","ikea","ikea");
+$con=mysqli_connect("localhost","root","root","ikea");
 if(!$con)
 	{
 	echo  mysqli_connect_error(); 
@@ -83,7 +83,7 @@ return $qry;  //return query
 function getMenuInformation($name)
 {
 //create connection
-$con=mysqli_connect("localhost","ikea","ikea","ikea");
+$con=mysqli_connect("localhost","root","root","ikea");
 if(!$con)
 	{
 	echo  mysqli_connect_error(); 
@@ -99,7 +99,7 @@ return $qry;  //return query
 function updateMenuInformation()
 {
 //create connection
-$con=mysqli_connect("localhost","ikea","ikea","ikea");
+$con=mysqli_connect("localhost","root","root","ikea");
 if(!$con)
 	{
 	echo  mysqli_connect_error(); 
@@ -121,7 +121,7 @@ return $qry;  //return query
 ///////////////////////////////////////////////////////////////////////////////////////////////=====MENU====DELETE MENU==================
 function deleteMenu()
 {
-$con = mysqli_connect("localhost","ikea","ikea","ikea");
+$con = mysqli_connect("localhost","root","root","ikea");
 if(!$con)
 	{
 	echo mysqli_connect_error();
@@ -139,7 +139,7 @@ if(!$con)
 function getCustomerInformation($username)
 {
 //create connection
-$con=mysqli_connect("localhost","ikea","ikea","ikea");
+$con=mysqli_connect("localhost","root","root","ikea");
 if(!$con)
 	{
 	echo  mysqli_connect_error(); 
@@ -154,7 +154,7 @@ return $qry;  //return query
 function updateCustomerInformation()
 {
 //create connection
-$con=mysqli_connect("localhost","ikea","ikea","ikea");
+$con=mysqli_connect("localhost","root","root","ikea");
 if(!$con)
 	{
 	echo  mysqli_connect_error(); 
@@ -176,7 +176,7 @@ return $qry;  //return query
 /////////////////////////////////////////////////////////////////////////////////////////////=====CUSTOMER====DELETE CUSTOMER==================
 function deleteCustomer()
 {
-$con = mysqli_connect("localhost","ikea","ikea","ikea");
+$con = mysqli_connect("localhost","root","root","ikea");
 if(!$con)
 	{
 	echo mysqli_connect_error();
@@ -194,7 +194,7 @@ if(!$con)
 function getTableInformation($tableid)
 {
 //create connection
-$con=mysqli_connect("localhost","ikea","ikea","ikea");
+$con=mysqli_connect("localhost","root","root","ikea");
 if(!$con)
 	{
 	echo  mysqli_connect_error(); 
@@ -209,7 +209,7 @@ return $qry;  //return query
 function updateTableInformation()
 {
 //create connection
-$con=mysqli_connect("localhost","ikea","ikea","ikea");
+$con=mysqli_connect("localhost","root","root","ikea");
 if(!$con)
 	{
 	echo  mysqli_connect_error(); 
@@ -228,7 +228,7 @@ return $qry;  //return query
 /////////////////////////////////////////////////////////////////////////////////////////////=====TABLE====DELETE CUSTOMER==================
 function deleteTable()
 {
-$con = mysqli_connect("localhost","ikea","ikea","ikea");
+$con = mysqli_connect("localhost","root","root","ikea");
 if(!$con)
 	{
 	echo mysqli_connect_error();
