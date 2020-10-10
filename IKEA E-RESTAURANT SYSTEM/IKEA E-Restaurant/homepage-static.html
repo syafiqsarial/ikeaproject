@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
+	<!-- Site title
+   ================================================== -->
+	<title>IKEA E-Restaurant</title>
+	<link rel="icon" href="images/ikea-logo3.png" type="image/png">
+
+	<!-- Bootstrap CSS
+   ================================================== -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<!-- Animate CSS
+   ================================================== -->
+	<link rel="stylesheet" href="css/animate.min.css">
+	
+	<!-- W3School CSS
+	================================================= -->
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+	<!-- Font Icons CSS
+   ================================================== -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/ionicons.min.css">
+
+	<!-- Main CSS
+   ================================================== -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Google web font 
+   ================================================== -->	
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+	
+</head>
+	
+<style>
+* {box-sizing: border-box;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 5s;
+  animation-name: fade;
+  animation-duration: 5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 2}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 2}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+	
+/* NavBar */
+#nav-bloc {
+  margin-top: 1px;
+  z-index: 9999;
+}
+
+.navbar{
+	margin-bottom: 0px;
+}
+.navbar-brand{
+	font-size: 25px;
+	font-weight: bold;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 600;
+}
+.navbar-brand img{
+	width: auto;
+	max-height: 70px;
+}
+.navbar-brand{
+	padding: 20px 20px;
+	margin: 5px 5px 0 0;
+}
+.navbar .nav{
+	padding-top: 20px;
+	margin-right: -16px;
+	float:right;
+}
+.nav > li{
+	float: left;
+	margin-top: 4px;
+	font-size: 20px;
+	font-weight: 400;
+}
+.nav > li a:hover{
+	background:transparent;
+}
+.navbar-toggle{
+	margin: 12px;
+	border: 0px;
+}
+.navbar-toggle:hover{
+	background:transparent!important;
+}
+.navbar-toggle .icon-bar{
+	background-color: rgba(0,0,0,.5);
+	width: 26px;
+}
+.navbar-collapse.in {
+overflow-y: visible;
+float: left;
+width: 100%;
+}
+.navbar-1 {
+  float: right;
+}
+.site-navigation:first-child {
+  float: left;
+}
+.site-navigation:nth-child(2) {
+  float: right;
+}
+.site-navigation:nth-child(2) a {
+  color: #ccc;
+  font-size: 85%;
+  padding-right: 0px;
+}
+
+.site-navigation .nav > .active{
+  color: #333;
+}
+
+.navbtn {
+  background-color: #000000;
+  border: none;
+  color: white;
+  padding: 9px 17px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  margin: -20px 1px 0 0;
+  opacity: 1;
+  transition: 0.3s;
+  letter-spacing: 0.15rem;
+}
+	
+.navbtn:hover {opacity: 0.6}
+	
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
+hr.new1 {
+  border: 0.5px solid #c4c4c4;	
+}
+	
+hr.new2 {
+  border: 0.5px solid grey;
+  opacity: 0.2;
+}
+</style>
+	
+<body>
+
+<!-- Preloader section
+================================================== -->
+<div class="preloader">
+
+	<div class="sk-spinner sk-spinner-pulse"></div>
+
+</div>
+
+
+<!-- Navigation section
+================================================== -->
+<div class="bloc l-bloc" id="nav-bloc" style="background: #ffffff">
+	<div class="container">
+		<nav class="navbar row">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="homepage-static.html"><img src="images/ikea-logo.png" alt="Ikea Logo" style="width: 130px; height: 50px;"></a>
+				<button id="nav-toggle" type="button" class="ui-navbar-toggle navbar-toggle" data-toggle="collapse" data-target=".navbar-1">
+					<span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse navbar-1">
+				<ul class="site-navigation nav">
+					<li>
+						<a href="about-static.html">ABOUT US</a>
+					</li>
+					<li>
+						<a href="../feedback/feedback-static.php">FEEDBACK</a>
+					</li>
+					<li>
+						<a href="../login-signup/login-cust.php"><button class="navbtn">LOGIN</button></a>
+					</li>
+          </ul>
+			</div>
+		</nav>
+	</div>
+</div>
+<!-- Navigation Block END -->
+	
+<!-- Header section
+================================================== -->
+<section id="header" class="header-one">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8">
+          <div class="header-thumb">
+			  <h1 class="wow fadeIn" data-wow-delay="0.5s">IKEA RESTAURANT</h1>
+			  <hr class="new1">
+              <h3 class="wow fadeInUp" data-wow-delay="0.7s">IKEA Cheras</h3>
+          </div>
+			</div>
+
+		</div>
+	</div>		
+</section>
+
+	
+<!--Slideshow container
+===============================================-->
+<br>
+<div class="slideshow-container">
+
+<div class="mySlides ">
+	<img src="images/food-promo.png" alt="First Slide" style="width:100%; height: 530px">
+</div>
+
+<div class="mySlides ">
+  <img src="images/food-promo2.png" alt="Second Slide" style="width:100%; height: 530px">
+</div>
+
+<div class="mySlides ">
+  <img src="images/food-promo3.png" alt="Third Slide" style="width:100%; height: 530px">
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+	
+	
+<!-- Portfolio section
+================================================== -->
+<section id="portfolio">
+   <div class="container">
+      <div class="row">
+		
+         <div class="col-md-12 col-sm-12">
+           <h1-1><strong>FOOD MENU</strong></h1-1>
+               <!-- iso section -->
+               <div class="iso-section wow fadeInUp" data-wow-delay="0.2s">
+					
+                  <ul class="filter-wrapper clearfix">
+                           <li><a href="#" data-filter=".main" class="opc-main-bg">&nbsp;MAIN&nbsp;</a></li>
+                           <li><a href="#" class="opc-main-bg" data-filter=".kids">&nbsp;KIDS&nbsp;</a></li>
+                           <li><a href="#" class="opc-main-bg" data-filter=".sides">&nbsp;SIDES&nbsp;</a></li>
+                           <li><a href="#" class="opc-main-bg" data-filter=".family">&nbsp;IKEA FAMILY&nbsp;</a></li>
+                        <li><a href="#" class="opc-main-bg" data-filter=".cafe">&nbsp;IKEA CAFÉ&nbsp;</a></li>
+                        </ul>
+
+                        <!-- iso box section -->
+                        <div class="iso-box-section wow fadeInUp" data-wow-delay="0.2s">
+                           <div class="iso-box-wrapper col4-iso-box">
+
+                              <div class="iso-box main col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-fav.webp" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>16pcs Beef Meatball</strong></h2>
+                                               <h2-1>with Mashed Potatoes and Green Peas</h2-1>
+									   			<h4><strong>RM 16.50</strong></h4>
+                                       </div>
+                                 </div>
+                              </div>
+							   
+						<div class="iso-box main col-md-4 col-sm-6">
+                 			<div class="portfolio-thumb">
+                                    <img src="images/menu-fav4.webp" class="img-responsive" alt="Portfolio">
+                                     <div class="portfolio-item col-lg-10 col-lg-offset-1">
+                                         	<h2><strong>16pcs Chicken Balls</strong></h2>
+											<h2-1>with Mashed Potatoes and Green Peas</h2-1>
+										 	<h4><strong>RM 16.50</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+
+                              <div class="iso-box main col-md-4 col-sm-6">
+                                <div class="portfolio-thumb">
+                                    <img src="images/menu-fav5.webp" class="img-responsive" alt="Portfolio">
+                                       <div class="portfolio-item col-lg-10 col-lg-offset-1">
+                                              <h2><strong>8pcs Vegetable ball</strong></h2>
+											  <h2-1>with Couscous and Sour cream</h2-1>
+										   	  <h4><strong>RM 7.90</strong></h4>
+										   
+                                          </div>
+                                 </div>
+                              </div>
+
+                              <div class="iso-box main col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-fav2.webp" class="img-responsive" alt="Portfolio">
+                                       <div class="portfolio-item col-lg-10 col-lg-offset-1">
+                                            <h2><strong>Chicken Chop</strong></h2>
+											<h2-1>with Couscous and Sour cream</h2-1>
+										    <h4><strong>RM 12.90</strong></h4>
+											  
+                                             </div>
+                                 </div>
+                              </div>
+
+                              <div class="iso-box main col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-fav3.webp" class="img-responsive" alt="Portfolio">
+                                       <div class="portfolio-item col-lg-10 col-lg-offset-1">
+                                              <h2><strong>Salted Egg Fish and Chips</strong></h2>
+										   	  <h4><strong>RM 11.90</strong></h4>
+											  
+										   </div>
+                                       </div>
+                              </div>
+
+                              <div class="iso-box main col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-fav6.webp" class="img-responsive" alt="Portfolio"><div class="portfolio-item col-lg-10 col-lg-offset-1">
+                                              <h2><strong>Salmon Fillet</strong></h2>
+                                            <h2-1>with Vegetable Medallion and Creamy Lemon Chive Sauce</h2-1>
+									 		<h4><strong>RM 22.90</strong></h4>
+											  
+                                             </div>
+                                       </div>
+                              </div>
+							   
+							  <div class="iso-box main col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-fav7.webp" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+                                      <h2><strong>Lamb Shank Osso Bucco</strong></h2>
+                                      <h2-1>with Mixed Vegetables and Mashed Potato</h2-1>
+									  <h4><strong>RM 33.90</strong></h4>
+									   
+                                    </div>
+                                    </div>
+                              </div>
+							  
+							 <div class="iso-box main col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-fav8.webp" class="img-responsive" alt="Portfolio">
+                                       <div class="portfolio-item col-lg-10 col-lg-offset-1">
+                                            <h2><strong>6pcs Chicken Wings</strong> </h2>
+                                            <h2-1>with Teriyaki Sauce</h2-1>
+										    <h4><strong>RM 17.90</strong></h4>
+											  
+                                          </div>
+                                       </div>
+                              </div>
+							   
+							  <div class="iso-box main col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-fav9.webp" class="img-responsive" alt="Portfolio">
+                                       <div class="portfolio-item col-lg-10 col-lg-offset-1">
+                                             <h2><strong>Nasi Bojari</strong> </h2>
+                                             <h2-1>with Chicken Drumstick</h2-1>
+										   	 <h4><strong>RM 11.90</strong></h4>
+											  
+                                          </div>
+                                       </div>
+                              </div>
+							   
+							   <div class="iso-box main col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-main.png" class="img-responsive" alt="Portfolio">
+                                       <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											 <h2><strong>Smoked BBQ Beef Ribs</strong> </h2>
+										     <h4><strong>RM 36.90</strong></h4>
+                                             
+                                          </div>
+                                     </div>
+                              </div>
+							   
+							   <div class="iso-box main col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-main2.png" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Nasi Arab Lamb Kabsa</strong> </h2>
+									   		  <h4><strong>RM 16.90</strong></h4>
+                                               
+                                       </div>
+                                 </div>
+                              </div>
+							   
+							   <div class="iso-box main col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-main3.png" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Chicken Leg</strong> </h2>
+                                               <h2-1>with Lemon Chive Sauce</h2-1> 
+									   		   <h4><strong>RM 13.90</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+							   
+							   <div class="iso-box main col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-main4.png" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Salted Egg Wings</strong> </h2>
+									   		  <h4><strong>RM 17.50</strong></h4>
+                                              
+                                       </div>
+                                 </div>
+                              </div>
+							   
+							   <div class="iso-box main col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-main5.png" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>6Pcs Fried Chicken Wings</strong> </h2>
+                                               <h2-1>Indoor Cage Free</h2-1>
+									   			<h4><strong>RM 16.50</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+							   
+							   <div class="iso-box main col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-main6.png" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Fish and Chips</strong> </h2>
+									   			<h4><strong>RM 10.90</strong></h4>
+                                              
+                                       </div>
+                                 </div>
+                              </div>
+							   
+							   <div class="iso-box main col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-main8.png" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Pasta</strong> </h2>
+                                               <h2-1>with Meatballs</h2-1>
+									   			<h4><strong>RM 10.40</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+							   
+							   <div class="iso-box main col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-main9.png" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>8pcs Meatballs with Brocolli</strong></h2>
+									   		  <h4><strong>RM 11.00</strong></h4>
+                                              
+                                       </div>
+                                 </div>
+                              </div>
+							   
+							   <div class="iso-box main col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-main10.png" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Marinated Salmon</strong> </h2>
+									   		  <h4><strong>RM 11.90</strong></h4>
+                                              
+                                       </div>
+                                 </div>
+                              </div>
+							   
+							 <div class="iso-box family col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-family2.webp" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Lamb Shank Osso Bucco</strong> </h2>
+                                               <h2-1>with Soup</h2-1> 
+									   			<h4><strong>RM 35.90</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+							   
+							   <div class="iso-box family col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-family.png" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Smoked BBQ Beef Ribs</strong> </h2>
+                                               <h2-1>with Soup</h2-1> 
+									   			<h4><strong>RM 38.90</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+							   
+							   <div class="iso-box family col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-family3.jpg" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Kids Combo</strong> </h2>
+                                               <h2-1>All kids' menu with milk</h2-1> 
+									   			<h4><strong>RM 6.50</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+							   
+							  <div class="iso-box kids col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-kids.jpg" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>5PCS Kids Meatballs</strong> </h2>
+                                               <h4><strong>RM 6.50</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+							   
+							  <div class="iso-box sides col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-sides.webp" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Spicy Chicken Wrap</strong> </h2>
+                                               <h4><strong>RM 8.90</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+							   
+						     <div class="iso-box sides col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-sides2.webp" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Chicken Caeser Salad</strong> </h2>
+                                               <h4><strong>RM 6.50</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+							   
+						     <div class="iso-box sides col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-sides3.webp" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Soup of the day</strong> </h2>
+                                               <h4><strong>RM 4.20</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+							   
+						     <div class="iso-box sides col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-sides4.png" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Shrimp Sandwich</strong> </h2>
+                                               <h4><strong>RM 7.50</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+							   
+							  <div class="iso-box kids col-md-4 col-sm-6">
+                                <div class="portfolio-thumb">
+                                    <img src="images/menu-sides5.webp" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Fries</strong> </h2>
+                                               <h4><strong>RM 4.20</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+							   
+						     <div class="iso-box sides col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-sides6.webp" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Chicken Nuggets</strong> </h2>
+                                               <h4><strong>RM 4.50</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+							   
+						     <div class="iso-box sides col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-sides7.webp" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Mashed Potato</strong> </h2>
+                                               <h4><strong>RM 4.20</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+							   
+						     <div class="iso-box sides col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-family3.jpg" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Pasta</strong> </h2>
+                                               <h2-1>with Tomato Sauce</h2-1> 
+									   			<h4><strong>RM 3.00</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+							   
+						     <div class="iso-box sides col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-sides8.webp" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>French Toast</strong> </h2>
+                                               <h2-1>with Sausages and Baked Beans<br><i>(only for breakfast)</i></h2-1> 
+									   			<h4><strong>RM 5.80</strong></h4>
+											 
+                                       </div>
+                                 </div>
+                              </div>
+							  
+						     <div class="iso-box cafe col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-cafe.webp" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Cinnaon Bun</strong> </h2>
+                                               <h4><strong>RM 2.60</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+							   
+						     <div class="iso-box cafe col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-cafe2.webp" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Almond Cake</strong> </h2>
+                                               <h4><strong>RM 6.30</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+							   
+						     <div class="iso-box cafe col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-cafe3.webp" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Swedish Apple Cake</strong> </h2>
+                                               <h4><strong>RM 9.90</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+							   
+						     <div class="iso-box cafe col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-cafe4.webp" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Chocolate Cake</strong> </h2>
+                                               <h2-1>with Crunchy Caramel</h2-1> 
+									   			<h4><strong>RM 7.50</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+							   
+						     <div class="iso-box cafe col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-cafe5.webp" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Marzipan Cake</strong> </h2>
+                                               <h4><strong>RM 6.90</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+							   
+						     <div class="iso-box cafe col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-cafe6.webp" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Croissant</strong> </h2>
+                                               <h4><strong>RM 3.70/pc</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+							   
+						     <div class="iso-box cafe col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-cafe7.jpg" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>FIKA Set</strong> </h2>
+                                               <h2-1>Coffee with Crunchy Almond Chocolate Cake</h2-1> 
+									   			<h4><strong>RM 7.90</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+							   
+						     <div class="iso-box cafe col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-cafe8.jpg" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Tom Yum Chicken Puff</strong> </h2>
+                                     <h4><strong>RM 1.50/pc</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+							   
+						     <div class="iso-box cafe col-md-4 col-sm-6">
+                                 <div class="portfolio-thumb">
+                                    <img src="images/menu-cafe9.png" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-item col-lg-10 col-lg-offset-1">
+											  <h2><strong>Caramel Banana Pearl Smoothie</strong> </h2>
+                                               <h4><strong>RM 9.90</strong></h4>
+											  
+                                       </div>
+                                 </div>
+                              </div>
+							   
+                          </div>
+                        </div>
+			 		</div>
+		  		</div>
+			</div>
+	</div>
+</section>
+
+<!-- Footer section
+================================================== -->
+	
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer{
+  background: #152F4F;
+	color:white; }
+  
+.links{
+    ul {list-style-type: none;}
+    li a{
+      color: white;
+      transition: color .2s;
+    }
+ }  
+
+a:hover{
+        text-decoration:none;
+        color: #949494;
+        }
+	
+.about-company{
+    i{font-size: 25px;}
+    a{
+      color:white;
+      transition: color .2s;
+      &:hover{color:#949494;}
+    }
+} 
+	
+.location{
+    i{font-size: 18px;}
+}
+	
+.copyright p{border-top:1px solid rgba(255,255,255,.1);} 
+	
+</style>
+
+<div class="mt-5 pt-5 pb-5 footer">
+<div class="container">
+  <div class="row"><br><br>
+    <div class="col-lg-5 col-xs-12 about-company">
+      <h2 style="font-size: 27px; font-weight: 600; letter-spacing: 0.1rem">Food at IKEA</h2>
+      <p class="pr-5 text-white-50" style="font-size: 16px; font-weight: 300; color: #dedede">We want to offer food that’s delicious, sustainable and nutritionally balanced. That’s why we include a variety<br> of more sustainable options at our IKEA Restaurants,<br> IKEA Swedish Food Markets, and IKEA Café. </p><br>
+      <p><a href="https://www.facebook.com/IKEAMalaysia"><i class="fab fa-facebook" style="font-size: 20px">&nbsp;&nbsp;</i></a><a href="https://www.instagram.com/ikeamalaysia/"><i class="fab fa-instagram" style="font-size: 20px">&nbsp;&nbsp;</i></a><a href="https://www.linkedin.com/company/ikea-southeast-asia/"><i class="fab fa-linkedin" style="font-size: 20px">&nbsp;&nbsp;</i></a><a href="https://www.youtube.com/user/ikeamalaysia"><i class="fab fa-youtube" style="font-size: 20px">&nbsp;&nbsp;</i></a></p>
+    </div>
+    <div class="col-lg-3 col-xs-12 links">
+      <h4 class="mt-lg-0 mt-sm-4" style="font-size: 20px; font-weight: 400; letter-spacing: 0.1rem">Our Company</h4>
+        <ul class="m-0 p-0">
+          <li><a href="about-static.html" style="font-size: 17px; font-weight: 300; color: #e6e6e6; letter-spacing: 0.5px">About us</a></li>
+          <li><a href="../feedback/feedback-static.php" style="font-size: 17px; font-weight: 300; color: #e6e6e6; letter-spacing: 0.5px">Feedback</a></li>
+        </ul>
+    </div>
+    <div class="col-lg-4 col-xs-12 location">
+      <h4 class="mt-lg-0 mt-sm-4" style="font-size: 20px; font-weight: 400; letter-spacing: 0.1rem">Location</h4>
+      <p style="font-size: 16px; font-weight: 300; ">2A, Jalan Cochrane, Maluri, 55100 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia.</p>
+      <p class="mb-0" style="font-size: 16px; font-weight: 300; color: #e6e6e6"><i class="fas fa-phone-alt">&nbsp;</i><a href="tel:+60379527575">+603-7952 7575</a></p>
+      <p style="font-size: 16px; font-weight: 300; color: #e6e6e6"><i class="fas fa-envelope">&nbsp;</i><a href="mailto:customerservice.ikeamy@ikano.asia">customerservice.ikeamy@ikano.asia</a></p>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col copyright"><br>
+      <p class="" style="color: #dedede"><small class="text-white-50">© Inter IKEA Systems B.V. 1999-2020</small></p><br><br>
+    </div>
+  </div>
+</div>
+</div>
+	
+<!-- Javascript 
+================================================== -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/isotope.js"></script>
+<script src="js/imagesloaded.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+ 
+
+<!-- Slideshow Js
+================================================== -->
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 4000); // Change image every 2 seconds
+}
+</script>
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("nav-bloc");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+
+</body>
+</html>
