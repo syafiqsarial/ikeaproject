@@ -19,24 +19,24 @@
 <!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="images/icons/ikea-logo3.png"/>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../Login_v18/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../login-signup/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../Login_v18/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../login-signup/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../Login_v18/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="../login-signup/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../Login_v18/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="../login-signup/vendor/animate/animate.css">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="../Login_v18/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="../login-signup/vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../Login_v18/vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="../login-signup/vendor/animsition/css/animsition.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../Login_v18/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="../login-signup/vendor/select2/select2.min.css">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="../Login_v18/vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="../login-signup/vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../Login_v18/css/util.css">
-	<link rel="stylesheet" type="text/css" href="../Login_v18/css/main.css">
+	<link rel="stylesheet" type="text/css" href="../login-signup/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../login-signup/css/main.css">
 <!--===============================================================================================-->
 	
 <style>
@@ -204,21 +204,20 @@ a:hover {
 	
 	<!--<script src="php/server.php"></script>-->
 <!--===============================================================================================-->
-	<script src="../Login_v18/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="../login-signup/vendor/jquery/jquery-3.2.1.min.js"></script><!--===============================================================================================-->
+	<script src="../login-signup/vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-	<script src="../Login_v18/vendor/animsition/js/animsition.min.js"></script>
+	<script src="../login-signup/vendor/bootstrap/js/popper.js"></script>
+	<script src="../login-signup/vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script src="../Login_v18/vendor/bootstrap/js/popper.js"></script>
-	<script src="../Login_v18/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../login-signup/vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
-	<script src="../Login_v18/vendor/select2/select2.min.js"></script>
+	<script src="../login-signup/vendor/daterangepicker/moment.min.js"></script>
+	<script src="../login-signup/vendor/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
-	<script src="../Login_v18/vendor/daterangepicker/moment.min.js"></script>
-	<script src="../Login_v18/vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="../login-signup/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="../Login_v18/vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-	<script src="../Login_v18/js/main.js"></script>
+	<script src="../login-signup/js/main.js"></script>
 	
 	</body>
 	
