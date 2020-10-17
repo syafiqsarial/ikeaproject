@@ -268,12 +268,12 @@ hr.new2 {
 			echo	'</span>';
 			
 			echo	'<div class="form-group wrap-input100 rs1 validate-input" data-validate = "Name is required">';
-			echo		"<input type='text' name='name' class='input100' placeholder='Name'>";
+			echo		"<input type='text' name='name' class='input100' placeholder='Name' style='font-size: 16px'>";
 			echo		'<span class="focus-input100"></span>';
 			echo	'</div>';
 
 			echo	'<div class="form-group wrap-input100 rs1 validate-input" data-validate = "Email is required: a@b.c">';
-			echo		"<input type='text' name='email' class='input100' placeholder='Email Address'>";
+			echo		"<input type='text' name='email' class='input100' placeholder='Email Address' style='font-size: 16px'>";
 			echo		'<span class="focus-input100"></span>';
 			echo	'</div>';
 	
